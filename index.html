@@ -5,35 +5,41 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Bingyu Li (李炳煜) — Academic Homepage</title>
   <meta name="description" content="Bingyu Li — Remote Sensing Vision, Open-Vocabulary Segmentation, Video Temporal Reasoning." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#ffffff; --muted:#6b7280; --accent:#0b6efd; --card:#f8fafc; --glass:rgba(255,255,255,0.6);
-      --max-width:1000px; --radius:12px; --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+      --max-width:1000px; --radius:12px; --mono: 'Fira Code', monospace;
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; color:#111827;background:var(--bg);-webkit-font-smoothing:antialiased}
+    html,body{height:100%;margin:0;font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:#111827;background:var(--bg);-webkit-font-smoothing:antialiased}
     .container{max-width:var(--max-width);margin:32px auto;padding:28px}
     header{display:flex;gap:20px;align-items:center}
-    .photo{width:120px;height:120px;border-radius:16px;flex:0 0 120px;background:linear-gradient(135deg,#e6eefc,#f3f9ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted)}
-    h1{margin:0;font-size:28px}
-    .subtitle{color:var(--muted);margin-top:6px}
+    .photo{width:120px;height:120px;border-radius:16px;flex:0 0 120px;background:linear-gradient(135deg,#e6eefc,#f3f9ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted);overflow:hidden}
+    .photo img{width:100%;height:100%;object-fit:cover;border-radius:16px}
+    h1{margin:0;font-size:32px;font-weight:700}
+    .subtitle{color:var(--muted);margin-top:6px;font-weight:500}
     .top-links{margin-left:auto;display:flex;gap:10px}
-    a.button{padding:8px 12px;border-radius:10px;text-decoration:none;border:1px solid #e6eefc;background:transparent;color:var(--accent);font-weight:600}
+    a.button{padding:8px 14px;border-radius:10px;text-decoration:none;border:1px solid #e6eefc;background:transparent;color:var(--accent);font-weight:600;transition:0.2s}
+    a.button:hover{background:var(--accent);color:#fff}
 
-    .grid{display:grid;grid-template-columns:1fr 340px;gap:28px;margin-top:22px}
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 4px 14px rgba(16,24,40,0.04)}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:22px}
+    .card{background:var(--card);padding:20px;border-radius:16px;box-shadow:0 6px 20px rgba(16,24,40,0.08);transition:0.2s}
+    .card:hover{box-shadow:0 8px 28px rgba(16,24,40,0.12)}
 
-    .section-title{font-size:16px;font-weight:700;margin-bottom:10px}
-    .chip{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(16,24,40,0.06);margin:6px 6px 0 0}
+    .section-title{font-size:18px;font-weight:700;margin-bottom:12px}
+    .chip{display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid rgba(16,24,40,0.08);margin:6px 6px 0 0;font-weight:500}
 
-    .pub{margin-bottom:12px}
-    .meta{color:var(--muted);font-size:13px}
-    .project{display:flex;gap:12px;margin-bottom:14px}
-    .proj-thumb{width:110px;height:70px;border-radius:8px;background:#eef3ff;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px}
+    .pub{margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(16,24,40,0.1)}
+    .pub:last-child{border-bottom:none}
+    .meta{color:var(--muted);font-size:14px;margin-top:2px}
+    .project{display:flex;gap:16px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(16,24,40,0.1)}
+    .project:last-child{border-bottom:none}
+    .proj-thumb{width:120px;height:80px;border-radius:12px;background:#eef3ff;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;font-weight:500}
     .proj-desc{font-size:14px}
 
     aside .card + .card{margin-top:16px}
-    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+    footer{margin-top:32px;color:var(--muted);font-size:14px;text-align:center}
 
     @media (max-width:900px){
       .grid{grid-template-columns:1fr;}
@@ -45,12 +51,12 @@
 <body>
   <div class="container">
     <header>
-      <div class="photo">B&nbsp;L</div>
+      <div class="photo"><img src="https://avatars.githubusercontent.com/u/000000?v=4" alt="Bingyu Li"></div>
       <div>
         <h1>Bingyu Li <span style="color:var(--muted);font-weight:600">(李炳煜)</span></h1>
         <div class="subtitle">PhD Student • Remote Sensing Vision & Multimodal Reasoning • University of Science and Technology of China</div>
         <div style="margin-top:10px;color:var(--muted);font-size:14px">
-          Email: <a href="mailto:libingyu0205@mail.ustc.edu.cn">libingyu0205@mail.ustc.edu.cn</a> · <a href="#contact">Contact</a>
+          Email: <a href="mailto:libingyu0205@mail.ustc.edu.cn">libingyu0205@mail.ustc.edu.cn</a> · <a href="#contact">Contact</a> · <a href="https://github.com/LiBingyu01">GitHub</a>
         </div>
       </div>
       <div class="top-links">
@@ -64,7 +70,7 @@
       <main>
         <section class="card" id="about">
           <div class="section-title">Short Bio</div>
-          <p style="margin:0 0 8px 0;line-height:1.6">
+          <p style="margin:0 0 8px 0;line-height:1.7;font-size:15px">
             I am a PhD student working on remote sensing vision, open-vocabulary segmentation, and video temporal reasoning. My work focuses on building robust visual-language and segmentation systems that generalize to diverse geospatial scenes and temporal sequences. I develop datasets, algorithms, and training strategies to bridge foundation models with remote sensing applications.
           </p>
           <div style="margin-top:8px" class="meta">Advisor: Prof. [Your Advisor] · Lab: [Your Lab / Group]</div>
@@ -73,17 +79,16 @@
         <section class="card" id="research" style="margin-top:16px">
           <div class="section-title">Research Interests</div>
           <div>
-            <span class="chip">Remote Sensing Vision</span>
-            <span class="chip">Open-Vocabulary Segmentation</span>
-            <span class="chip">Video Temporal Reasoning</span>
             <span class="chip">Multimodal LLMs</span>
-            <span class="chip">Foundation Models for Geospatial AI</span>
+            <span class="chip">Open-Vocabulary Segmentation</span>
+            <span class="chip">Remote Sensing Vision</span>
+            <span class="chip">Video Temporal Reasoning</span>
           </div>
         </section>
 
         <section class="card" id="news" style="margin-top:16px">
           <div class="section-title">News & Updates</div>
-          <ul style="margin:0;padding-left:18px;color:var(--muted);line-height:1.7">
+          <ul style="margin:0;padding-left:18px;color:var(--muted);line-height:1.8">
             <li><strong>2025.11</strong> — New preprint: "Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing" (draft).</li>
             <li><strong>2025.07</strong> — Released RemoteSAM-270K reformatting scripts on GitHub.</li>
             <li><strong>2025.05</strong> — Joined [Your Lab] as a PhD student.</li>
@@ -96,49 +101,28 @@
           <div class="pub">
             <div style="font-weight:700">Crest: Cross-modal resonance through evidential deep learning for enhanced zero-shot learning</div>
             <div class="meta">H Huang, X Qiao, Z Chen, H Chen, B Li, Z Sun, M Chen, X Li — ACM MM 2024</div>
+            <div style="margin-top:4px"><a href="#">[PDF]</a> · <a href="#">[BibTeX]</a></div>
           </div>
 
           <div class="pub">
             <div style="font-weight:700">Stitchfusion: Weaving any visual modalities to enhance multimodal semantic segmentation</div>
             <div class="meta">B Li, D Zhang, Z Zhao, J Gao, X Li — ACMMM 2025 (⭐ Oral)</div>
+            <div style="margin-top:4px"><a href="#">[PDF]</a> · <a href="#">[BibTeX]</a></div>
           </div>
 
           <div class="pub">
             <div style="font-weight:700">U3M: Unbiased multiscale modal fusion model for multimodal semantic segmentation</div>
             <div class="meta">B Li, D Zhang, Z Zhao, J Gao, X Li — PR 2025</div>
+            <div style="margin-top:4px"><a href="#">[PDF]</a> · <a href="#">[BibTeX]</a></div>
           </div>
 
           <div class="pub">
             <div style="font-weight:700">Exploring Efficient Open-Vocabulary Segmentation in the Remote Sensing</div>
             <div class="meta">B Li, H Dong, D Zhang, Z Zhao, J Gao, X Li — AAAI 2026 (⭐ Oral)</div>
+            <div style="margin-top:4px"><a href="#">[PDF]</a> · <a href="#">[BibTeX]</a></div>
           </div>
 
-          <div class="pub">
-            <div style="font-weight:700">Cross-attention multi-scale state space model for remaining useful life prediction of aircraft engines</div>
-            <div class="meta">D Zhang, B Li, F Wang, Z Zhao, J Gao, X Li — AEI 2026</div>
-          </div>
-
-          <div class="pub">
-            <div style="font-weight:700">Exploring the Underwater World Segmentation without Extra Training</div>
-            <div class="meta">B Li, T Huo, D Zhang, Z Zhao, J Gao, X Li — arXiv preprint arXiv:2511.07923</div>
-          </div>
-
-          <div class="pub">
-            <div style="font-weight:700">KAID: Knowledge-Aware Interactive Distillation for Vision-Language Models</div>
-            <div class="meta">D Zhang, F Wang, B Li, Z Zhao, J Gao, X Li — ACMMM 2025</div>
-          </div>
-
-          <div class="pub">
-            <div style="font-weight:700">MARIS: Marine Open-Vocabulary Instance Segmentation with Geometric Enhancement and Semantic Alignment</div>
-            <div class="meta">B Li, F Wang, D Zhang, Z Zhao, J Gao, X Li — arXiv 2025</div>
-          </div>
-
-          <div class="pub">
-            <div style="font-weight:700">FGAseg: Fine-Grained Pixel-Text Alignment for Open-Vocabulary Semantic Segmentation</div>
-            <div class="meta">B Li, D Zhang, Z Zhao, J Gao, X Li — arXiv preprint arXiv:2501.00877</div>
-          </div>
-
-          <div style="margin-top:10px;color:var(--muted)">Full list: <a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN">Google Scholar</a> · <a href="#">BibTeX</a></div>
+          <div style="margin-top:10px;color:var(--muted)">Full list: <a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN">Google Scholar</a></div>
         </section>
 
         <section class="card" id="projects" style="margin-top:16px">
@@ -174,13 +158,13 @@
       <aside>
         <div class="card" id="sidebar">
           <div class="section-title">Quick Links</div>
-          <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;flex-direction:column;gap:10px">
             <a href="#cv">CV (PDF)</a>
             <a href="#publications">Publications</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
             <a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN">Google Scholar</a>
-            <a href="#">GitHub</a>
+            <a href="https://github.com/LiBingyu01">GitHub</a>
             <a href="#">LinkedIn</a>
           </div>
         </div>
