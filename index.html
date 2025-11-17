@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bingyu Li (李冰雨) — Academic Homepage</title>
+  <meta name="description" content="Bingyu Li — Remote Sensing Vision, Open-Vocabulary Segmentation, Video Temporal Reasoning." />
+  <style>
+    :root{
+      --bg:#ffffff; --muted:#6b7280; --accent:#0b6efd; --card:#f8fafc; --glass:rgba(255,255,255,0.6);
+      --max-width:1000px; --radius:12px; --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; color:#111827;background:var(--bg);-webkit-font-smoothing:antialiased}
+    .container{max-width:var(--max-width);margin:32px auto;padding:28px}
+    header{display:flex;gap:20px;align-items:center}
+    .photo{width:120px;height:120px;border-radius:16px;flex:0 0 120px;background:linear-gradient(135deg,#e6eefc,#f3f9ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted)}
+    h1{margin:0;font-size:28px}
+    .subtitle{color:var(--muted);margin-top:6px}
+    .top-links{margin-left:auto;display:flex;gap:10px}
+    a.button{padding:8px 12px;border-radius:10px;text-decoration:none;border:1px solid #e6eefc;background:transparent;color:var(--accent);font-weight:600}
+
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:28px;margin-top:22px}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 4px 14px rgba(16,24,40,0.04)}
+
+    .section-title{font-size:16px;font-weight:700;margin-bottom:10px}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(16,24,40,0.06);margin:6px 6px 0 0}
+
+    .pub{margin-bottom:12px}
+    .meta{color:var(--muted);font-size:13px}
+    .project{display:flex;gap:12px;margin-bottom:14px}
+    .proj-thumb{width:110px;height:70px;border-radius:8px;background:#eef3ff;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px}
+    .proj-desc{font-size:14px}
+
+    aside .card + .card{margin-top:16px}
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr;}
+      .top-links{margin-left:0;margin-top:12px}
+      header{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="photo">B&nbsp;L</div>
+      <div>
+        <h1>Bingyu Li <span style="color:var(--muted);font-weight:600">(李冰雨)</span></h1>
+        <div class="subtitle">PhD Student • Remote Sensing Vision & Multimodal Reasoning • Tsinghua University</div>
+        <div style="margin-top:10px;color:var(--muted);font-size:14px">Email: <a href="mailto:bingyu.li@your-email.edu">bingyu.li@your-email.edu</a> · <a href="#contact">Contact</a></div>
+      </div>
+      <div class="top-links">
+        <a class="button" href="#publications">Publications</a>
+        <a class="button" href="#projects">Projects</a>
+        <a class="button" href="#cv">CV (PDF)</a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section class="card" id="about">
+          <div class="section-title">Short Bio</div>
+          <p style="margin:0 0 8px 0;line-height:1.6">
+            I am a PhD student working on remote sensing vision, open-vocabulary segmentation, and video temporal reasoning. My work focuses on building robust visual-language and segmentation systems that generalize to diverse geospatial scenes and temporal sequences. I develop datasets, algorithms, and training strategies to bridge foundation models with remote sensing applications.
+          </p>
+          <div style="margin-top:8px" class="meta">Advisor: Prof. [Your Advisor] · Lab: [Your Lab / Group]</div>
+        </section>
+
+        <section class="card" id="research" style="margin-top:16px">
+          <div class="section-title">Research Interests</div>
+          <div>
+            <span class="chip">Remote Sensing Vision</span>
+            <span class="chip">Open-Vocabulary Segmentation</span>
+            <span class="chip">Video Temporal Reasoning</span>
+            <span class="chip">Multimodal LLMs</span>
+            <span class="chip">Foundation Models for Geospatial AI</span>
+          </div>
+        </section>
+
+        <section class="card" id="news" style="margin-top:16px">
+          <div class="section-title">News & Updates</div>
+          <ul style="margin:0;padding-left:18px;color:var(--muted);line-height:1.7">
+            <li><strong>2025.11</strong> — New preprint: "Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing" (draft).</li>
+            <li><strong>2025.07</strong> — Released RemoteSAM-270K reformatting scripts on GitHub.</li>
+            <li><strong>2025.05</strong> — Joined [Your Lab] as a PhD student.</li>
+          </ul>
+        </section>
+
+        <section class="card" id="publications" style="margin-top:16px">
+          <div class="section-title">Selected Publications</div>
+
+          <div class="pub">
+            <div style="font-weight:700">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</div>
+            <div class="meta">B. Li, H. Dong, D. Zhang, Z. Zhao, H. Sun, J. Gao* — AAAI 2026 (submitted)</div>
+            <div style="margin-top:6px"><a href="#">[PDF]</a> <a href="#">[Code]</a> <a href="#">[Dataset]</a></div>
+          </div>
+
+          <div class="pub">
+            <div style="font-weight:700">RemoteSAM-270K: Dataset & HF-mirror tools</div>
+            <div class="meta">B. Li — 2025 (release)</div>
+            <div style="margin-top:6px"><a href="#">[Code]</a></div>
+          </div>
+
+          <div style="margin-top:10px;color:var(--muted)">Full list: <a href="#">Google Scholar</a> · <a href="#">BibTeX</a></div>
+        </section>
+
+        <section class="card" id="projects" style="margin-top:16px">
+          <div class="section-title">Selected Projects</div>
+
+          <div class="project">
+            <div class="proj-thumb">GRPO</div>
+            <div>
+              <div style="font-weight:700">GRPO for Open-Vocabulary Segmentation</div>
+              <div class="meta">Policy-gradient based RL pipeline to align segmentation modules with VLMs.</div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="proj-thumb">RS-270K</div>
+            <div>
+              <div style="font-weight:700">RemoteSAM-270K Tools</div>
+              <div class="meta">Scripts and mirror helpers for efficient dataset download and preprocessing.</div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="proj-thumb">VISA</div>
+            <div>
+              <div style="font-weight:700">Video-Informed Segmentation (VISA) + SegZero</div>
+              <div class="meta">Temporal reasoning modules for multi-frame segmentation and state transitions.</div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <aside>
+        <div class="card" id="sidebar">
+          <div class="section-title">Quick Links</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <a href="#cv">CV (PDF)</a>
+            <a href="#publications">Publications</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <a href="#">Google Scholar</a>
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="card" id="teaching" style="margin-top:16px">
+          <div class="section-title">Teaching & Service</div>
+          <div class="meta">TA: Remote Sensing Image Analysis (2024) · Reviewer: TGRS, CVPR Wks</div>
+        </div>
+
+        <div class="card" id="contact" style="margin-top:16px">
+          <div class="section-title">Contact</div>
+          <div style="line-height:1.6">
+            <div><strong>Email</strong>: <a href="mailto:bingyu.li@your-email.edu">bingyu.li@your-email.edu</a></div>
+            <div><strong>Office</strong>: [Building, Room] — Tsinghua University</div>
+            <div style="margin-top:8px"><strong>CV</strong>: <a href="#">Download PDF</a></div>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Bingyu Li · Last updated: Nov 17, 2025
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
