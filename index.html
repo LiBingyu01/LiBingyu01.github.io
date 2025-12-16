@@ -152,7 +152,80 @@
             .avatar-container { margin: 0 auto 20px; }
             .nav-list { flex-wrap: wrap; justify-content: center; }
         }
-    </style>
+
+/* 容器：使用 Flex 布局，左图右文 */
+.paper-box {
+  display: flex;
+  flex-wrap: wrap; /* 移动端自动换行 */
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: #fff; /* 这里的背景色可以根据你的主题调整 */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05); /*以此增加一点立体感，模仿原版 */
+  border: 1px solid #eee;
+}
+
+/* 左侧图片区域 */
+.paper-box-image {
+  flex: 0 0 300px; /* 固定宽度，或者百分比 30% */
+  max-width: 300px;
+  margin-right: 20px;
+  position: relative; /* 为了定位 badge */
+}
+
+/* 图片本身 */
+.paper-box-image img {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: block;
+}
+
+/* 徽章 (例如 AAAI Oral) */
+.badge {
+  position: absolute;
+  top: 10px;
+  right: -5px; /* 稍微突出一点 */
+  background: #d9534f; /* 红色背景 */
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 10;
+  text-transform: uppercase;
+}
+
+/* 右侧文字区域 */
+.paper-box-text {
+  flex: 1; /* 占据剩余空间 */
+  min-width: 300px; /* 防止过窄 */
+}
+
+.paper-box-text p {
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+}
+
+.paper-box-text ul {
+  margin: 8px 0 0 16px;
+  padding: 0;
+  color: #666;
+  font-size: 0.95em;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .paper-box-image {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -340,6 +413,7 @@
   <script src="assets/js/main.min.js"></script>
 </body>
 </html>
+
 
 
 
