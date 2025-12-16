@@ -1,125 +1,158 @@
-<!doctype html>
-<html lang="en" class="no-js">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Bingyu Li (李炳煜) - Homepage</title>
-  <meta property="og:locale" content="en">
-  <meta property="og:site_name" content="Bingyu Li (李炳煜)">
-  <meta property="og:title" content="Bingyu Li (李炳煜)">
-  <link rel="canonical" href="https://libingyu01.github.io/">
-  <meta property="og:url" content="https://libingyu01.github.io/">
-  <meta property="og:description" content="Ph.D. Student, University of Science and Technology of China">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingyu Li (李炳煜) - Homepage</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.3/css/academicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <script>
-    document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
-  </script>
-  
-  <link rel="stylesheet" href="assets/css/main.css">
-  <meta http-equiv="cleartype" content="on">
-  <head>
-    <base target="_blank">
-  </head>
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  
-  <meta name="theme-color" content="#ffffff">
-  <link rel="stylesheet" href="assets/css/academicons.css"/>
-  
-  <script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        processEscapes: true
-      }
-    });
-  </script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+    <style>
+        /* --- 全局样式 --- */
+        body {
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            line-height: 1.6;
+        }
 
+        a { text-decoration: none; color: #0077b6; }
+        a:hover { text-decoration: underline; }
 
-  <style>
-/* 复制这段 CSS 到你的 <style> 标签中 */
+        /* --- 顶部导航栏 --- */
+        .navbar {
+            padding: 20px 40px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 40px;
+        }
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 25px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #555;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .nav-list li a { color: #555; }
+        .nav-list li a:hover { color: #000; }
 
-/* 容器：使用 Flex 布局，左图右文 */
-.paper-box {
-  display: flex;
-  flex-wrap: wrap; /* 移动端自动换行 */
-  align-items: flex-start;
-  margin-bottom: 24px;
-  padding: 16px;
-  background: #fff; /* 这里的背景色可以根据你的主题调整 */
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05); /*以此增加一点立体感，模仿原版 */
-  border: 1px solid #eee;
-}
+        /* --- 主体布局 (左侧栏 + 右内容) --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            padding: 0 20px;
+            gap: 60px; /* 左右间距 */
+        }
 
-/* 左侧图片区域 */
-.paper-box-image {
-  flex: 0 0 300px; /* 固定宽度，或者百分比 30% */
-  max-width: 300px;
-  margin-right: 20px;
-  position: relative; /* 为了定位 badge */
-}
+        /* --- 左侧侧边栏 --- */
+        .sidebar {
+            width: 250px;
+            flex-shrink: 0; /* 防止被压缩 */
+        }
 
-/* 图片本身 */
-.paper-box-image img {
-  width: 100%;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  display: block;
-}
+        /* 圆形头像样式 - 完美复刻截图 */
+        .avatar-container {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            overflow: hidden; /* 裁剪成圆形 */
+            border: 1px solid #eee;
+        }
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 保证图片不变形 */
+        }
 
-/* 徽章 (例如 AAAI Oral) */
-.badge {
-  position: absolute;
-  top: 10px;
-  right: -5px; /* 稍微突出一点 */
-  background: #d9534f; /* 红色背景 */
-  color: #fff;
-  padding: 4px 8px;
-  font-size: 12px;
-  font-weight: bold;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  z-index: 10;
-  text-transform: uppercase;
-}
+        .profile-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .profile-affil {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .profile-bio {
+            font-size: 14px;
+            color: #444;
+            margin-bottom: 15px;
+        }
+        
+        /* 侧边栏链接列表 */
+        .sidebar-links {
+            list-style: none;
+            padding: 0;
+            font-size: 14px;
+        }
+        .sidebar-links li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar-links i {
+            width: 20px;
+            color: #777;
+            margin-right: 8px;
+        }
 
-/* 右侧文字区域 */
-.paper-box-text {
-  flex: 1; /* 占据剩余空间 */
-  min-width: 300px; /* 防止过窄 */
-}
+        /* --- 右侧主内容 --- */
+        .main-content {
+            flex-grow: 1;
+            max-width: 800px;
+        }
 
-.paper-box-text p {
-  margin: 0 0 8px 0;
-  line-height: 1.5;
-}
+        h1 {
+            font-size: 26px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        h1:first-child { margin-top: 0; }
 
-.paper-box-text ul {
-  margin: 8px 0 0 16px;
-  padding: 0;
-  color: #666;
-  font-size: 0.95em;
-}
+        /* 新闻列表样式 */
+        .news-list {
+            list-style: none;
+            padding: 0;
+        }
+        .news-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: baseline;
+        }
+        .date {
+            font-family: monospace;
+            font-weight: bold;
+            min-width: 70px;
+            margin-right: 10px;
+            color: #444;
+        }
 
-/* 移动端适配 */
-@media (max-width: 768px) {
-  .paper-box-image {
-    flex: 0 0 100%;
-    max-width: 100%;
-    margin-right: 0;
-    margin-bottom: 16px;
-  }
-}
-</style>
-  
+        /* 徽章样式 (Oral 等) */
+        .badge {
+            color: #d9534f;
+            font-weight: bold;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            .sidebar { width: 100%; text-align: center; }
+            .avatar-container { margin: 0 auto 20px; }
+            .nav-list { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
 </head>
 
 <body>
@@ -307,6 +340,7 @@
   <script src="assets/js/main.min.js"></script>
 </body>
 </html>
+
 
 
 
