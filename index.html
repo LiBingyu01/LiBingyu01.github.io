@@ -1,164 +1,99 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bingyu Li (李炳煜) — Academic Homepage</title>
-  <meta name="description" content="Bingyu Li — Multimodal Large Language Models, Open-Vocabulary Segmentation for Natural, Remote Sensing and Underwater Scene." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#ffffff; --muted:#6b7280; --accent:#0b6efd; --card:#f8fafc; --glass:rgba(255,255,255,0.6);
-      --max-width:1000px; --radius:12px; --mono: 'Fira Code', monospace;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:#111827;background:var(--bg);-webkit-font-smoothing:antialiased}
-    .container{max-width:var(--max-width);margin:32px auto;padding:28px}
-    header{display:flex;gap:20px;align-items:center}
-    .photo{width:120px;height:120px;border-radius:16px;flex:0 0 120px;background:linear-gradient(135deg,#e6eefc,#f3f9ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted);overflow:hidden}
-    .photo img{width:100%;height:100%;object-fit:cover;border-radius:16px}
-    h1{margin:0;font-size:32px;font-weight:700}
-    .subtitle{color:var(--muted);margin-top:6px;font-weight:500}
-    .top-links{margin-left:auto;display:flex;gap:10px}
-    a.button{padding:8px 14px;border-radius:10px;text-decoration:none;border:1px solid #e6eefc;background:transparent;color:var(--accent);font-weight:600;transition:0.2s}
-    a.button:hover{background:var(--accent);color:#fff}
+<p align="center">
+ <img src="https://komarev.com/ghpvc/?username=LiBingyu01&label=Profile%20Views&color=0e75b6&style=flat" alt="访问量统计" />
+</p>
 
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:22px}
-    .card{background:var(--card);padding:20px;border-radius:16px;box-shadow:0 6px 20px rgba(16,24,40,0.08);transition:0.2s}
-    .card:hover{box-shadow:0 8px 28px rgba(16,24,40,0.12)}
+<div align="center">
+  <img src="https://raw.githubusercontent.com/LiBingyu01/LiBingyu01.github.io/main/me.png" width="130" height="130" style="border-radius: 50%;" alt="Bingyu Li Avatar"/>
+  
+  <h1>Hi there, I'm Bingyu Li (李炳煜) 👋</h1>
+  
+  <h3>🤖 Ph.D. Student @ <a href="https://en.ustc.edu.cn/">USTC</a></h3>
 
-    .section-title{font-size:18px;font-weight:700;margin-bottom:12px}
-    .chip{display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid rgba(16,24,40,0.08);margin:6px 6px 0 0;font-weight:500}
+  <p>
+    <b>Advisors: Prof. <a href="https://scholar.google.com/citations?user=AHu3xw0AAAAJ">Xuelong Li</a></b>
+  </p>
 
-    .pub{margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(16,24,40,0.1)}
-    .pub:last-child{border-bottom:none}
-    .meta{color:var(--muted);font-size:14px;margin-top:2px}
-    .project{display:flex;gap:16px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(16,24,40,0.1)}
-    .project:last-child{border-bottom:none}
-    .proj-thumb{width:120px;height:80px;border-radius:12px;background:#eef3ff;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;font-weight:500}
-    .proj-desc{font-size:14px}
+  <p>
+   我主要关注多模态大语言模型、视觉语言模型及其在自然、遥感和水下场景中的应用。
+   <br>
+   <i>I focus on Multimodal Large Language Models (MLLMs) and Open-Vocabulary Vision.</i>
+  </p>
 
-    aside .card + .card{margin-top:16px}
-    footer{margin-top:32px;color:var(--muted);font-size:14px;text-align:center}
+  <p>
+    <img src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white" alt="PyTorch">
+    <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python">
+    <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux">
+    <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+  </p>
+</div>
 
-    @media (max-width:900px){
-      .grid{grid-template-columns:1fr;}
-      .top-links{margin-left:0;margin-top:12px}
-      header{flex-direction:column;align-items:flex-start}
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <div class="photo"><img src="https://raw.githubusercontent.com/LiBingyu01/LiBingyu01.github.io/main/me.png" alt="Bingyu Li"></div>
-      <div>
-        <h1>Bingyu Li <span style="color:var(--muted);font-weight:600">(李炳煜)</span></h1>
-        <div class="subtitle">PhD Student • Multimodal Large Language Models, Open-Vocabulary Segmentation for Natural, Remote Sensing and Underwater Scene • University of Science and Technology of China</div>
-        <div style="margin-top:10px;color:var(--muted);font-size:14px">
-          Email: <a href="mailto:libingyu0205@mail.ustc.edu.cn">libingyu0205@mail.ustc.edu.cn</a> · <a href="#contact">Contact</a> · <a href="https://github.com/LiBingyu01">GitHub</a>
-        </div>
-      </div>
-      <div class="top-links">
-        <a class="button" href="#publications">Publications</a>
-      </div>
-    </header>
+---
 
-    <div class="grid">
-      <main>
-        <section class="card" id="about">
-          <div class="section-title">Short Bio</div>
-          <p style="margin:0 0 8px 0;line-height:1.7;font-size:15px">
-            I am a PhD student focusing on applying multimodal large language models and vision-language models to visual tasks. I work on diverse scenes including natural, remote sensing, and underwater environments. My research includes dataset construction, algorithm development, and training pipeline design.
-          </p>
-          <div style="margin-top:8px" class="meta">Advisors: Xuelong Li</div>
-        </section>
+### 🔬 Research Interests
 
-        <section class="card" id="research" style="margin-top:16px">
-          <div class="section-title">Research Interests</div>
-          <div>
-            <span class="chip">Multimodal LLMs</span>
-            <span class="chip">Open-Vocabulary Vision</span>
-            <span class="chip">Remote Sensing Vision</span>
-            <span class="chip">Underwater Vision</span>
-            <span class="chip">Video Understanding</span>
-          </div>
-        </section>
+My research interests lie in the intersection of **Computer Vision** and **Natural Language Processing**:
 
-        <section class="card" id="publications" style="margin-top:16px">
-          <div class="section-title">Selected Publications</div>
+- 🔭 **Multimodal LLMs**: Vision-Language Models, Video Understanding
+- 🌊 **Open-Vocabulary Vision**: Segmentation for Natural, Remote Sensing, and Underwater Scenes
+- 🧠 **Deep Learning**: Dataset Construction, Algorithm Design
 
-          <div class="pub">
-            <div style="font-weight:700">Stitchfusion: Weaving any visual modalities to enhance multimodal semantic segmentation</div>
-            <div class="meta"><strong>B Li</strong>, D Zhang, Z Zhao, J Gao, X Li — ACMMM 2025 (⭐ Oral)</div>
-            <div style="margin-top:4px"><a href="https://arxiv.org/pdf/2408.01343" target="_blank">[Paper]</a>  <a href="https://github.com/LiBingyu01/StitchFusion">[Project Page]</a></div>
-          </div>
+---
 
-          <div class="pub">
-            <div style="font-weight:700">Exploring Efficient Open-Vocabulary Segmentation in the Remote Sensing</div>
-            <div class="meta"><strong>B Li</strong>, H Dong, D Zhang, Z Zhao, J Gao, X Li — AAAI 2026 (⭐ Oral)</div>
-            <div style="margin-top:4px"><a href="https://arxiv.org/pdf/2509.12040" target="_blank">[Paper]</a>  <a href="https://github.com/LiBingyu01/RSKT-Seg">[Project Page]</a></div>
-          </div>
+### 🔥 News
+- **[2025.11]** 🎉 One paper (**RSKT-Seg**) is accepted by **AAAI 2026** as <font color="red">**Oral**</font> Presentation!
+- **[2025.10]** 🏅 Awarded the **National Graduate Scholarship (博士生国家奖学金)**.
+- **[2025.04]** 🎉 One paper (**Stitchfusion**) is accepted by **ACM MM 2025** as <font color="red">**Oral**</font> Presentation!
+- **[2025.04]** One paper is accepted to **Pattern Recognition (PR) 2025**.
+- **[2024.09]** Started my Ph.D. journey at **University of Science and Technology of China (USTC)**.
 
-          <div class="pub">
-            <div style="font-weight:700">MARIS: Marine Open-Vocabulary Instance Segmentation with Geometric Enhancement and Semantic Alignment</div>
-            <div class="meta"><strong>B Li</strong>, F Wang, D Zhang, Z Zhao, J Gao, X Li — arXiv 2025</div>
-            <div style="margin-top:4px"><a href="https://arxiv.org/abs/2510.15398" target="_blank">[Paper]</a>  <a href="https://github.com/LiBingyu01/MARIS">[Project Page]</a></div>
-          </div>
+---
 
-          <div class="pub">
-            <div style="font-weight:700">Exploring the Underwater World Segmentation without Extra Training</div>
-            <div class="meta"><strong>B Li</strong>, T Huo, D Zhang, Z Zhao, J Gao, X Li — arXiv 2025</div>
-            <div style="margin-top:4px"><a href="https://arxiv.org/pdf/2511.07923" target="_blank">[Paper]</a> <a href="https://github.com/LiBingyu01/Earth2Ocean">[Project Page]</a></div>
-          </div>
+### 📝 Selected Publications
 
-          <div style="margin-top:10px;color:var(--muted)">Full list: <a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank">Google Scholar</a></div>
-        </section>
-      </main>
+> Full list available on my [Google Scholar](https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN).
 
-      <aside>
-        <div class="card" id="sidebar">
-          <div class="section-title">Quick Links</div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="#publications">Publications</a>
-            <a href="#contact">Contact</a>
-            <a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank">Google Scholar</a>
-            <a href="https://github.com/LiBingyu01" target="_blank">GitHub</a>
-          </div>
-        </div>
+**Exploring Efficient Open-Vocabulary Segmentation in the Remote Sensing** <br>
+**Bingyu Li**, H Dong, D Zhang, Z Zhao, J Gao, X Li <br>
+*AAAI Conference on Artificial Intelligence (**AAAI**), 2026* <span style="color:red">**(Oral)**</span> <br>
+[![Paper](https://img.shields.io/badge/arXiv-PDF-b31b1b?style=flat-square&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2509.12040)
+[![Code](https://img.shields.io/badge/Github-Code-black?style=flat-square&logo=github)](https://github.com/LiBingyu01/RSKT-Seg)
 
-        <div class="card" id="service" style="margin-top:16px">
-          <div class="section-title">Service</div>
-          <div class="meta">Reviewer: TGRS, CVPR, PR, ICLR, NeurIPS</div>
-        </div>
+**Stitchfusion: Weaving any visual modalities to enhance multimodal semantic segmentation** <br>
+**Bingyu Li**, D Zhang, Z Zhao, J Gao, X Li <br>
+*ACM International Conference on Multimedia (**ACM MM**), 2025* <span style="color:red">**(Oral)**</span> <br>
+[![Paper](https://img.shields.io/badge/arXiv-PDF-b31b1b?style=flat-square&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2408.01343)
+[![Code](https://img.shields.io/badge/Github-Code-black?style=flat-square&logo=github)](https://github.com/LiBingyu01/StitchFusion)
 
-        <div class="card" id="contact" style="margin-top:16px">
-          <div class="section-title">Contact</div>
-          <div style="line-height:1.6">
-            <div><strong>Email</strong>: <a href="mailto:libingyu0205@mail.ustc.edu.cn">libingyu0205@mail.ustc.edu.cn</a></div>
-          </div>
-        </div>
+**MARIS: Marine Open-Vocabulary Instance Segmentation with Geometric Enhancement and Semantic Alignment** <br>
+**Bingyu Li**, F Wang, D Zhang, Z Zhao, J Gao, X Li <br>
+*arXiv Preprint, 2025* <br>
+[![Paper](https://img.shields.io/badge/arXiv-PDF-b31b1b?style=flat-square&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2510.15398)
+[![Code](https://img.shields.io/badge/Github-Code-black?style=flat-square&logo=github)](https://github.com/LiBingyu01/MARIS)
 
-        <section class="card" id="news" style="margin-top:16px">
-          <div class="section-title">News & Updates</div>
-          <ul style="margin:0;padding-left:18px;color:var(--muted);line-height:1.8">
-            <li><strong>2025.11</strong> — 1 Paper accepted as AAAI 2026 <font color="#FF0000">Oral</font> presentation.</li>
-            <li><strong>2025.10</strong> — Awarded <font color="#FF0000">National Graduate Scholarship</font>.</li>
-            <li><strong>2025.4</strong> — 1 Paper accepted to PR 2025.</li>
-            <li><strong>2025.4</strong> — 1 Paper accepted as ACMMM 2025 <font color="#FF0000">Oral</font> presentation.</li>
-            <li><strong>2024.09</strong> — Started PhD at University of Science and Technology of China.</li>
-          </ul>
-        </section>
-      </aside>
-    </div>
+**Exploring the Underwater World Segmentation without Extra Training** <br>
+**Bingyu Li**, T Huo, D Zhang, Z Zhao, J Gao, X Li <br>
+*arXiv Preprint, 2025* <br>
+[![Paper](https://img.shields.io/badge/arXiv-PDF-b31b1b?style=flat-square&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2511.07923)
+[![Code](https://img.shields.io/badge/Github-Code-black?style=flat-square&logo=github)](https://github.com/LiBingyu01/Earth2Ocean)
 
-    <footer>
-      © <span id="year"></span> Bingyu Li · Last updated: Nov 17, 2025
-    </footer>
-  </div>
+---
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+### ⚡ Recent Activity & Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=LiBingyu01&show_icons=true&theme=radical&hide_border=true&count_private=true" alt="Bingyu's GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=LiBingyu01&layout=compact&theme=radical&hide_border=true" alt="Most Used Languages" />
+</p>
+
+---
+
+### 🔗 Service & Connect
+
+**Academic Service (Reviewer)**
+- **Journals:** TGRS, PR
+- **Conferences:** CVPR, ICLR, NeurIPS
+
+**Contact Me**
+- 📧 Email: `libingyu0205@mail.ustc.edu.cn`
+- 🏠 Homepage: [LiBingyu01.github.io](https://libingyu01.github.io/)
+- 🎓 Google Scholar: [Bingyu Li](https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN)
