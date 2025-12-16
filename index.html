@@ -42,8 +42,23 @@
     });
   </script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+
   </head>
 
+<head>
+  <style>
+    /* 强制限制头像大小 */
+    .author__avatar img {
+        max-width: 150px !important; /* 限制宽度 */
+        border-radius: 50%;          /* 变成圆形，如果想要方形就删掉这行 */
+        display: block;
+        margin: 0 auto;              /* 居中 */
+    }
+  </style>
+</head>
+
+  
 <body>
   <div class="masthead">
     <div class="masthead__inner-wrap">
@@ -254,3 +269,4 @@
 
 </body>
 </html>
+
