@@ -3,7 +3,7 @@
 </p>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/LiBingyu01/LiBingyu01.github.io/main/me.png" width="130" height="130" style="border-radius: 50%;" alt="Bingyu Li Avatar"/>
+  <img src="https://raw.githubusercontent.com/LiBingyu01/LiBingyu01.github.io/main/images/me.png" width="130" height="130" style="border-radius: 50%;" alt="Bingyu Li Avatar"/>
   
   <h1>Hi there, I'm Bingyu Li (李炳煜) 👋</h1>
   
