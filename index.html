@@ -51,7 +51,7 @@
     .contact-list, .meta-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; font-size: 14px; }
     .contact-list { margin-top: 18px; }
     .contact-list li, .meta-list li { display: flex; align-items: center; gap: 8px; }
-    .contact-list i, .meta-list i { width: 18px; color: var(--accent); }
+    .contact-list i, .meta-list i, .hf-icon { width: 18px; color: var(--accent); display: inline-flex; align-items: center; justify-content: center; }
     .contact-list li:hover a { color: #0f3048; text-decoration: underline; text-underline-offset: 3px; }
     .side-block { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
     .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
@@ -65,7 +65,7 @@
     .hero h2 { position: relative; z-index: 1; margin: 0 0 12px; max-width: 760px; font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: clamp(1.10rem, 1.55vw, 1.38rem); line-height: 1.35; letter-spacing: .01em; font-weight: 650; color: #17345f; }
     .hero p { margin: 0; max-width: 780px; color: #40516a; font-size: 1rem; }
     .hero .keywords { margin-top: 18px; gap: 10px; position: relative; z-index: 1; }
-    .hero .keyword { font-size: 14.8px; padding: 7px 16px; }
+    .hero .keyword { font-size: 15.5px; padding: 8px 17px; }
 
     .section { padding-bottom: 28px; border-bottom: 1px solid var(--line); }
     .section:last-child { border-bottom: 0; }
@@ -144,6 +144,7 @@
         <ul class="contact-list">
           <li><i class="fas fa-envelope"></i><a href="mailto:libingyu0205@mail.ustc.edu.cn">Email</a></li>
           <li><i class="fab fa-github"></i><a href="https://github.com/LiBingyu01" target="_blank">GitHub</a></li>
+          <li><span class="hf-icon" aria-hidden="true">🤗</span><a href="https://huggingface.co/kkk2026" target="_blank">Hugging Face</a></li>
           <li><i class="ai ai-google-scholar"></i><a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank">Google Scholar</a></li>
         </ul>
         <div class="side-block">
@@ -164,9 +165,9 @@
           I work on visual intelligence for dynamic open-world environments, focusing on complex scene perception, action-aware world modeling, and controllable video generation.
         </p>
         <div class="keywords" aria-label="Research directions">
-          <a class="keyword" href="#pub-open-world">Open-World Complex Scene Perception</a>
           <a class="keyword" href="#pub-world-action">World Action Models</a>
           <a class="keyword" href="#pub-video-generation">Generative Video Models</a>
+          <a class="keyword" href="#pub-open-world">Open-World Complex Scene Perception</a>
         </div>
       </section>
 
@@ -186,11 +187,6 @@
         <h2 class="section-title">Research</h2>
         <p class="section-intro">Current research directions.</p>
         <div class="research-grid">
-          <a class="research-card" href="#pub-open-world" aria-label="View selected publications for Open-World Complex Scene Perception">
-            <h3>Open-World Complex Scene Perception</h3>
-            <p>Perception and segmentation in complex, long-tail, and open-vocabulary environments.</p>
-            <span class="card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
-          </a>
           <a class="research-card" href="#pub-world-action" aria-label="View selected publications for World Action Models">
             <h3>World Action Models</h3>
             <p>Action-conditioned world modeling for understanding interactions, dynamics, and future outcomes.</p>
@@ -199,6 +195,11 @@
           <a class="research-card" href="#pub-video-generation" aria-label="View selected publications for Generative Video Models">
             <h3>Generative Video Models</h3>
             <p>Video generation and simulation models for dynamic scene understanding and controllable visual synthesis.</p>
+            <span class="card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+          </a>
+          <a class="research-card" href="#pub-open-world" aria-label="View selected publications for Open-World Complex Scene Perception">
+            <h3>Open-World Complex Scene Perception</h3>
+            <p>Perception and segmentation in complex, long-tail, and open-vocabulary environments.</p>
             <span class="card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
           </a>
         </div>
@@ -220,13 +221,24 @@
         <p class="section-intro">Full publication list is available on <a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank">Google Scholar</a>. Selected works are organized around my three current research directions.</p>
 
         <div class="pub-nav" aria-label="Publication directions">
-          <a class="pub-nav-card" href="#pub-open-world" aria-label="Jump to Open-World Complex Scene Perception publications"><h3>Open-World Complex Scene Perception</h3><p>Open-vocabulary perception, segmentation, and robust scene understanding.</p><span class="card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a>
           <a class="pub-nav-card" href="#pub-world-action" aria-label="Jump to World Action Models publications"><h3>World Action Models</h3><p>Action-conditioned modeling for interactions, dynamics, and future outcomes.</p><span class="card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a>
           <a class="pub-nav-card" href="#pub-video-generation" aria-label="Jump to Generative Video Models publications"><h3>Generative Video Models</h3><p>Video generation, simulation, and controllable dynamic visual synthesis.</p><span class="card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a>
+          <a class="pub-nav-card" href="#pub-open-world" aria-label="Jump to Open-World Complex Scene Perception publications"><h3>Open-World Complex Scene Perception</h3><p>Open-vocabulary perception, segmentation, and robust scene understanding.</p><span class="card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a>
+        </div>
+
+        <h3 id="pub-world-action" class="pub-group-title"><a href="#pub-world-action">World Action Models</a></h3>
+        <div class="pub-list">
+          <article class="pub placeholder-pub"><div class="pub-img">World Action Models</div><div><a class="pub-title" href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank">Selected works to be added</a><span class="venue">In progress</span><div class="links"><a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank">Google Scholar</a></div><p class="desc">Action-conditioned world modeling for understanding interactions, dynamics, and future outcomes.</p></div></article>
+        </div>
+
+        <h3 id="pub-video-generation" class="pub-group-title"><a href="#pub-video-generation">Generative Video Models</a></h3>
+        <div class="pub-list">
+          <article class="pub"><div class="pub-img"><img src="images/RATS.png" alt="RATS" onerror="this.src='https://placehold.co/300x180?text=RATS'" /></div><div><a class="pub-title" href="https://arxiv.org/abs/2604.14910" target="_blank">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a><span class="venue">arXiv 2026</span><div class="authors">Rui Li, <strong>Bingyu Li</strong>, Yuanzhi Liang, Haibin Huang, Chi Zhang, XueLong Li</div><div class="links"><a href="https://arxiv.org/abs/2604.14910" target="_blank">Paper</a><a href="https://huggingface.co/kkk2026" target="_blank">Hugging Face</a></div><p class="desc">Reward-aware trajectory shaping for efficient few-step visual generation across image and video generation settings.</p></div></article>
         </div>
 
         <h3 id="pub-open-world" class="pub-group-title"><a href="#pub-open-world">Open-World Complex Scene Perception</a></h3>
         <div class="pub-list">
+          <article class="pub"><div class="pub-img"><img src="images/QICA.png" alt="QICA" onerror="this.src='https://placehold.co/300x180?text=QICA'" /></div><div><a class="pub-title" href="https://arxiv.org/abs/2603.16129" target="_blank">Boosting Quantitative and Spatial Awareness for Zero-Shot Object Counting</a><span class="venue">CVPR 2026</span><div class="authors">D Zhang, <strong>Bingyu Li</strong>, F Wang, Z Zhao, J Gao</div><div class="links"><a href="https://github.com/zhangda1018/QICA" target="_blank">Code</a><a class="star-badge" href="https://github.com/zhangda1018/QICA" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/zhangda1018/QICA?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/abs/2603.16129" target="_blank">Paper</a></div><p class="desc">Quantitative and spatial awareness for zero-shot object counting in complex scenes, supporting robust perception under open-ended visual conditions.</p></div></article>
           <article class="pub"><div class="pub-img"><img src="images/rskt.png" alt="RSKT-Seg" onerror="this.src='https://placehold.co/300x180?text=RSKT-Seg'" /></div><div><a class="pub-title" href="https://arxiv.org/pdf/2509.12040" target="_blank">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a><span class="venue">AAAI 2026</span><div class="authors"><strong>Bingyu Li</strong>, H Dong, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/RSKT-Seg" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/RSKT-Seg" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/RSKT-Seg?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/pdf/2509.12040" target="_blank">Paper</a></div><p class="desc">Efficient open-vocabulary segmentation methods tailored to remote sensing imagery.</p></div></article>
           <article class="pub"><div class="pub-img"><img src="images/pi-seg-1.png" alt="Pi-Seg" onerror="this.src='https://placehold.co/300x180?text=Pi-Seg'" /></div><div><a class="pub-title" href="https://arxiv.org/pdf/2604.15652" target="_blank">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a><span class="venue">arXiv 2026</span><div class="authors"><strong>Bingyu Li</strong>, T Huo, H Dong, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/RSKT-Seg/tree/Pi-Seg" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/RSKT-Seg" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/RSKT-Seg?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/pdf/2604.15652" target="_blank">Paper</a></div><p class="desc">A benchmark and baseline for realistic open-vocabulary remote sensing segmentation.</p></div></article>
           <article class="pub"><div class="pub-img"><img src="images/maris.png" alt="MARIS" onerror="this.src='https://placehold.co/300x180?text=MARIS'" /></div><div><a class="pub-title" href="https://arxiv.org/abs/2510.15398" target="_blank">MARIS: Marine Open-Vocabulary Instance Segmentation</a><span class="venue">CVPR 2026</span><div class="authors"><strong>Bingyu Li</strong>, F Wang, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/MARIS" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/MARIS" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/MARIS?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/abs/2510.15398" target="_blank">Paper</a></div><p class="desc">A benchmark and method for open-vocabulary instance segmentation in marine environments.</p></div></article>
@@ -234,17 +246,6 @@
           <article class="pub"><div class="pub-img"><img src="images/fgaseg.png" alt="FGAseg" onerror="this.src='https://placehold.co/300x180?text=FGAseg'" /></div><div><a class="pub-title" href="https://arxiv.org/abs/2501.00877" target="_blank">FGAseg: Fine-Grained Pixel-Text Alignment for Open-Vocabulary Semantic Segmentation</a><span class="venue">arXiv 2025</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/FGA-seg" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/FGA-seg" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/FGA-seg?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/abs/2501.00877" target="_blank">Paper</a></div><p class="desc">Fine-grained pixel-text alignment for open-vocabulary semantic segmentation.</p></div></article>
           <article class="pub"><div class="pub-img"><img src="images/stitchfusion.png" alt="StitchFusion" onerror="this.src='https://placehold.co/300x180?text=StitchFusion'" /></div><div><a class="pub-title" href="https://arxiv.org/pdf/2408.01343" target="_blank">StitchFusion: Weaving Any Visual Modalities to Enhance Multimodal Semantic Segmentation</a><span class="venue">ACM MM 2025</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/StitchFusion" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/StitchFusion" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/StitchFusion?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/pdf/2408.01343" target="_blank">Paper</a></div><p class="desc">A framework for integrating arbitrary visual modalities to improve multimodal semantic segmentation.</p></div></article>
           <article class="pub"><div class="pub-img"><img src="images/u3m.png" alt="U3M" onerror="this.src='https://placehold.co/300x180?text=U3M'" /></div><div><a class="pub-title" href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" target="_blank">U3M: Unbiased Multiscale Modal Fusion Model for Multimodal Semantic Segmentation</a><span class="venue">Pattern Recognition 2025</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/U3M" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/U3M" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/U3M?style=social" alt="GitHub stars" /></a><a href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" target="_blank">Paper</a></div><p class="desc">An unbiased multiscale modal fusion framework for multimodal semantic segmentation.</p></div></article>
-        </div>
-
-        <h3 id="pub-world-action" class="pub-group-title"><a href="#pub-world-action">World Action Models</a></h3>
-        <div class="pub-list">
-          <article class="pub"><div class="pub-img"><img src="images/QICA.png" alt="QICA" onerror="this.src='https://placehold.co/300x180?text=QICA'" /></div><div><a class="pub-title" href="https://arxiv.org/abs/2603.16129" target="_blank">Boosting Quantitative and Spatial Awareness for Zero-Shot Object Counting</a><span class="venue">CVPR 2026</span><div class="authors">D Zhang, <strong>Bingyu Li</strong>, F Wang, Z Zhao, J Gao</div><div class="links"><a href="https://github.com/zhangda1018/QICA" target="_blank">Code</a><a class="star-badge" href="https://github.com/zhangda1018/QICA" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/zhangda1018/QICA?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/abs/2603.16129" target="_blank">Paper</a></div><p class="desc">Related work on quantitative and spatial awareness for scene-level reasoning. This direction will include more action-conditioned world modeling work as it becomes public.</p></div></article>
-          <article class="pub placeholder-pub"><div class="pub-img">World Action Models</div><div><a class="pub-title" href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank">Selected works to be added</a><span class="venue">In progress</span><div class="links"><a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank">Google Scholar</a></div><p class="desc">Action-conditioned world modeling for understanding interactions, dynamics, and future outcomes.</p></div></article>
-        </div>
-
-        <h3 id="pub-video-generation" class="pub-group-title"><a href="#pub-video-generation">Generative Video Models</a></h3>
-        <div class="pub-list">
-          <article class="pub placeholder-pub"><div class="pub-img">Generative Video</div><div><a class="pub-title" href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank">Selected works to be added</a><span class="venue">In progress</span><div class="links"><a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank">Google Scholar</a></div><p class="desc">Video generation and simulation models for dynamic scene understanding and controllable visual synthesis.</p></div></article>
         </div>      </section>
 
       <section id="honors" class="section">
