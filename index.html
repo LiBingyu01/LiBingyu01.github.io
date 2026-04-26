@@ -64,7 +64,7 @@
     .hero { padding: 24px 26px 28px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(235,247,255,.72)); box-shadow: 0 10px 28px rgba(37, 99, 235, .055); position: relative; overflow: hidden; }
     .hero::after { content: ""; position: absolute; right: -80px; top: -80px; width: 210px; height: 210px; border-radius: 50%; background: radial-gradient(circle, rgba(37,99,235,.12), transparent 62%); pointer-events: none; }
     .eyebrow { position: relative; z-index: 1; margin: 0 0 10px; color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-    .hero h2 { position: relative; z-index: 1; margin: 0 0 13px; max-width: 760px; font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: clamp(1.32rem, 2.1vw, 1.86rem); line-height: 1.35; letter-spacing: -.012em; font-weight: 700; color: #17345f; }
+    .hero h2 { position: relative; z-index: 1; margin: 0 0 12px; max-width: 760px; font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: clamp(1.10rem, 1.55vw, 1.38rem); line-height: 1.35; letter-spacing: .01em; font-weight: 650; color: #17345f; }
     .hero p { margin: 0; max-width: 780px; color: #40516a; font-size: 1rem; }
 
     .section { padding-bottom: 28px; border-bottom: 1px solid var(--line); }
@@ -82,10 +82,8 @@
     .research-card p, .pub-nav-card p { margin: 0; color: var(--muted); font-size: 13.7px; }
 
     .research-card:hover h3, .pub-nav-card:hover h3 { color: var(--accent); }
-    .research-card::after, .pub-nav-card::after { content: ""; position: absolute; inset: auto 16px 14px auto; width: 26px; height: 26px; border-radius: 50%; background: rgba(37,99,235,.08); opacity: 0; transform: scale(.88); transition: opacity .24s ease, transform .24s ease; }
-    .research-card:hover::after, .pub-nav-card:hover::after { opacity: 1; transform: scale(1); }
-    .card-arrow { position: absolute; right: 16px; bottom: 14px; color: var(--accent); font-size: 13px; opacity: .55; transform: translateX(-3px); transition: opacity .22s ease, transform .22s ease; }
-    .research-card:hover .card-arrow, .pub-nav-card:hover .card-arrow { opacity: 1; transform: translateX(0); }
+    .card-arrow { position: absolute; right: 16px; bottom: 14px; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--accent); background: rgba(37,99,235,.08); font-size: 13px; opacity: .62; transform: translateX(-3px); transition: opacity .22s ease, transform .22s ease, background .22s ease, box-shadow .22s ease; }
+    .research-card:hover .card-arrow, .pub-nav-card:hover .card-arrow { opacity: 1; transform: translateX(0); background: rgba(37,99,235,.14); box-shadow: 0 8px 18px rgba(37,99,235,.16); }
 
     .news-list, .clean-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
     .news-item { display: grid; grid-template-columns: 86px 1fr; gap: 16px; padding: 10px 12px; margin-left: -12px; border-radius: 12px; transition: background .22s ease, transform .22s ease; }
@@ -165,9 +163,9 @@
     <main class="main">
       <section class="hero">
         <p class="eyebrow">Academic Homepage</p>
-        <h2>Open-World Perception · World Action Models · Generative Video Models</h2>
+        <h2>Research Interests</h2>
         <p>
-          I work on visual intelligence for open-world complex scenes, with an emphasis on robust perception, action-aware world modeling, and generative video models for understanding and simulating dynamic environments.
+          I work on visual intelligence for dynamic open-world environments, focusing on complex scene perception, action-aware world modeling, and controllable video generation.
         </p>
       </section>
 
@@ -187,20 +185,20 @@
         <h2 class="section-title">Research</h2>
         <p class="section-intro">Current research directions.</p>
         <div class="research-grid">
-          <a class="research-card" href="#pub-open-world">
+          <a class="research-card" href="#pub-open-world" aria-label="View selected publications for Open-World Complex Scene Perception">
             <h3>Open-World Complex Scene Perception</h3>
             <p>Perception and segmentation in complex, long-tail, and open-vocabulary environments.</p>
-            <span class="card-arrow">Selected publications <i class="fas fa-arrow-right"></i></span>
+            <span class="card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
           </a>
-          <a class="research-card" href="#pub-world-action">
+          <a class="research-card" href="#pub-world-action" aria-label="View selected publications for World Action Models">
             <h3>World Action Models</h3>
             <p>Action-conditioned world modeling for understanding interactions, dynamics, and future outcomes.</p>
-            <span class="card-arrow">Selected publications <i class="fas fa-arrow-right"></i></span>
+            <span class="card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
           </a>
-          <a class="research-card" href="#pub-video-generation">
+          <a class="research-card" href="#pub-video-generation" aria-label="View selected publications for Generative Video Models">
             <h3>Generative Video Models</h3>
             <p>Video generation and simulation models for dynamic scene understanding and controllable visual synthesis.</p>
-            <span class="card-arrow">Selected publications <i class="fas fa-arrow-right"></i></span>
+            <span class="card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
           </a>
         </div>
       </section>
@@ -221,9 +219,9 @@
         <p class="section-intro">Full publication list is available on <a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank">Google Scholar</a>. Selected works are organized around my three current research directions.</p>
 
         <div class="pub-nav" aria-label="Publication directions">
-          <a class="pub-nav-card" href="#pub-open-world"><h3>Open-World Complex Scene Perception</h3><p>Open-vocabulary perception, segmentation, and robust scene understanding.</p><span class="card-arrow">Jump to papers <i class="fas fa-arrow-right"></i></span></a>
-          <a class="pub-nav-card" href="#pub-world-action"><h3>World Action Models</h3><p>Action-conditioned modeling for interactions, dynamics, and future outcomes.</p><span class="card-arrow">Jump to works <i class="fas fa-arrow-right"></i></span></a>
-          <a class="pub-nav-card" href="#pub-video-generation"><h3>Generative Video Models</h3><p>Video generation, simulation, and controllable dynamic visual synthesis.</p><span class="card-arrow">Jump to works <i class="fas fa-arrow-right"></i></span></a>
+          <a class="pub-nav-card" href="#pub-open-world" aria-label="Jump to Open-World Complex Scene Perception publications"><h3>Open-World Complex Scene Perception</h3><p>Open-vocabulary perception, segmentation, and robust scene understanding.</p><span class="card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a>
+          <a class="pub-nav-card" href="#pub-world-action" aria-label="Jump to World Action Models publications"><h3>World Action Models</h3><p>Action-conditioned modeling for interactions, dynamics, and future outcomes.</p><span class="card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a>
+          <a class="pub-nav-card" href="#pub-video-generation" aria-label="Jump to Generative Video Models publications"><h3>Generative Video Models</h3><p>Video generation, simulation, and controllable dynamic visual synthesis.</p><span class="card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span></a>
         </div>
 
         <h3 id="pub-open-world" class="pub-group-title"><a href="#pub-open-world">Open-World Complex Scene Perception</a></h3>
