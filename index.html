@@ -9,16 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #fbfbfa;
+      --bg: #f7fbff;
       --card: #ffffff;
-      --text: #20242b;
-      --muted: #667085;
-      --line: #e6e8ec;
-      --line-strong: #d7dce3;
-      --accent: #234f73;
-      --accent-2: #6b4f2a;
-      --accent-soft: #f1f6f9;
-      --paper: #f7f5f1;
+      --text: #172033;
+      --muted: #526175;
+      --line: #dce8f5;
+      --line-strong: #bfd4ea;
+      --accent: #2563eb;
+      --accent-2: #0f766e;
+      --accent-soft: #eaf3ff;
+      --paper: #eef8ff;
       --shadow: 0 14px 34px rgba(18, 32, 50, 0.08);
       --shadow-soft: 0 8px 22px rgba(18, 32, 50, 0.06);
       --max-width: 1080px;
@@ -29,19 +29,19 @@
       margin: 0;
       color: var(--text);
       background:
-        radial-gradient(circle at 12% 0%, rgba(35, 79, 115, .055), transparent 28%),
-        linear-gradient(180deg, #fdfdfc 0%, var(--bg) 48%, #f8f8f6 100%);
+        radial-gradient(circle at 12% 0%, rgba(37, 99, 235, .075), transparent 28%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 48%, #f3f9ff 100%);
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       line-height: 1.72;
     }
     a { color: var(--accent); text-decoration: none; }
-    a:hover { color: #183b57; }
+    a:hover { color: #1d4ed8; }
     img { max-width: 100%; display: block; }
     section[id] { scroll-margin-top: 92px; }
 
-    .nav { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(230,232,236,.86); background: rgba(251,251,250,.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(230,232,236,.86); background: rgba(247,251,255,.90); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
     .nav-inner { width: min(100%, var(--max-width)); margin: 0 auto; padding: 12px 20px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; font-size: 13.5px; font-weight: 600; }
-    .nav-inner a { position: relative; padding: 7px 11px; border-radius: 999px; color: #475467; transition: color .22s ease, background .22s ease, transform .22s ease; }
+    .nav-inner a { position: relative; padding: 7px 11px; border-radius: 999px; color: #44546a; transition: color .22s ease, background .22s ease, transform .22s ease; }
     .nav-inner a:hover { color: var(--accent); background: var(--accent-soft); transform: translateY(-1px); text-decoration: none; }
 
     .page { width: min(100%, var(--max-width)); margin: 0 auto; padding: 38px 20px 56px; display: grid; grid-template-columns: 268px minmax(0, 1fr); gap: 44px; align-items: start; }
@@ -57,14 +57,15 @@
     .contact-list li:hover a { color: #0f3048; text-decoration: underline; text-underline-offset: 3px; }
     .side-block { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
     .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .keyword { border: 1px solid var(--line); background: rgba(255,255,255,.8); border-radius: 999px; padding: 4px 10px; font-size: 12.2px; color: #475467; transition: transform .22s ease, border-color .22s ease, background .22s ease; }
+    .keyword { border: 1px solid var(--line); background: rgba(255,255,255,.8); border-radius: 999px; padding: 4px 10px; font-size: 12.2px; color: #44546a; transition: transform .22s ease, border-color .22s ease, background .22s ease; }
     .keyword:hover { transform: translateY(-2px); border-color: #c7d5df; background: var(--accent-soft); }
 
     .main { display: grid; gap: 32px; }
-    .hero { padding: 24px 24px 28px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(135deg, rgba(255,255,255,.9), rgba(247,245,241,.64)); box-shadow: 0 10px 28px rgba(18, 32, 50, .045); }
-    .eyebrow { margin: 0 0 10px; color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .10em; text-transform: uppercase; }
-    .hero h2 { margin: 0 0 13px; max-width: 760px; font-family: "Source Serif 4", Georgia, serif; font-size: clamp(1.7rem, 3vw, 2.45rem); line-height: 1.12; letter-spacing: -.026em; font-weight: 700; }
-    .hero p { margin: 0; max-width: 780px; color: #4b5563; font-size: 1rem; }
+    .hero { padding: 24px 26px 28px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(235,247,255,.72)); box-shadow: 0 10px 28px rgba(37, 99, 235, .055); position: relative; overflow: hidden; }
+    .hero::after { content: ""; position: absolute; right: -80px; top: -80px; width: 210px; height: 210px; border-radius: 50%; background: radial-gradient(circle, rgba(37,99,235,.12), transparent 62%); pointer-events: none; }
+    .eyebrow { position: relative; z-index: 1; margin: 0 0 10px; color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .hero h2 { position: relative; z-index: 1; margin: 0 0 13px; max-width: 760px; font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: clamp(1.32rem, 2.1vw, 1.86rem); line-height: 1.35; letter-spacing: -.012em; font-weight: 700; color: #17345f; }
+    .hero p { margin: 0; max-width: 780px; color: #40516a; font-size: 1rem; }
 
     .section { padding-bottom: 28px; border-bottom: 1px solid var(--line); }
     .section:last-child { border-bottom: 0; }
@@ -75,10 +76,14 @@
     .research-grid, .pub-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
     .research-card, .pub-nav-card { position: relative; min-height: 168px; padding: 18px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,255,255,.86); overflow: hidden; box-shadow: 0 8px 20px rgba(18,32,50,.035); transition: transform .26s ease, box-shadow .26s ease, border-color .26s ease, background .26s ease; }
     .research-card::before, .pub::before, .pub-nav-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(180deg, var(--accent), var(--accent-2)); opacity: 0; transition: opacity .26s ease; }
-    .research-card:hover, .pub-nav-card:hover { transform: translateY(-5px); border-color: #cbd7e1; box-shadow: var(--shadow); background: #fff; text-decoration: none; }
+    .research-card:hover, .pub-nav-card:hover { transform: translateY(-5px); border-color: #b8d4f4; box-shadow: var(--shadow); background: linear-gradient(180deg, #ffffff, #f7fbff); text-decoration: none; }
     .research-card:hover::before, .pub:hover::before, .pub-nav-card:hover::before { opacity: 1; }
     .research-card h3, .pub-nav-card h3 { margin: 0 0 8px; color: #111827; font-size: .98rem; line-height: 1.35; }
     .research-card p, .pub-nav-card p { margin: 0; color: var(--muted); font-size: 13.7px; }
+
+    .research-card:hover h3, .pub-nav-card:hover h3 { color: var(--accent); }
+    .research-card::after, .pub-nav-card::after { content: ""; position: absolute; inset: auto 16px 14px auto; width: 26px; height: 26px; border-radius: 50%; background: rgba(37,99,235,.08); opacity: 0; transform: scale(.88); transition: opacity .24s ease, transform .24s ease; }
+    .research-card:hover::after, .pub-nav-card:hover::after { opacity: 1; transform: scale(1); }
     .card-arrow { position: absolute; right: 16px; bottom: 14px; color: var(--accent); font-size: 13px; opacity: .55; transform: translateX(-3px); transition: opacity .22s ease, transform .22s ease; }
     .research-card:hover .card-arrow, .pub-nav-card:hover .card-arrow { opacity: 1; transform: translateX(0); }
 
@@ -93,23 +98,26 @@
     .pub-group-title a:hover { text-decoration: underline; text-underline-offset: 4px; }
     .pub-list { display: grid; gap: 18px; }
     .pub { position: relative; display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 20px; padding: 16px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,255,255,.72); box-shadow: 0 8px 20px rgba(18,32,50,.025); overflow: hidden; transition: transform .26s ease, box-shadow .26s ease, border-color .26s ease, background .26s ease; }
-    .pub:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: #cbd7e1; background: #fff; }
+    .pub:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: #b8d4f4; background: linear-gradient(180deg, #ffffff, #f8fcff); }
     .pub-img { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #f3f4f6; min-height: 118px; }
     .pub-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .32s ease, filter .32s ease; }
     .pub:hover .pub-img img { transform: scale(1.035); filter: saturate(1.05); }
     .pub-title { display: inline-block; margin-bottom: 6px; color: #111827; font-weight: 700; line-height: 1.42; transition: color .2s ease; }
     .pub-title:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
     .venue { display: inline-flex; margin-left: 8px; padding: 2px 7px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 11.5px; font-weight: 700; vertical-align: 1px; }
-    .authors { color: #475467; font-size: 14px; margin-bottom: 8px; }
+    .authors { color: #44546a; font-size: 14px; margin-bottom: 8px; }
     .authors strong { color: #111827; }
     .links { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; font-size: 13px; font-weight: 650; }
     .links a { border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; background: #fff; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
-    .links a:hover { transform: translateY(-1px); border-color: #c7d5df; background: var(--accent-soft); text-decoration: none; }
+    .links a:hover { transform: translateY(-1px); border-color: #b8d4f4; background: var(--accent-soft); text-decoration: none; }
+    .star-badge { display: inline-flex; align-items: center; padding: 0 !important; border: 0 !important; background: transparent !important; }
+    .star-badge img { height: 20px; width: auto; border-radius: 999px; transition: transform .2s ease, filter .2s ease; }
+    .star-badge:hover img { transform: translateY(-1px); filter: saturate(1.05); }
     .desc { margin: 0; color: var(--muted); font-size: 14px; }
-    .placeholder-pub { border-style: dashed; background: linear-gradient(135deg, rgba(255,255,255,.78), rgba(247,245,241,.55)); }
+    .placeholder-pub { border-style: dashed; background: linear-gradient(135deg, rgba(255,255,255,.86), rgba(235,247,255,.68)); }
     .placeholder-pub .pub-img { display: flex; align-items: center; justify-content: center; color: var(--accent); font-weight: 700; letter-spacing: .02em; background: var(--paper); }
     .two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-    .clean-list li { color: #475467; }
+    .clean-list li { color: #44546a; }
     .footer { padding-top: 4px; color: #98a2b3; font-size: 13px; }
 
     @media (max-width: 900px) { .page { grid-template-columns: 1fr; gap: 30px; padding-top: 30px; } .sidebar { position: static; display: grid; grid-template-columns: 170px 1fr; gap: 22px; align-items: start; } .portrait { margin-bottom: 0; } .research-grid, .pub-nav, .two-col { grid-template-columns: 1fr; } }
@@ -157,7 +165,7 @@
     <main class="main">
       <section class="hero">
         <p class="eyebrow">Academic Homepage</p>
-        <h2>Open-world perception, world action models, and generative video models.</h2>
+        <h2>Open-World Perception · World Action Models · Generative Video Models</h2>
         <p>
           I work on visual intelligence for open-world complex scenes, with an emphasis on robust perception, action-aware world modeling, and generative video models for understanding and simulating dynamic environments.
         </p>
@@ -220,18 +228,18 @@
 
         <h3 id="pub-open-world" class="pub-group-title"><a href="#pub-open-world">Open-World Complex Scene Perception</a></h3>
         <div class="pub-list">
-          <article class="pub"><div class="pub-img"><img src="images/rskt.png" alt="RSKT-Seg" onerror="this.src='https://placehold.co/300x180?text=RSKT-Seg'" /></div><div><a class="pub-title" href="https://arxiv.org/pdf/2509.12040" target="_blank">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a><span class="venue">AAAI 2026</span><div class="authors"><strong>Bingyu Li</strong>, H Dong, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/RSKT-Seg" target="_blank">Code</a><a href="https://arxiv.org/pdf/2509.12040" target="_blank">Paper</a></div><p class="desc">Efficient open-vocabulary segmentation methods tailored to remote sensing imagery.</p></div></article>
-          <article class="pub"><div class="pub-img"><img src="images/pi-seg-1.png" alt="Pi-Seg" onerror="this.src='https://placehold.co/300x180?text=Pi-Seg'" /></div><div><a class="pub-title" href="https://arxiv.org/pdf/2604.15652" target="_blank">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a><span class="venue">arXiv 2026</span><div class="authors"><strong>Bingyu Li</strong>, T Huo, H Dong, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/RSKT-Seg/tree/Pi-Seg" target="_blank">Code</a><a href="https://arxiv.org/pdf/2604.15652" target="_blank">Paper</a></div><p class="desc">A benchmark and baseline for realistic open-vocabulary remote sensing segmentation.</p></div></article>
-          <article class="pub"><div class="pub-img"><img src="images/maris.png" alt="MARIS" onerror="this.src='https://placehold.co/300x180?text=MARIS'" /></div><div><a class="pub-title" href="https://arxiv.org/abs/2510.15398" target="_blank">MARIS: Marine Open-Vocabulary Instance Segmentation</a><span class="venue">CVPR 2026</span><div class="authors"><strong>Bingyu Li</strong>, F Wang, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/MARIS" target="_blank">Code</a><a href="https://arxiv.org/abs/2510.15398" target="_blank">Paper</a></div><p class="desc">A benchmark and method for open-vocabulary instance segmentation in marine environments.</p></div></article>
-          <article class="pub"><div class="pub-img"><img src="images/earth2ocean.png" alt="Earth2Ocean" onerror="this.src='https://placehold.co/300x180?text=Earth2Ocean'" /></div><div><a class="pub-title" href="https://arxiv.org/pdf/2511.07923" target="_blank">Exploring the Underwater World Segmentation without Extra Training</a><span class="venue">CVPR 2026</span><div class="authors"><strong>Bingyu Li</strong>, T Huo, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/Earth2Ocean" target="_blank">Code</a><a href="https://arxiv.org/pdf/2511.07923" target="_blank">Paper</a></div><p class="desc">Training-free segmentation methods for underwater scenes.</p></div></article>
-          <article class="pub"><div class="pub-img"><img src="images/fgaseg.png" alt="FGAseg" onerror="this.src='https://placehold.co/300x180?text=FGAseg'" /></div><div><a class="pub-title" href="https://arxiv.org/abs/2501.00877" target="_blank">FGAseg: Fine-Grained Pixel-Text Alignment for Open-Vocabulary Semantic Segmentation</a><span class="venue">arXiv 2025</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/FGA-seg" target="_blank">Code</a><a href="https://arxiv.org/abs/2501.00877" target="_blank">Paper</a></div><p class="desc">Fine-grained pixel-text alignment for open-vocabulary semantic segmentation.</p></div></article>
-          <article class="pub"><div class="pub-img"><img src="images/stitchfusion.png" alt="StitchFusion" onerror="this.src='https://placehold.co/300x180?text=StitchFusion'" /></div><div><a class="pub-title" href="https://arxiv.org/pdf/2408.01343" target="_blank">StitchFusion: Weaving Any Visual Modalities to Enhance Multimodal Semantic Segmentation</a><span class="venue">ACM MM 2025</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/StitchFusion" target="_blank">Code</a><a href="https://arxiv.org/pdf/2408.01343" target="_blank">Paper</a></div><p class="desc">A framework for integrating arbitrary visual modalities to improve multimodal semantic segmentation.</p></div></article>
-          <article class="pub"><div class="pub-img"><img src="images/u3m.png" alt="U3M" onerror="this.src='https://placehold.co/300x180?text=U3M'" /></div><div><a class="pub-title" href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" target="_blank">U3M: Unbiased Multiscale Modal Fusion Model for Multimodal Semantic Segmentation</a><span class="venue">Pattern Recognition 2025</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/U3M" target="_blank">Code</a><a href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" target="_blank">Paper</a></div><p class="desc">An unbiased multiscale modal fusion framework for multimodal semantic segmentation.</p></div></article>
+          <article class="pub"><div class="pub-img"><img src="images/rskt.png" alt="RSKT-Seg" onerror="this.src='https://placehold.co/300x180?text=RSKT-Seg'" /></div><div><a class="pub-title" href="https://arxiv.org/pdf/2509.12040" target="_blank">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a><span class="venue">AAAI 2026</span><div class="authors"><strong>Bingyu Li</strong>, H Dong, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/RSKT-Seg" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/RSKT-Seg" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/RSKT-Seg?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/pdf/2509.12040" target="_blank">Paper</a></div><p class="desc">Efficient open-vocabulary segmentation methods tailored to remote sensing imagery.</p></div></article>
+          <article class="pub"><div class="pub-img"><img src="images/pi-seg-1.png" alt="Pi-Seg" onerror="this.src='https://placehold.co/300x180?text=Pi-Seg'" /></div><div><a class="pub-title" href="https://arxiv.org/pdf/2604.15652" target="_blank">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a><span class="venue">arXiv 2026</span><div class="authors"><strong>Bingyu Li</strong>, T Huo, H Dong, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/RSKT-Seg/tree/Pi-Seg" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/RSKT-Seg" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/RSKT-Seg?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/pdf/2604.15652" target="_blank">Paper</a></div><p class="desc">A benchmark and baseline for realistic open-vocabulary remote sensing segmentation.</p></div></article>
+          <article class="pub"><div class="pub-img"><img src="images/maris.png" alt="MARIS" onerror="this.src='https://placehold.co/300x180?text=MARIS'" /></div><div><a class="pub-title" href="https://arxiv.org/abs/2510.15398" target="_blank">MARIS: Marine Open-Vocabulary Instance Segmentation</a><span class="venue">CVPR 2026</span><div class="authors"><strong>Bingyu Li</strong>, F Wang, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/MARIS" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/MARIS" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/MARIS?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/abs/2510.15398" target="_blank">Paper</a></div><p class="desc">A benchmark and method for open-vocabulary instance segmentation in marine environments.</p></div></article>
+          <article class="pub"><div class="pub-img"><img src="images/earth2ocean.png" alt="Earth2Ocean" onerror="this.src='https://placehold.co/300x180?text=Earth2Ocean'" /></div><div><a class="pub-title" href="https://arxiv.org/pdf/2511.07923" target="_blank">Exploring the Underwater World Segmentation without Extra Training</a><span class="venue">CVPR 2026</span><div class="authors"><strong>Bingyu Li</strong>, T Huo, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/Earth2Ocean" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/Earth2Ocean" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/Earth2Ocean?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/pdf/2511.07923" target="_blank">Paper</a></div><p class="desc">Training-free segmentation methods for underwater scenes.</p></div></article>
+          <article class="pub"><div class="pub-img"><img src="images/fgaseg.png" alt="FGAseg" onerror="this.src='https://placehold.co/300x180?text=FGAseg'" /></div><div><a class="pub-title" href="https://arxiv.org/abs/2501.00877" target="_blank">FGAseg: Fine-Grained Pixel-Text Alignment for Open-Vocabulary Semantic Segmentation</a><span class="venue">arXiv 2025</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/FGA-seg" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/FGA-seg" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/FGA-seg?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/abs/2501.00877" target="_blank">Paper</a></div><p class="desc">Fine-grained pixel-text alignment for open-vocabulary semantic segmentation.</p></div></article>
+          <article class="pub"><div class="pub-img"><img src="images/stitchfusion.png" alt="StitchFusion" onerror="this.src='https://placehold.co/300x180?text=StitchFusion'" /></div><div><a class="pub-title" href="https://arxiv.org/pdf/2408.01343" target="_blank">StitchFusion: Weaving Any Visual Modalities to Enhance Multimodal Semantic Segmentation</a><span class="venue">ACM MM 2025</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/StitchFusion" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/StitchFusion" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/StitchFusion?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/pdf/2408.01343" target="_blank">Paper</a></div><p class="desc">A framework for integrating arbitrary visual modalities to improve multimodal semantic segmentation.</p></div></article>
+          <article class="pub"><div class="pub-img"><img src="images/u3m.png" alt="U3M" onerror="this.src='https://placehold.co/300x180?text=U3M'" /></div><div><a class="pub-title" href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" target="_blank">U3M: Unbiased Multiscale Modal Fusion Model for Multimodal Semantic Segmentation</a><span class="venue">Pattern Recognition 2025</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/U3M" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/U3M" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/U3M?style=social" alt="GitHub stars" /></a><a href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" target="_blank">Paper</a></div><p class="desc">An unbiased multiscale modal fusion framework for multimodal semantic segmentation.</p></div></article>
         </div>
 
         <h3 id="pub-world-action" class="pub-group-title"><a href="#pub-world-action">World Action Models</a></h3>
         <div class="pub-list">
-          <article class="pub"><div class="pub-img"><img src="images/QICA.png" alt="QICA" onerror="this.src='https://placehold.co/300x180?text=QICA'" /></div><div><a class="pub-title" href="https://arxiv.org/abs/2603.16129" target="_blank">Boosting Quantitative and Spatial Awareness for Zero-Shot Object Counting</a><span class="venue">CVPR 2026</span><div class="authors">D Zhang, <strong>Bingyu Li</strong>, F Wang, Z Zhao, J Gao</div><div class="links"><a href="https://github.com/zhangda1018/QICA" target="_blank">Code</a><a href="https://arxiv.org/abs/2603.16129" target="_blank">Paper</a></div><p class="desc">Related work on quantitative and spatial awareness for scene-level reasoning. This direction will include more action-conditioned world modeling work as it becomes public.</p></div></article>
+          <article class="pub"><div class="pub-img"><img src="images/QICA.png" alt="QICA" onerror="this.src='https://placehold.co/300x180?text=QICA'" /></div><div><a class="pub-title" href="https://arxiv.org/abs/2603.16129" target="_blank">Boosting Quantitative and Spatial Awareness for Zero-Shot Object Counting</a><span class="venue">CVPR 2026</span><div class="authors">D Zhang, <strong>Bingyu Li</strong>, F Wang, Z Zhao, J Gao</div><div class="links"><a href="https://github.com/zhangda1018/QICA" target="_blank">Code</a><a class="star-badge" href="https://github.com/zhangda1018/QICA" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/zhangda1018/QICA?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/abs/2603.16129" target="_blank">Paper</a></div><p class="desc">Related work on quantitative and spatial awareness for scene-level reasoning. This direction will include more action-conditioned world modeling work as it becomes public.</p></div></article>
           <article class="pub placeholder-pub"><div class="pub-img">World Action Models</div><div><a class="pub-title" href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank">Selected works to be added</a><span class="venue">In progress</span><div class="links"><a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank">Google Scholar</a></div><p class="desc">Action-conditioned world modeling for understanding interactions, dynamics, and future outcomes.</p></div></article>
         </div>
 
