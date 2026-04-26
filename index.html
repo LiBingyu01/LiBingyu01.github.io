@@ -40,19 +40,19 @@
     .nav { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(230,232,236,.86); background: rgba(255,255,255,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
     .nav-inner { width: min(100%, var(--max-width)); margin: 0 auto; padding: 12px 20px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; font-size: 13.5px; font-weight: 600; }
     .nav-inner a { position: relative; padding: 7px 11px; border-radius: 999px; color: #44546a; transition: color .22s ease, background .22s ease, transform .22s ease; }
-    .nav-inner a:hover { color: var(--accent); background: var(--accent-soft); transform: translateY(-1px); text-decoration: none; }
+    .nav-inner a:hover { color: var(--accent); background: var(--accent-soft); transform: translateY(-1px); text-decoion: none; }
 
     .page { width: min(100%, var(--max-width)); margin: 0 auto; padding: 38px 20px 56px; display: grid; grid-template-columns: 268px minmax(0, 1fr); gap: 44px; align-items: start; }
     .sidebar { position: sticky; top: 78px; }
     .portrait { width: 170px; height: 170px; margin-bottom: 21px; border-radius: 12px; object-fit: cover; border: 1px solid var(--line-strong); background: #f3f4f6; box-shadow: var(--shadow-soft); transition: transform .28s ease, box-shadow .28s ease, filter .28s ease; }
-    .portrait:hover { transform: translateY(-3px); box-shadow: var(--shadow); filter: saturate(1.04); }
+    .portrait:hover { transform: translateY(-3px); box-shadow: var(--shadow); filter: satue(1.04); }
     .name { margin: 0 0 6px; font-family: "Source Serif 4", Georgia, serif; font-size: 1.84rem; line-height: 1.16; letter-spacing: -.018em; }
     .role { margin: 0 0 14px; color: var(--muted); font-weight: 500; font-size: 14.5px; }
     .contact-list, .meta-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; font-size: 14px; }
     .contact-list { margin-top: 18px; }
     .contact-list li, .meta-list li { display: flex; align-items: center; gap: 8px; }
     .contact-list i, .meta-list i, .hf-icon { width: 18px; color: var(--accent); display: inline-flex; align-items: center; justify-content: center; }
-    .contact-list li:hover a { color: #0f3048; text-decoration: underline; text-underline-offset: 3px; }
+    .contact-list li:hover a { color: #0f3048; text-decoion: underline; text-underline-offset: 3px; }
     .side-block { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
     .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
     .keyword { border: 1px solid var(--line); background: rgba(255,255,255,.92); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 600; color: #334155; transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease; }
@@ -233,7 +233,7 @@
 
         <h3 id="pub-video-generation" class="pub-group-title"><a href="#pub-video-generation">Generative Video Models</a></h3>
         <div class="pub-list">
-          <article class="pub"><div class="pub-img"><img src="images/RATS.png" alt="RATS" onerror="this.src='https://placehold.co/300x180?text=RATS'" /></div><div><a class="pub-title" href="https://arxiv.org/abs/2604.14910" target="_blank">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a><span class="venue">arXiv 2026</span><div class="authors">Rui Li, <strong>Bingyu Li</strong>, Yuanzhi Liang, Haibin Huang, Chi Zhang, XueLong Li</div><div class="links"><a href="https://arxiv.org/abs/2604.14910" target="_blank">Paper</a><a href="https://huggingface.co/kkk2026" target="_blank">Hugging Face</a></div><p class="desc">Reward-aware trajectory shaping for efficient few-step visual generation across image and video generation settings.</p></div></article>
+          <article class="pub"><div class="pub-img"><img src="images/RATS.png" alt="RATS" onerror="this.src='https://placehold.co/300x180?text=RATS'" /></div><div><a class="pub-title" href="https://arxiv.org/abs/2604.14910" target="_blank">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a><span class="venue">arXiv 2026</span><div class="authors">Rui Li*, <strong>Bingyu Li*</strong>, Yuanzhi Liang, Haibin Huang, Chi Zhang, XueLong Li</div><div class="links"><a href="https://arxiv.org/abs/2604.14910" target="_blank">Paper</a><a href="https://huggingface.co/kkk2026" target="_blank">Hugging Face</a></div><p class="desc">Reward-aware trajectory shaping for efficient few-step visual generation across image and video generation settings.</p></div></article>
         </div>
 
         <h3 id="pub-open-world" class="pub-group-title"><a href="#pub-open-world">Open-World Complex Scene Perception</a></h3>
