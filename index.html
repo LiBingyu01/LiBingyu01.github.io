@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f7fbff;
+      --bg: #ffffff;
       --card: #ffffff;
       --text: #172033;
       --muted: #526175;
@@ -28,9 +28,7 @@
     body {
       margin: 0;
       color: var(--text);
-      background:
-        radial-gradient(circle at 12% 0%, rgba(37, 99, 235, .075), transparent 28%),
-        linear-gradient(180deg, #ffffff 0%, var(--bg) 48%, #f3f9ff 100%);
+      background: #ffffff;
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       line-height: 1.72;
     }
@@ -39,7 +37,7 @@
     img { max-width: 100%; display: block; }
     section[id] { scroll-margin-top: 92px; }
 
-    .nav { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(230,232,236,.86); background: rgba(247,251,255,.90); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(230,232,236,.86); background: rgba(255,255,255,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
     .nav-inner { width: min(100%, var(--max-width)); margin: 0 auto; padding: 12px 20px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; font-size: 13.5px; font-weight: 600; }
     .nav-inner a { position: relative; padding: 7px 11px; border-radius: 999px; color: #44546a; transition: color .22s ease, background .22s ease, transform .22s ease; }
     .nav-inner a:hover { color: var(--accent); background: var(--accent-soft); transform: translateY(-1px); text-decoration: none; }
@@ -57,15 +55,17 @@
     .contact-list li:hover a { color: #0f3048; text-decoration: underline; text-underline-offset: 3px; }
     .side-block { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
     .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .keyword { border: 1px solid var(--line); background: rgba(255,255,255,.8); border-radius: 999px; padding: 4px 10px; font-size: 12.2px; color: #44546a; transition: transform .22s ease, border-color .22s ease, background .22s ease; }
-    .keyword:hover { transform: translateY(-2px); border-color: #c7d5df; background: var(--accent-soft); }
+    .keyword { border: 1px solid var(--line); background: rgba(255,255,255,.92); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 600; color: #334155; transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease; }
+    .keyword:hover { transform: translateY(-2px); border-color: #b8d4f4; background: var(--accent-soft); box-shadow: 0 8px 18px rgba(37,99,235,.10); }
 
     .main { display: grid; gap: 32px; }
-    .hero { padding: 24px 26px 28px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(235,247,255,.72)); box-shadow: 0 10px 28px rgba(37, 99, 235, .055); position: relative; overflow: hidden; }
-    .hero::after { content: ""; position: absolute; right: -80px; top: -80px; width: 210px; height: 210px; border-radius: 50%; background: radial-gradient(circle, rgba(37,99,235,.12), transparent 62%); pointer-events: none; }
+    .hero { padding: 24px 26px 28px; border: 1px solid var(--line); border-radius: 18px; background: #ffffff; box-shadow: 0 10px 28px rgba(18, 32, 50, .045); position: relative; overflow: hidden; }
+    .hero::after { content: none; }
     .eyebrow { position: relative; z-index: 1; margin: 0 0 10px; color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
     .hero h2 { position: relative; z-index: 1; margin: 0 0 12px; max-width: 760px; font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: clamp(1.10rem, 1.55vw, 1.38rem); line-height: 1.35; letter-spacing: .01em; font-weight: 650; color: #17345f; }
     .hero p { margin: 0; max-width: 780px; color: #40516a; font-size: 1rem; }
+    .hero .keywords { margin-top: 18px; gap: 10px; position: relative; z-index: 1; }
+    .hero .keyword { font-size: 14.8px; padding: 7px 16px; }
 
     .section { padding-bottom: 28px; border-bottom: 1px solid var(--line); }
     .section:last-child { border-bottom: 0; }
@@ -151,11 +151,7 @@
             <li><i class="fas fa-location-dot"></i><span>Hefei, China</span></li>
             <li><i class="fas fa-microscope"></i><span>Open-world visual intelligence</span></li>
           </ul>
-          <div class="keywords">
-            <span class="keyword">Open-World Perception</span>
-            <span class="keyword">World Action Models</span>
-            <span class="keyword">Video Generation</span>
-          </div>
+
         </div>
       </div>
     </aside>
@@ -167,6 +163,11 @@
         <p>
           I work on visual intelligence for dynamic open-world environments, focusing on complex scene perception, action-aware world modeling, and controllable video generation.
         </p>
+        <div class="keywords" aria-label="Research directions">
+          <a class="keyword" href="#pub-open-world">Open-World Complex Scene Perception</a>
+          <a class="keyword" href="#pub-world-action">World Action Models</a>
+          <a class="keyword" href="#pub-video-generation">Generative Video Models</a>
+        </div>
       </section>
 
       <section id="about" class="section">
