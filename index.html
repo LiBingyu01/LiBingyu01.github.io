@@ -120,6 +120,47 @@
 
     @media (max-width: 900px) { .page { grid-template-columns: 1fr; gap: 30px; padding-top: 30px; } .sidebar { position: static; display: grid; grid-template-columns: 170px 1fr; gap: 22px; align-items: start; } .portrait { margin-bottom: 0; } .research-grid, .pub-nav, .two-col { grid-template-columns: 1fr; } }
     @media (max-width: 640px) { .nav-inner { justify-content: flex-start; gap: 6px; overflow-x: auto; flex-wrap: nowrap; } .sidebar { display: block; } .portrait { width: 150px; height: 150px; margin-bottom: 18px; } .pub { grid-template-columns: 1fr; } .news-item { grid-template-columns: 1fr; gap: 4px; } .hero { padding: 20px; } }
+
+
+    /* ===== Fullscreen preview when hovering publication thumbnails ===== */
+    .img-preview-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 36px;
+      background: rgba(15, 23, 42, 0.86);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .img-preview-overlay.active {
+      display: flex;
+    }
+
+    .img-preview-overlay img {
+      max-width: 92vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      transform: scale(0.96);
+      opacity: 0;
+      transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+
+    .img-preview-overlay.active img {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .pub-img img {
+      cursor: zoom-in;
+    }
   </style>
 </head>
 <body id="top">
@@ -275,5 +316,30 @@
       <footer class="footer">Copyright 2026 Bingyu Li. Last updated: 2026.</footer>
     </main>
   </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const previewOverlay = document.createElement("div");
+      previewOverlay.className = "img-preview-overlay";
+      previewOverlay.innerHTML = '<img src="" alt="Publication preview" />';
+      document.body.appendChild(previewOverlay);
+
+      const previewImg = previewOverlay.querySelector("img");
+
+      document.querySelectorAll(".pub-img img").forEach(function (img) {
+        img.addEventListener("mouseenter", function () {
+          previewImg.src = img.currentSrc || img.src;
+          previewImg.alt = img.alt || "Publication preview";
+          previewOverlay.classList.add("active");
+        });
+
+        img.addEventListener("mouseleave", function () {
+          previewOverlay.classList.remove("active");
+          previewImg.src = "";
+        });
+      });
+    });
+  </script>
 </body>
 </html>
