@@ -40,19 +40,19 @@
     .nav { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(230,232,236,.86); background: rgba(255,255,255,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
     .nav-inner { width: min(100%, var(--max-width)); margin: 0 auto; padding: 12px 20px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; font-size: 13.5px; font-weight: 600; }
     .nav-inner a { position: relative; padding: 7px 11px; border-radius: 999px; color: #44546a; transition: color .22s ease, background .22s ease, transform .22s ease; }
-    .nav-inner a:hover { color: var(--accent); background: var(--accent-soft); transform: translateY(-1px); text-decoion: none; }
+    .nav-inner a:hover { color: var(--accent); background: var(--accent-soft); transform: translateY(-1px); text-decoration: none; }
 
     .page { width: min(100%, var(--max-width)); margin: 0 auto; padding: 38px 20px 56px; display: grid; grid-template-columns: 268px minmax(0, 1fr); gap: 44px; align-items: start; }
     .sidebar { position: sticky; top: 78px; }
     .portrait { width: 170px; height: 170px; margin-bottom: 21px; border-radius: 12px; object-fit: cover; border: 1px solid var(--line-strong); background: #f3f4f6; box-shadow: var(--shadow-soft); transition: transform .28s ease, box-shadow .28s ease, filter .28s ease; }
-    .portrait:hover { transform: translateY(-3px); box-shadow: var(--shadow); filter: satue(1.04); }
+    .portrait:hover { transform: translateY(-3px); box-shadow: var(--shadow); filter: saturate(1.04); }
     .name { margin: 0 0 6px; font-family: "Source Serif 4", Georgia, serif; font-size: 1.84rem; line-height: 1.16; letter-spacing: -.018em; }
     .role { margin: 0 0 14px; color: var(--muted); font-weight: 500; font-size: 14.5px; }
     .contact-list, .meta-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; font-size: 14px; }
     .contact-list { margin-top: 18px; }
     .contact-list li, .meta-list li { display: flex; align-items: center; gap: 8px; }
     .contact-list i, .meta-list i, .hf-icon { width: 18px; color: var(--accent); display: inline-flex; align-items: center; justify-content: center; }
-    .contact-list li:hover a { color: #0f3048; text-decoion: underline; text-underline-offset: 3px; }
+    .contact-list li:hover a { color: #0f3048; text-decoration: underline; text-underline-offset: 3px; }
     .side-block { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
     .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
     .keyword { border: 1px solid var(--line); background: rgba(255,255,255,.92); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 600; color: #334155; transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease; }
@@ -281,7 +281,41 @@
 
         <h3 id="pub-open-world" class="pub-group-title"><a href="#pub-open-world">Open-World Complex Scene Perception</a></h3>
         <div class="pub-list">
-          <article class="pub"><div class="pub-img"><img src="images/MTRefSeg.png" alt="MTRefSeg" onerror="this.src='https://placehold.co/300x180?text=MTRefSeg'" /></div><div><a class="pub-title" href="https://libingyu01.github.io/MTRefSeg/" target="_blank">OpenMTRefSeg: An Open-Source Benchmark and Baseline for Multi-temporal Referring Segmentation</a><span class="venue">arXiv 2026</span><div class="authors"><strong>Bingyu Li*</strong>, Da Zhang*, Tao Huo, Zhiyuan Zhao, Junyu Gao, Xuelong Li</div><div class="links"><a href="https://libingyu01.github.io/MTRefSeg/" target="_blank">Project Page</a><a href="https://github.com/LiBingyu01/MTRefSeg" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/MTRefSeg" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/MTRefSeg?style=social" alt="GitHub stars" /></a><a href="https://github.com/LiBingyu01/MTRefSeg/tree/Other_MLLM_RCD" target="_blank">Other MLLM RCD</a></div><p class="desc">Introduces Multi-temporal Referring Segmentation (MTRS), where models compare temporally related images and segment the language-described changed region. The work builds MTRefSeg-21K with 21K bi-image-text-mask annotations and proposes MTRefSeg-R1, a change-aware LVLM trained with vision-only temporal pretraining followed by referring multi-temporal fine-tuning.</p></div></article>
+          <article class="pub">
+            <div class="pub-img">
+              <img src="images/MTRefSeg.png" alt="MTRefSeg" onerror="this.src='https://placehold.co/300x180?text=MTRefSeg'" />
+            </div>
+            <div>
+              <a class="pub-title" href="https://arxiv.org/abs/2606.00987" target="_blank">
+                MTRefSeg: An Open-Source Benchmark and Baseline for Multi-temporal Referring Segmentation
+              </a>
+              <span class="venue">arXiv 2026</span>
+
+              <div class="authors">
+                <strong>Bingyu Li*</strong>, Da Zhang*, Tao Huo, Zhiyuan Zhao, Junyu Gao, Xuelong Li
+              </div>
+
+              <div class="links">
+                <a href="https://arxiv.org/abs/2606.00987" target="_blank">Paper</a>
+                <a href="https://libingyu01.github.io/MTRefSeg/" target="_blank">Project Page</a>
+                <a href="https://github.com/LiBingyu01/MTRefSeg" target="_blank">Code</a>
+                <a class="star-badge" href="https://github.com/LiBingyu01/MTRefSeg" target="_blank" aria-label="GitHub stars">
+                  <img src="https://img.shields.io/github/stars/LiBingyu01/MTRefSeg?style=social" alt="GitHub stars" />
+                </a>
+                <a href="https://huggingface.co/datasets/kkk2026/MTRefSeg-21K" target="_blank">Dataset</a>
+                <a href="https://huggingface.co/datasets/kkk2026/MTRefSeg_Pretrained" target="_blank">Pretraining Dataset</a>
+                <a href="https://huggingface.co/kkk2026/MTRefSeg_ckpt" target="_blank">Pretrained Model Weights</a>
+                <a href="https://github.com/LiBingyu01/MTRefSeg/tree/Other_MLLM_RCD" target="_blank">Other LVLMs</a>
+              </div>
+
+              <p class="desc">
+                MTRefSeg introduces Multi-temporal Referring Segmentation (MTRS), where models compare temporally related images
+                and segment the language-described changed region. The work builds MTRefSeg-21K with 21K bi-image-text-mask annotations
+                and proposes MTRefSeg-R1, a change-aware LVLM trained by vision-only temporal pretraining followed by referring
+                multi-temporal fine-tuning.
+              </p>
+            </div>
+          </article>
           <article class="pub"><div class="pub-img"><img src="images/pi-seg-1.png" alt="Pi-Seg" onerror="this.src='https://placehold.co/300x180?text=Pi-Seg'" /></div><div><a class="pub-title" href="https://arxiv.org/pdf/2604.15652" target="_blank">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a><span class="venue">arXiv 2026</span><div class="authors"><strong>Bingyu Li</strong>, T Huo, H Dong, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/RSKT-Seg/tree/Pi-Seg" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/RSKT-Seg" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/RSKT-Seg?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/pdf/2604.15652" target="_blank">Paper</a></div><p class="desc">A benchmark and baseline for realistic open-vocabulary remote sensing segmentation.</p></div></article>
           <article class="pub"><div class="pub-img"><img src="images/rskt.png" alt="RSKT-Seg" onerror="this.src='https://placehold.co/300x180?text=RSKT-Seg'" /></div><div><a class="pub-title" href="https://arxiv.org/pdf/2509.12040" target="_blank">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a><span class="venue">AAAI 2026</span><div class="authors"><strong>Bingyu Li</strong>, H Dong, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/RSKT-Seg" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/RSKT-Seg" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/RSKT-Seg?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/pdf/2509.12040" target="_blank">Paper</a></div><p class="desc">Efficient open-vocabulary segmentation methods tailored to remote sensing imagery.</p></div></article>
           <article class="pub"><div class="pub-img"><img src="images/maris.png" alt="MARIS" onerror="this.src='https://placehold.co/300x180?text=MARIS'" /></div><div><a class="pub-title" href="https://arxiv.org/abs/2510.15398" target="_blank">MARIS: Marine Open-Vocabulary Instance Segmentation</a><span class="venue">CVPR 2026</span><div class="authors"><strong>Bingyu Li</strong>, F Wang, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/MARIS" target="_blank">Code</a><a class="star-badge" href="https://github.com/LiBingyu01/MARIS" target="_blank" aria-label="GitHub stars"><img src="https://img.shields.io/github/stars/LiBingyu01/MARIS?style=social" alt="GitHub stars" /></a><a href="https://arxiv.org/abs/2510.15398" target="_blank">Paper</a></div><p class="desc">A benchmark and method for open-vocabulary instance segmentation in marine environments.</p></div></article>
