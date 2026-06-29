@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bingyu Li — Ph.D. student at USTC. Research on open-world visual perception, world action models, and generative video models." />
-  <meta name="theme-color" content="#f5f3ee" />
-  <title>Bingyu Li · Visual Intelligence</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Bingyu Li — Ph.D. student at USTC. Research on open semantic object state modeling: state recognition/initialization, state maintenance, and action-conditioned state evolution." name="description"/>
+<meta content="#f5f3ee" name="theme-color"/>
+<title>Bingyu Li · Open Semantic Object State Modeling</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --paper: #f5f3ee;
       --paper-deep: #ece8df;
@@ -192,6 +193,25 @@
     .news-date { color: var(--accent); font-size: .76rem; font-weight: 700; letter-spacing: .04em; }
     .news-copy { color: #41403b; font-size: .93rem; }
     .news-copy strong { color: var(--ink); }
+
+
+    .agenda-note {
+      margin: 0 0 30px;
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.42);
+      color: #44433f;
+      font-size: .91rem;
+      line-height: 1.68;
+    }
+    .agenda-note strong { color: var(--ink); }
+    .pub-group-intro {
+      margin: -7px 0 18px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.62;
+    }
 
     .publication-controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 31px; }
     .filter-button {
@@ -387,108 +407,133 @@
   </style>
 </head>
 <body id="top">
-  <header class="site-header" id="siteHeader">
-    <div class="shell nav">
-      <a class="brand" href="#top" aria-label="Bingyu Li homepage">
-        <strong>Bingyu Li</strong><span>李炳煜 · Visual Intelligence</span>
-      </a>
-      <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">☰</button>
-      <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#news">News</a>
-        <a href="#publications">Research</a>
-        <a href="#honors">Honors</a>
-        <a href="#service">Service</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero shell" aria-labelledby="hero-title">
-      <div class="hero-grid">
-        <div class="reveal">
-          <p class="kicker">Bingyu Li · Ph.D. Student at USTC</p>
-          <h1 id="hero-title">Bingyu Li</h1>
-          <p class="hero-lead">
-            I am a Ph.D. student at the <a href="https://en.ustc.edu.cn/" target="_blank" rel="noopener noreferrer">University of Science and Technology of China (USTC)</a>, supervised by <a href="https://scholar.google.com/citations?user=ahUibskAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Prof. Xuelong Li</a>. My research focuses on <strong>open-world visual perception</strong>, <strong>world action models</strong>, and <strong>generative video models</strong>. The long-term goal behind these directions is simple: <span class="vision-statement">Building intelligence for an open and dynamic world.</span>
-          </p>
-          <div class="hero-actions" aria-label="Academic profiles">
-            <a class="text-link" href="mailto:libingyu0205@mail.ustc.edu.cn">Email</a>
-            <a class="text-link" href="https://github.com/LiBingyu01" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a class="text-link" href="https://huggingface.co/kkk2026" target="_blank" rel="noopener noreferrer">Hugging Face</a>
-            <a class="text-link" href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-          </div>
-        </div>
-        <div class="profile-wrap reveal">
-          <div class="profile-frame">
-            <img src="images/me.png" alt="Portrait of Bingyu Li" onerror="this.hidden=true" />
-          </div>
-          <div class="profile-caption"><span><strong>Bingyu Li</strong><br />Ph.D. Student at USTC</span><span>Hefei, China</span></div>
-          <span class="profile-mark">Open-world · Dynamic · Generative</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="research-ribbon shell" aria-label="Research directions">
-      <div class="ribbon-frame ribbon reveal">
-        <div class="ribbon-intro"><span>Research Agenda</span><p>From recognizing what exists to modeling how the world changes.</p></div>
-        <a class="ribbon-item" href="#pub-perception"><span class="index">01 · Perceive</span><h3>Open-World Perception</h3><p>Fine-grained visual understanding under open vocabulary and complex conditions.</p></a>
-        <a class="ribbon-item" href="#pub-world"><span class="index">02 · Model</span><h3>World Action Models</h3><p>Action-conditioned representations for dynamics, interaction, and future outcomes.</p></a>
-        <a class="ribbon-item" href="#pub-generation"><span class="index">03 · Generate</span><h3>Generative Video Models</h3><p>Efficient and controllable synthesis for dynamic scene simulation.</p></a>
-      </div>
-    </section>
-
-    <section id="about" class="section">
+<header class="site-header" id="siteHeader">
+<div class="shell nav">
+<a aria-label="Bingyu Li homepage" class="brand" href="#top">
+<strong>Bingyu Li</strong><span>李炳煜 · Open Semantic Object State Modeling</span>
+</a>
+<button aria-expanded="false" aria-label="Open navigation" class="menu-button" id="menuButton">☰</button>
+<nav aria-label="Primary navigation" class="nav-links" id="navLinks">
+<a href="#about">About</a>
+<a href="#news">News</a>
+<a href="#publications">State Agenda</a>
+<a href="#honors">Honors</a>
+<a href="#service">Service</a>
+</nav>
+</div>
+</header>
+<main>
+<section aria-labelledby="hero-title" class="hero shell">
+<div class="hero-grid">
+<div class="reveal">
+<p class="kicker">Bingyu Li · Open Semantic Object State Modeling</p>
+<h1 id="hero-title">Bingyu Li</h1>
+<p class="hero-lead">
+            I am a Ph.D. student at the <a href="https://en.ustc.edu.cn/" rel="noopener noreferrer" target="_blank">University of Science and Technology of China (USTC)</a>, supervised by <a href="https://scholar.google.com/citations?user=ahUibskAAAAJ&amp;hl=zh-CN" rel="noopener noreferrer" target="_blank">Prof. Xuelong Li</a>. My research focuses on <strong>open semantic object state modeling</strong>: how visual observations and language expressions are unified into structured target states, how these states remain consistent through dynamic observations, and how they evolve under actions and changing viewpoints. The long-term goal behind these directions is simple: <span class="vision-statement">Building intelligence for an open and dynamic world.</span>
+</p>
+<div aria-label="Academic profiles" class="hero-actions">
+<a class="text-link" href="mailto:libingyu0205@mail.ustc.edu.cn">Email</a>
+<a class="text-link" href="https://github.com/LiBingyu01" rel="noopener noreferrer" target="_blank">GitHub</a>
+<a class="text-link" href="https://huggingface.co/kkk2026" rel="noopener noreferrer" target="_blank">Hugging Face</a>
+<a class="text-link" href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" rel="noopener noreferrer" target="_blank">Google Scholar</a>
+</div>
+</div>
+<div class="profile-wrap reveal">
+<div class="profile-frame">
+<img alt="Portrait of Bingyu Li" onerror="this.hidden=true" src="images/me.png"/>
+</div>
+<div class="profile-caption"><span><strong>Bingyu Li</strong><br/>Ph.D. Student at USTC</span><span>Hefei, China</span></div>
+<span class="profile-mark">Initialize · Maintain · Evolve</span>
+</div>
+</div>
+</section>
+<section aria-label="Research directions" class="research-ribbon shell">
+<div class="ribbon-frame ribbon reveal">
+<div class="ribbon-intro"><span>Research Agenda</span><p>Open semantic object states: from recognition and initialization, to persistence, to action-conditioned evolution.</p></div>
+<a class="ribbon-item" href="#pub-state-initialization"><span class="index">01 · Initialize</span><h3>State Initialization</h3><p>Recognize open targets and initialize structured states covering category, description, region, count, and relation.</p></a>
+<a class="ribbon-item" href="#pub-state-maintenance"><span class="index">02 · Maintain</span><h3>State Maintenance</h3><p>Preserve target identity and continuously update semantic, spatial, visible, and motion states through time.</p></a>
+<a class="ribbon-item" href="#pub-state-evolution"><span class="index">03 · Evolve</span><h3>State Evolution</h3><p>Predict future target states under actions and observation paths, then use the prediction for understanding and decision-making.</p></a>
+</div>
+</section>
+<section class="section" id="about">
+<div class="shell section-grid">
+<div class="section-label reveal"><span class="number">01 / PROFILE</span><h2>About</h2><p>Research identity organized around one core scientific problem.</p></div>
+<div class="reveal">
+<div class="prose">
+<p>My current research centers on <strong>open semantic object state modeling</strong>. In open environments, a target is not just a category label or a mask; it is a continuously changing state that may include identity, language description, spatial region, quantity relation, visibility, motion, and future tendency.</p>
+<p>I organize this direction around three connected questions: how open semantic target states are recognized and initialized from vision-language observations, how they are maintained under dynamic observation conditions, and how they evolve when an intelligent agent acts and changes its observation path.</p>
+<div class="statement">Recognize and initialize structured target states, maintain identity-consistent states through time, and evolve future states under action.</div>
+</div>
+<div aria-label="Selected highlights" class="highlight-strip">
+<div class="highlight"><strong>State Initialization</strong><span>Vision-language recognition and state initialization for open categories, descriptions, regions, counts, and relations.</span></div>
+<div class="highlight"><strong>State Maintenance</strong><span>Temporal consistency under viewpoint change, occlusion, motion, and state variation.</span></div>
+<div class="highlight"><strong>State Evolution</strong><span>Action-conditioned future state prediction for understanding and decision-making.</span></div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="news">
+<div class="shell section-grid">
+<div class="section-label reveal"><span class="number">02 / UPDATES</span><h2>News</h2><p>Recent publications and milestones.</p></div>
+<div class="reveal">
+<ul class="news-list">
+<li class="news-item"><span class="news-date">JUN 2026</span><span class="news-copy">Our paper <a href="https://arxiv.org/abs/2606.00987" rel="noopener noreferrer" target="_blank">An Open-Source Benchmark and Baseline for Multi-temporal Referring Segmentation</a> is now available on <strong>arXiv</strong>.</span></li>
+<li class="news-item"><span class="news-date">APR 2026</span><span class="news-copy">Our paper <a href="https://arxiv.org/abs/2604.14910" rel="noopener noreferrer" target="_blank">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a> is now available on <strong>arXiv</strong>.</span></li>
+<li class="news-item"><span class="news-date">APR 2026</span><span class="news-copy">Our paper <a href="https://arxiv.org/pdf/2604.15652" rel="noopener noreferrer" target="_blank">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a> is now available on <strong>arXiv</strong>.</span></li>
+<li class="news-item"><span class="news-date">MAR 2026</span><span class="news-copy">Four papers are accepted by <strong>CVPR 2026</strong>, including two first-author papers.</span></li>
+<li class="news-item"><span class="news-date">NOV 2025</span><span class="news-copy">Our paper <a href="https://arxiv.org/abs/2509.12040" rel="noopener noreferrer" target="_blank">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a> is accepted by <strong>AAAI 2026</strong> as an Oral presentation <strong>(Top ~5%)</strong>.</span></li>
+<li class="news-item"><span class="news-date">OCT 2025</span><span class="news-copy">Awarded the <strong>National Scholarship for Graduate Students</strong>.</span></li>
+<li class="news-item"><span class="news-date">APR 2025</span><span class="news-copy"><a href="https://arxiv.org/pdf/2408.01343" rel="noopener noreferrer" target="_blank">StitchFusion</a> is accepted by <strong>ACM MM 2025</strong> as an Oral presentation.</span></li>
+<li class="news-item"><span class="news-date">SEP 2024</span><span class="news-copy">Started my Ph.D. journey at <strong>USTC</strong>.</span></li>
+</ul>
+</div>
+</div>
+</section>
+    <section class="section" id="publications">
       <div class="shell section-grid">
-        <div class="section-label reveal"><span class="number">01 / PROFILE</span><h2>About</h2><p>Research identity and long-term motivation.</p></div>
-        <div class="reveal">
-          <div class="prose">
-            <p>My research explores how machines can perceive open-ended scenes, associate semantic entities through time, model action-conditioned dynamics, and generate plausible futures.</p>
-            <p>I am particularly interested in connecting these capabilities into a coherent framework for visual intelligence, spanning fine-grained perception, temporal reasoning, world modeling, and controllable generation.</p>
-            <div class="statement">Perceive the environment, associate entities through time, model spatial dynamics, and generate plausible futures.</div>
-          </div>
-          <div class="highlight-strip" aria-label="Selected highlights">
-            <div class="highlight"><strong>4 × CVPR 2026</strong><span>Two first-author papers among four accepted works.</span></div>
-            <div class="highlight"><strong>AAAI 2026 Oral</strong><span>Research on efficient open-vocabulary segmentation.</span></div>
-            <div class="highlight"><strong>National Scholarship</strong><span>Awarded in 2025.</span></div>
-          </div>
+        <div class="section-label reveal">
+          <span class="number">03 / RESEARCH</span>
+          <h2>Selected Work</h2>
+          <p>Projects organized by the three stages of open semantic object state modeling.</p>
         </div>
-      </div>
-    </section>
-
-    <section id="news" class="section">
-      <div class="shell section-grid">
-        <div class="section-label reveal"><span class="number">02 / UPDATES</span><h2>News</h2><p>Recent publications and milestones.</p></div>
         <div class="reveal">
-          <ul class="news-list">
-            <li class="news-item"><span class="news-date">JUN 2026</span><span class="news-copy">Our paper <a href="https://arxiv.org/abs/2606.00987" target="_blank" rel="noopener noreferrer">An Open-Source Benchmark and Baseline for Multi-temporal Referring Segmentation</a> is now available on <strong>arXiv</strong>.</span></li>
-            <li class="news-item"><span class="news-date">APR 2026</span><span class="news-copy">Our paper <a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a> is now available on <strong>arXiv</strong>.</span></li>
-            <li class="news-item"><span class="news-date">APR 2026</span><span class="news-copy">Our paper <a href="https://arxiv.org/pdf/2604.15652" target="_blank" rel="noopener noreferrer">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a> is now available on <strong>arXiv</strong>.</span></li>
-            <li class="news-item"><span class="news-date">MAR 2026</span><span class="news-copy">Four papers are accepted by <strong>CVPR 2026</strong>, including two first-author papers.</span></li>
-            <li class="news-item"><span class="news-date">NOV 2025</span><span class="news-copy">Our paper <a href="https://arxiv.org/abs/2509.12040" target="_blank" rel="noopener noreferrer">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a> is accepted by <strong>AAAI 2026</strong> as an Oral presentation <strong>(Top ~5%)</strong>.</span></li>
-            <li class="news-item"><span class="news-date">OCT 2025</span><span class="news-copy">Awarded the <strong>National Scholarship for Graduate Students</strong>.</span></li>
-            <li class="news-item"><span class="news-date">APR 2025</span><span class="news-copy"><a href="https://arxiv.org/pdf/2408.01343" target="_blank" rel="noopener noreferrer">StitchFusion</a> is accepted by <strong>ACM MM 2025</strong> as an Oral presentation.</span></li>
-            <li class="news-item"><span class="news-date">SEP 2024</span><span class="news-copy">Started my Ph.D. journey at <strong>USTC</strong>.</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="publications" class="section">
-      <div class="shell section-grid">
-        <div class="section-label reveal"><span class="number">03 / RESEARCH</span><h2>Selected Work</h2><p>Projects organized by the questions they address.</p></div>
-        <div class="reveal">
-          <div class="publication-controls" role="group" aria-label="Filter publications">
+          <div class="agenda-note">
+            <strong>Core scientific question.</strong> How can an intelligent system continuously model open semantic object states—from the first recognition and state initialization, through temporal identity-preserving updates, to action-conditioned future prediction?
+          </div>
+          <div aria-label="Filter publications" class="publication-controls" role="group">
             <button class="filter-button active" data-filter="all">All</button>
-            <button class="filter-button" data-filter="perception">Open-World Perception</button>
-            <button class="filter-button" data-filter="world">World Action Models</button>
-            <button class="filter-button" data-filter="generation">Generative Models</button>
+            <button class="filter-button" data-filter="state-initialization">State Initialization</button>
+            <button class="filter-button" data-filter="state-maintenance">State Maintenance</button>
+            <button class="filter-button" data-filter="state-evolution">State Evolution</button>
           </div>
-          <p class="publication-note">* denotes equal contribution. A complete list is available on <a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&hl=zh-CN" target="_blank" rel="noopener noreferrer">Google Scholar</a>.</p>
+          <p class="publication-note">* denotes equal contribution. A complete list is available on <a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" rel="noopener noreferrer" target="_blank">Google Scholar</a>.</p>
 
-          <div class="pub-group" data-group="perception">
-            <div class="pub-group-head"><h3 id="pub-perception" class="pub-group-title">Open-World Perception</h3><span class="pub-group-count">Selected publications</span></div>
-            <div class="pub-list"><article class="pub publication-card" data-category="perception">
+          <div class="pub-group" data-group="state-initialization">
+            <div class="pub-group-head">
+              <h3 class="pub-group-title" id="pub-state-initialization">01 · Open Semantic Target State Initialization</h3>
+              <span class="pub-group-count">Vision-language grounding</span>
+            </div>
+            <p class="pub-group-intro">This line studies how open-category, open-description, open-form, and relation-rich targets can be recognized from visual observations and language expressions, then initialized as structured object states.</p>
+            <div class="pub-list">
+              <article class="pub publication-card" data-category="state-initialization"><div aria-label="Preview Pi-Seg" class="pub-img" data-label="Pi-Seg" role="button" tabindex="0"><img alt="Pi-Seg" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/pi-seg-1.png"/></div><div><a class="pub-title" href="https://arxiv.org/pdf/2604.15652" rel="noopener noreferrer" target="_blank">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a><span class="venue">arXiv 2026</span><div class="authors"><strong>Bingyu Li</strong>, T Huo, H Dong, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/RSKT-Seg/tree/Pi-Seg" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/LiBingyu01/RSKT-Seg" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LiBingyu01/RSKT-Seg?style=social"/></a><a href="https://arxiv.org/pdf/2604.15652" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">A benchmark and baseline for realistic open-vocabulary remote sensing segmentation.</p></div></article>
+              <article class="pub publication-card" data-category="state-initialization"><div aria-label="Preview RSKT-Seg" class="pub-img" data-label="RSKT-Seg" role="button" tabindex="0"><img alt="RSKT-Seg" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/rskt.png"/></div><div><a class="pub-title" href="https://arxiv.org/pdf/2509.12040" rel="noopener noreferrer" target="_blank">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a><span class="venue">AAAI 2026</span><span class="oral-badge top" title="Selected for an AAAI 2026 Oral presentation; approximately top 5% of submissions">Oral · Top ~5%</span><div class="authors"><strong>Bingyu Li</strong>, H Dong, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/RSKT-Seg" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/LiBingyu01/RSKT-Seg" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LiBingyu01/RSKT-Seg?style=social"/></a><a href="https://arxiv.org/pdf/2509.12040" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">Efficient open-vocabulary segmentation methods tailored to remote sensing imagery.</p></div></article>
+              <article class="pub publication-card" data-category="state-initialization"><div aria-label="Preview MARIS" class="pub-img" data-label="MARIS" role="button" tabindex="0"><img alt="MARIS" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/maris.png"/></div><div><a class="pub-title" href="https://arxiv.org/abs/2510.15398" rel="noopener noreferrer" target="_blank">MARIS: Marine Open-Vocabulary Instance Segmentation</a><span class="venue">CVPR 2026</span><div class="authors"><strong>Bingyu Li</strong>, F Wang, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/MARIS" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/LiBingyu01/MARIS" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LiBingyu01/MARIS?style=social"/></a><a href="https://arxiv.org/abs/2510.15398" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">A benchmark and method for open-vocabulary instance segmentation in marine environments.</p></div></article>
+              <article class="pub publication-card" data-category="state-initialization"><div aria-label="Preview Earth2Ocean" class="pub-img" data-label="Earth2Ocean" role="button" tabindex="0"><img alt="Earth2Ocean" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/earth2ocean.png"/></div><div><a class="pub-title" href="https://arxiv.org/pdf/2511.07923" rel="noopener noreferrer" target="_blank">Exploring the Underwater World Segmentation without Extra Training</a><span class="venue">CVPR 2026</span><div class="authors"><strong>Bingyu Li</strong>, T Huo, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/Earth2Ocean" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/LiBingyu01/Earth2Ocean" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LiBingyu01/Earth2Ocean?style=social"/></a><a href="https://arxiv.org/pdf/2511.07923" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">Training-free segmentation methods for underwater scenes.</p></div></article>
+              <article class="pub publication-card" data-category="state-initialization"><div aria-label="Preview StitchFusion" class="pub-img" data-label="StitchFusion" role="button" tabindex="0"><img alt="StitchFusion" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/stitchfusion.png"/></div><div><a class="pub-title" href="https://arxiv.org/pdf/2408.01343" rel="noopener noreferrer" target="_blank">StitchFusion: Weaving Any Visual Modalities to Enhance Multimodal Semantic Segmentation</a><span class="venue">ACM MM 2025</span><span class="oral-badge" title="Selected for an Oral presentation at ACM Multimedia 2025">Oral</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/StitchFusion" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/LiBingyu01/StitchFusion" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LiBingyu01/StitchFusion?style=social"/></a><a href="https://arxiv.org/pdf/2408.01343" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">A framework for integrating arbitrary visual modalities to improve multimodal semantic segmentation.</p></div></article>
+              <article class="pub publication-card" data-category="state-initialization"><div aria-label="Preview U3M" class="pub-img" data-label="U3M" role="button" tabindex="0"><img alt="U3M" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/u3m.png"/></div><div><a class="pub-title" href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" rel="noopener noreferrer" target="_blank">U3M: Unbiased Multiscale Modal Fusion Model for Multimodal Semantic Segmentation</a><span class="venue">Pattern Recognition 2025</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/U3M" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/LiBingyu01/U3M" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LiBingyu01/U3M?style=social"/></a><a href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">An unbiased multiscale modal fusion framework for multimodal semantic segmentation.</p></div></article>
+              <article class="pub publication-card" data-category="state-initialization"><div aria-label="Preview QICA" class="pub-img" data-label="QICA" role="button" tabindex="0"><img alt="QICA" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/QICA.png"/></div><div><a class="pub-title" href="https://arxiv.org/abs/2603.16129" rel="noopener noreferrer" target="_blank">Boosting Quantitative and Spatial Awareness for Zero-Shot Object Counting</a><span class="venue">CVPR 2026</span><div class="authors">D Zhang, <strong>Bingyu Li</strong>, F Wang, Z Zhao, J Gao</div><div class="links"><a href="https://github.com/zhangda1018/QICA" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/zhangda1018/QICA" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/zhangda1018/QICA?style=social"/></a><a href="https://arxiv.org/abs/2603.16129" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">Quantitative and spatial awareness for zero-shot object counting in complex scenes, supporting robust perception under open-ended visual conditions.</p></div></article>
+              <article class="pub publication-card" data-category="state-initialization"><div aria-label="Preview FGAseg" class="pub-img" data-label="FGAseg" role="button" tabindex="0"><img alt="FGAseg" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/fgaseg.png"/></div><div><a class="pub-title" href="https://arxiv.org/abs/2501.00877" rel="noopener noreferrer" target="_blank">FGAseg: Fine-Grained Pixel-Text Alignment for Open-Vocabulary Semantic Segmentation</a><span class="venue">arXiv 2025</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/FGA-seg" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/LiBingyu01/FGA-seg" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LiBingyu01/FGA-seg?style=social"/></a><a href="https://arxiv.org/abs/2501.00877" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">Fine-grained pixel-text alignment for open-vocabulary semantic segmentation.</p></div></article>
+            </div>
+          </div>
+
+          <div class="pub-group" data-group="state-maintenance">
+            <div class="pub-group-head">
+              <h3 class="pub-group-title" id="pub-state-maintenance">02 · Open Semantic Target State Maintenance</h3>
+              <span class="pub-group-count">Temporal consistency</span>
+            </div>
+            <p class="pub-group-intro">This line studies how target identity and state variables can be preserved and updated under temporal change, viewpoint variation, occlusion, visibility shifts, and motion.</p>
+            <div class="pub-list">
+              <article class="pub publication-card" data-category="state-maintenance">
 <div aria-label="Preview MTRefSeg" class="pub-img" data-label="MTRefSeg" role="button" tabindex="0">
 <img alt="MTRefSeg" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/MTRefSeg.png"/>
 </div>
@@ -520,63 +565,61 @@
               </p>
 </div>
 </article>
-<article class="pub publication-card" data-category="perception"><div aria-label="Preview Pi-Seg" class="pub-img" data-label="Pi-Seg" role="button" tabindex="0"><img alt="Pi-Seg" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/pi-seg-1.png"/></div><div><a class="pub-title" href="https://arxiv.org/pdf/2604.15652" rel="noopener noreferrer" target="_blank">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a><span class="venue">arXiv 2026</span><div class="authors"><strong>Bingyu Li</strong>, T Huo, H Dong, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/RSKT-Seg/tree/Pi-Seg" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/LiBingyu01/RSKT-Seg" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LiBingyu01/RSKT-Seg?style=social"/></a><a href="https://arxiv.org/pdf/2604.15652" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">A benchmark and baseline for realistic open-vocabulary remote sensing segmentation.</p></div></article>
-<article class="pub publication-card" data-category="perception"><div aria-label="Preview RSKT-Seg" class="pub-img" data-label="RSKT-Seg" role="button" tabindex="0"><img alt="RSKT-Seg" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/rskt.png"/></div><div><a class="pub-title" href="https://arxiv.org/pdf/2509.12040" rel="noopener noreferrer" target="_blank">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a><span class="venue">AAAI 2026</span><span class="oral-badge top" title="Selected for an AAAI 2026 Oral presentation; approximately top 5% of submissions">Oral · Top ~5%</span><div class="authors"><strong>Bingyu Li</strong>, H Dong, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/RSKT-Seg" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/LiBingyu01/RSKT-Seg" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LiBingyu01/RSKT-Seg?style=social"/></a><a href="https://arxiv.org/pdf/2509.12040" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">Efficient open-vocabulary segmentation methods tailored to remote sensing imagery.</p></div></article>
-<article class="pub publication-card" data-category="perception"><div aria-label="Preview MARIS" class="pub-img" data-label="MARIS" role="button" tabindex="0"><img alt="MARIS" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/maris.png"/></div><div><a class="pub-title" href="https://arxiv.org/abs/2510.15398" rel="noopener noreferrer" target="_blank">MARIS: Marine Open-Vocabulary Instance Segmentation</a><span class="venue">CVPR 2026</span><div class="authors"><strong>Bingyu Li</strong>, F Wang, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/MARIS" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/LiBingyu01/MARIS" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LiBingyu01/MARIS?style=social"/></a><a href="https://arxiv.org/abs/2510.15398" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">A benchmark and method for open-vocabulary instance segmentation in marine environments.</p></div></article>
-<article class="pub publication-card" data-category="perception"><div aria-label="Preview Earth2Ocean" class="pub-img" data-label="Earth2Ocean" role="button" tabindex="0"><img alt="Earth2Ocean" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/earth2ocean.png"/></div><div><a class="pub-title" href="https://arxiv.org/pdf/2511.07923" rel="noopener noreferrer" target="_blank">Exploring the Underwater World Segmentation without Extra Training</a><span class="venue">CVPR 2026</span><div class="authors"><strong>Bingyu Li</strong>, T Huo, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/Earth2Ocean" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/LiBingyu01/Earth2Ocean" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LiBingyu01/Earth2Ocean?style=social"/></a><a href="https://arxiv.org/pdf/2511.07923" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">Training-free segmentation methods for underwater scenes.</p></div></article>
-<article class="pub publication-card" data-category="perception"><div aria-label="Preview StitchFusion" class="pub-img" data-label="StitchFusion" role="button" tabindex="0"><img alt="StitchFusion" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/stitchfusion.png"/></div><div><a class="pub-title" href="https://arxiv.org/pdf/2408.01343" rel="noopener noreferrer" target="_blank">StitchFusion: Weaving Any Visual Modalities to Enhance Multimodal Semantic Segmentation</a><span class="venue">ACM MM 2025</span><span class="oral-badge" title="Selected for an Oral presentation at ACM Multimedia 2025">Oral</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/StitchFusion" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/LiBingyu01/StitchFusion" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LiBingyu01/StitchFusion?style=social"/></a><a href="https://arxiv.org/pdf/2408.01343" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">A framework for integrating arbitrary visual modalities to improve multimodal semantic segmentation.</p></div></article>
-<article class="pub publication-card" data-category="perception"><div aria-label="Preview U3M" class="pub-img" data-label="U3M" role="button" tabindex="0"><img alt="U3M" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/u3m.png"/></div><div><a class="pub-title" href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" rel="noopener noreferrer" target="_blank">U3M: Unbiased Multiscale Modal Fusion Model for Multimodal Semantic Segmentation</a><span class="venue">Pattern Recognition 2025</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/U3M" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/LiBingyu01/U3M" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LiBingyu01/U3M?style=social"/></a><a href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">An unbiased multiscale modal fusion framework for multimodal semantic segmentation.</p></div></article>
-<article class="pub publication-card" data-category="perception"><div aria-label="Preview QICA" class="pub-img" data-label="QICA" role="button" tabindex="0"><img alt="QICA" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/QICA.png"/></div><div><a class="pub-title" href="https://arxiv.org/abs/2603.16129" rel="noopener noreferrer" target="_blank">Boosting Quantitative and Spatial Awareness for Zero-Shot Object Counting</a><span class="venue">CVPR 2026</span><div class="authors">D Zhang, <strong>Bingyu Li</strong>, F Wang, Z Zhao, J Gao</div><div class="links"><a href="https://github.com/zhangda1018/QICA" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/zhangda1018/QICA" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/zhangda1018/QICA?style=social"/></a><a href="https://arxiv.org/abs/2603.16129" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">Quantitative and spatial awareness for zero-shot object counting in complex scenes, supporting robust perception under open-ended visual conditions.</p></div></article>
-<article class="pub publication-card" data-category="perception"><div aria-label="Preview FGAseg" class="pub-img" data-label="FGAseg" role="button" tabindex="0"><img alt="FGAseg" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/fgaseg.png"/></div><div><a class="pub-title" href="https://arxiv.org/abs/2501.00877" rel="noopener noreferrer" target="_blank">FGAseg: Fine-Grained Pixel-Text Alignment for Open-Vocabulary Semantic Segmentation</a><span class="venue">arXiv 2025</span><div class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</div><div class="links"><a href="https://github.com/LiBingyu01/FGA-seg" rel="noopener noreferrer" target="_blank">Code</a><a aria-label="GitHub stars" class="star-badge" href="https://github.com/LiBingyu01/FGA-seg" rel="noopener noreferrer" target="_blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LiBingyu01/FGA-seg?style=social"/></a><a href="https://arxiv.org/abs/2501.00877" rel="noopener noreferrer" target="_blank">Paper</a></div><p class="desc">Fine-grained pixel-text alignment for open-vocabulary semantic segmentation.</p></div></article></div>
+              <article class="pub placeholder-pub publication-card" data-category="state-maintenance">
+<div aria-label="Open Semantic State Maintenance" class="pub-img" data-label="State Maintenance" role="img" tabindex="-1">State Maintenance</div>
+<div>
+<a class="pub-title" href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" rel="noopener noreferrer" target="_blank">Open Semantic Object State Maintenance in Dynamic Observation</a><span class="venue">In progress</span>
+<div class="links"><a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" rel="noopener noreferrer" target="_blank">Google Scholar</a></div>
+<p class="desc">A continuing direction toward language-guided target identity preservation, state update, and active re-identification under temporal change, viewpoint shift, occlusion, and motion.</p>
+</div>
+</article>
+            </div>
           </div>
 
-          <div class="pub-group" data-group="generation">
-            <div class="pub-group-head"><h3 id="pub-generation" class="pub-group-title">Generative Video Models</h3><span class="pub-group-count">Selected publications</span></div>
-            <div class="pub-list"><article class="pub publication-card" data-category="generation"><div aria-label="Preview RATS" class="pub-img" data-label="RATS" role="button" tabindex="0"><img alt="RATS" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/RATS.png"/></div><div><a class="pub-title" href="https://arxiv.org/abs/2604.14910" rel="noopener noreferrer" target="_blank">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a><span class="venue">arXiv 2026</span><div class="authors">Rui Li*, <strong>Bingyu Li*</strong>, Yuanzhi Liang, Haibin Huang, Chi Zhang, XueLong Li</div><div class="links"><a href="https://arxiv.org/abs/2604.14910" rel="noopener noreferrer" target="_blank">Paper</a><a href="https://rlustc.github.io/Rats/" rel="noopener noreferrer" target="_blank">Paper Page</a></div><p class="desc">Reward-aware trajectory shaping for efficient few-step visual generation across image and video generation settings.</p></div></article></div>
-          </div>
-
-          <div class="pub-group" data-group="world">
-            <div class="pub-group-head"><h3 id="pub-world" class="pub-group-title">World Action Models</h3><span class="pub-group-count">Ongoing direction</span></div>
-            <div class="pub-list"><article class="pub placeholder-pub publication-card" data-category="world"><div aria-label="World Action Models" class="pub-img" data-label="World Action Models" role="img" tabindex="-1">World Action Models</div><div><a class="pub-title" href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" rel="noopener noreferrer" target="_blank">Selected works to be added</a><span class="venue">In progress</span><div class="links"><a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" rel="noopener noreferrer" target="_blank">Google Scholar</a></div><p class="desc">Action-conditioned world modeling for understanding interactions, dynamics, and future outcomes.</p></div></article></div>
+          <div class="pub-group" data-group="state-evolution">
+            <div class="pub-group-head">
+              <h3 class="pub-group-title" id="pub-state-evolution">03 · Open Semantic Target State Evolution</h3>
+              <span class="pub-group-count">Action-conditioned prediction</span>
+            </div>
+            <p class="pub-group-intro">This line studies how target states change under external dynamics, agent actions, and observation paths, enabling predictive understanding and decision-oriented modeling.</p>
+            <div class="pub-list">
+              <article class="pub publication-card" data-category="state-evolution"><div aria-label="Preview RATS" class="pub-img" data-label="RATS" role="button" tabindex="0"><img alt="RATS" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('is-fallback')" src="images/RATS.png"/></div><div><a class="pub-title" href="https://arxiv.org/abs/2604.14910" rel="noopener noreferrer" target="_blank">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a><span class="venue">arXiv 2026</span><div class="authors">Rui Li*, <strong>Bingyu Li*</strong>, Yuanzhi Liang, Haibin Huang, Chi Zhang, XueLong Li</div><div class="links"><a href="https://arxiv.org/abs/2604.14910" rel="noopener noreferrer" target="_blank">Paper</a><a href="https://rlustc.github.io/Rats/" rel="noopener noreferrer" target="_blank">Paper Page</a></div><p class="desc">Reward-aware trajectory shaping for efficient few-step visual generation across image and video generation settings.</p></div></article>
+              <article class="pub placeholder-pub publication-card" data-category="state-evolution"><div aria-label="World Action Models" class="pub-img" data-label="State Evolution" role="img" tabindex="-1">State Evolution</div><div><a class="pub-title" href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" rel="noopener noreferrer" target="_blank">Action-Conditioned Open Semantic State Evolution</a><span class="venue">In progress</span><div class="links"><a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" rel="noopener noreferrer" target="_blank">Google Scholar</a></div><p class="desc">Action-conditioned world modeling for predicting target future states, observation-dependent dynamics, and decision-relevant outcomes in embodied open environments.</p></div></article>
+            </div>
           </div>
         </div>
       </div>
     </section>
-
-    <section id="honors" class="section">
-      <div class="shell section-grid">
-        <div class="section-label reveal"><span class="number">04 / RECOGNITION</span><h2>Honors</h2><p>Selected academic recognition.</p></div>
-        <div class="service-grid reveal">
-          <div class="service-card"><h3>National Scholarship</h3><p>National Scholarship for Graduate Students, 2025.</p></div>
-          <div class="service-card"><h3>Oral Presentations</h3><p>AAAI 2026 Oral and ACM MM 2025 Oral.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="service" class="section">
-      <div class="shell section-grid">
-        <div class="section-label reveal"><span class="number">05 / COMMUNITY</span><h2>Academic Service</h2><p>Peer review for journals and conferences.</p></div>
-        <div class="service-grid reveal">
-          <div class="service-card"><h3>Journal Reviewer</h3><p>IEEE TPAMI, IEEE TNNLS, IEEE TGRS, Pattern Recognition, and related journals.</p></div>
-          <div class="service-card"><h3>Conference Reviewer</h3><p>CVPR, NeurIPS, ICLR, and other major conferences.</p></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="shell footer-grid">
-      <div><div class="footer-name">Bingyu Li</div><a class="back-top" href="#top">Back to top ↑</a></div>
-      <div class="footer-meta">© 2026 Bingyu Li. Designed as an editorial academic portfolio. Last updated June 2026.</div>
-    </div>
-  </footer>
-
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Publication image preview">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">×</button>
-    <img id="lightboxImage" src="" alt="" />
-  </div>
-
-  <script>
+<section class="section" id="honors">
+<div class="shell section-grid">
+<div class="section-label reveal"><span class="number">04 / RECOGNITION</span><h2>Honors</h2><p>Selected academic recognition.</p></div>
+<div class="service-grid reveal">
+<div class="service-card"><h3>National Scholarship</h3><p>National Scholarship for Graduate Students, 2025.</p></div>
+<div class="service-card"><h3>Oral Presentations</h3><p>AAAI 2026 Oral and ACM MM 2025 Oral.</p></div>
+</div>
+</div>
+</section>
+<section class="section" id="service">
+<div class="shell section-grid">
+<div class="section-label reveal"><span class="number">05 / COMMUNITY</span><h2>Academic Service</h2><p>Peer review for journals and conferences.</p></div>
+<div class="service-grid reveal">
+<div class="service-card"><h3>Journal Reviewer</h3><p>IEEE TPAMI, IEEE TNNLS, IEEE TGRS, Pattern Recognition, and related journals.</p></div>
+<div class="service-card"><h3>Conference Reviewer</h3><p>CVPR, NeurIPS, ICLR, and other major conferences.</p></div>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="shell footer-grid">
+<div><div class="footer-name">Bingyu Li</div><a class="back-top" href="#top">Back to top ↑</a></div>
+<div class="footer-meta">© 2026 Bingyu Li. Designed around open semantic object state modeling. Last updated June 2026.</div>
+</div>
+</footer>
+<div aria-label="Publication image preview" aria-modal="true" class="lightbox" id="lightbox" role="dialog">
+<button aria-label="Close preview" class="lightbox-close" id="lightboxClose">×</button>
+<img alt="" id="lightboxImage" src=""/>
+</div>
+<script>
     (() => {
       const header = document.getElementById('siteHeader');
       const menuButton = document.getElementById('menuButton');
