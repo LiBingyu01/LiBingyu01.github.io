@@ -7,82 +7,198 @@
   <title>Bingyu Li</title>
   <style>
     :root {
-      --text: #222;
-      --muted: #666;
-      --link: #4f6f8f;
+      --bg: #fafbfc;
+      --panel: #ffffff;
+      --text: #1f2430;
+      --muted: #667085;
+      --link: #356a9a;
+      --line: #e9edf3;
+      --soft: #f3f6fa;
       --red: #d62728;
-      --line: #e7e7e7;
-      --max-width: 960px;
+      --shadow: 0 10px 28px rgba(21, 34, 50, 0.06);
+      --radius: 18px;
+      --content-width: 1380px;
+      --nav-height: 70px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: #fff;
+      background: var(--bg);
       color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 15px;
-      line-height: 1.55;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.72;
       -webkit-font-smoothing: antialiased;
     }
     a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    img { max-width: 100%; }
+    img { max-width: 100%; display: block; }
 
-    .page {
-      width: min(calc(100% - 36px), var(--max-width));
-      margin: 36px auto;
-      padding: 22px 14px 48px;
-      background: #fff;
-      border: none;
-      box-shadow: none;
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
-
-    .profile {
-      display: grid;
-      grid-template-columns: 210px minmax(0, 1fr);
-      gap: 34px;
+    .topnav-inner {
+      width: min(calc(100% - 40px), var(--content-width));
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
       align-items: center;
-      margin-bottom: 26px;
+      justify-content: space-between;
+      gap: 18px;
     }
-    .portrait {
-      width: 205px;
-      height: 245px;
+    .brand {
+      font-size: 15px;
+      font-weight: 700;
+      color: #4b5563;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .nav-links a {
+      color: #5d6777;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 4px;
+      white-space: nowrap;
+    }
+    .nav-links a:hover {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .layout {
+      width: min(calc(100% - 40px), var(--content-width));
+      margin: 28px auto 40px;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 30px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px);
+    }
+    .sidebar-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 26px 24px;
+    }
+    .sidebar-photo {
+      width: 190px;
+      height: 190px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
       object-fit: cover;
       object-position: center;
-      border-radius: 2px;
-      background: #f2f2f2;
+      background: #f1f3f6;
+      border: 6px solid #f8fafc;
+      box-shadow: 0 4px 18px rgba(36, 56, 82, 0.10);
     }
-    .profile h1 {
-      margin: 0 0 7px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 34px;
+    .sidebar-name {
+      margin: 0 0 6px;
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      font-size: 26px;
       line-height: 1.2;
-      font-weight: 500;
+      text-align: left;
     }
-    .cn-name { font-size: 23px; color: #444; }
-    .identity { margin: 4px 0; font-size: 16px; }
-    .affiliation { margin: 1px 0; }
-    .contact { margin: 14px 0 6px; }
-    .profile-links { margin-top: 8px; }
-    .profile-links a { margin-right: 0; white-space: nowrap; }
-
-    h2 {
-      margin: 26px 0 12px;
-      padding-bottom: 4px;
-      border-bottom: 1px solid var(--line);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 23px;
-      line-height: 1.3;
+    .sidebar-cn {
+      color: #555;
+      font-size: 0.92em;
+      font-weight: 400;
+    }
+    .sidebar-school {
+      color: #374151;
+      font-size: 16px;
+      margin: 0 0 18px;
+    }
+    .sidebar-role {
+      color: #4b5563;
+      margin: 0 0 22px;
+      font-size: 15px;
+    }
+    .sidebar-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .sidebar-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: #374151;
+      font-size: 15px;
+    }
+    .sidebar-item .icon {
+      width: 20px;
+      text-align: center;
+      color: #6b7280;
+      flex: 0 0 20px;
+      margin-top: 1px;
+    }
+    .sidebar-links {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      gap: 12px;
+    }
+    .sidebar-links a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #3d4a5c;
       font-weight: 600;
     }
-    p { margin: 7px 0; }
-    strong { font-weight: 700; }
-    .research-line { margin-top: 10px; }
+    .sidebar-links a:hover {
+      text-decoration: none;
+      color: var(--link);
+    }
+
+    .content {
+      min-width: 0;
+    }
+    .section-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px 28px;
+      margin-bottom: 22px;
+      scroll-margin-top: 96px;
+    }
+    .section-heading {
+      margin: 0 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      font-size: 28px;
+      line-height: 1.25;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    p { margin: 8px 0; }
+    strong { font-weight: 600; }
     .vision {
-      margin-top: 11px;
-      color: #333;
+      margin-top: 14px;
+      color: #4a5666;
       font-style: italic;
     }
 
@@ -92,117 +208,183 @@
       padding-left: 20px;
     }
     .news-list li,
-    .plain-list li { margin: 4px 0; }
-    .news-list strong { color: #111; }
-    .oral { color: var(--red); font-weight: 700; }
+    .plain-list li {
+      margin: 8px 0;
+    }
+    .oral {
+      color: var(--red);
+      font-weight: 600;
+    }
 
     .pub-note {
       display: inline;
       color: var(--muted);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 13px;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
       font-weight: 400;
     }
     .publication {
       display: grid;
-      grid-template-columns: 215px minmax(0, 1fr);
+      grid-template-columns: 220px minmax(0, 1fr);
       gap: 24px;
       align-items: center;
-      padding: 13px 0;
+      padding: 18px 0;
     }
-    .publication + .publication { border-top: 1px solid #f0f0f0; }
+    .publication + .publication {
+      border-top: 1px solid #f0f2f5;
+    }
     .pub-image {
-      width: 215px;
-      min-height: 118px;
+      width: 220px;
+      min-height: 128px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       background: #fff;
+      border-radius: 14px;
+      border: 1px solid #edf1f5;
+      padding: 8px;
     }
     .pub-image img {
-      display: block;
       width: 100%;
       height: auto;
-      max-height: 150px;
+      max-height: 154px;
       object-fit: contain;
     }
     .pub-title {
       display: inline-block;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
       color: var(--link);
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 1.4;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.42;
+      letter-spacing: -0.01em;
     }
-    .authors { margin: 2px 0; color: #333; }
-    .venue { margin: 2px 0; font-style: italic; }
-    .pub-links { margin-top: 4px; }
-    .pub-links a { margin-right: 0; }
+    .authors { margin: 4px 0; color: #3f3f46; }
+    .venue { margin: 4px 0; color: #525866; font-style: italic; }
+    .pub-links { margin-top: 6px; }
     .badge {
       display: inline-block;
-      margin-left: 7px;
+      margin-left: 8px;
       color: var(--red);
       font-size: 13px;
       font-weight: 700;
     }
 
-    .section-gap { margin-top: 3px; }
-    .service-label { font-weight: 700; }
-    footer {
-      margin-top: 32px;
-      padding-top: 13px;
-      border-top: 1px solid var(--line);
-      color: #888;
-      font-size: 12px;
+    .footer {
+      color: #8a93a2;
+      font-size: 13px;
       text-align: center;
+      margin-top: 10px;
+      padding: 10px 0 2px;
     }
 
-    @media (max-width: 700px) {
-      .page { width: min(calc(100% - 28px), var(--max-width)); padding-top: 20px; }
-      .profile { grid-template-columns: 1fr; gap: 18px; }
-      .portrait { width: 180px; height: 216px; }
-      .profile h1 { font-size: 30px; }
-      .publication { grid-template-columns: 1fr; gap: 9px; padding: 16px 0; }
-      .pub-image { width: min(100%, 360px); min-height: auto; }
-      .pub-image img { max-height: none; }
+    @media (max-width: 1080px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+      }
+      .sidebar-photo {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topnav {
+        height: auto;
+        position: static;
+      }
+      .topnav-inner {
+        width: min(calc(100% - 24px), var(--content-width));
+        padding: 14px 0;
+        display: block;
+      }
+      .brand {
+        margin-bottom: 10px;
+      }
+      .nav-links {
+        gap: 10px 14px;
+        justify-content: flex-start;
+      }
+      .layout {
+        width: min(calc(100% - 24px), var(--content-width));
+        margin-top: 18px;
+      }
+      .section-card {
+        padding: 20px 18px;
+      }
+      .section-heading {
+        font-size: 24px;
+      }
+      .publication {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .pub-image {
+        width: min(100%, 340px);
+        min-height: auto;
+      }
+      .sidebar-card {
+        padding: 20px 18px;
+      }
     }
   </style>
 </head>
-<body>
-  <main class="page">
-    <section class="profile">
-      <div>
-        <img class="portrait" src="images/me.png" alt="Bingyu Li" onerror="this.style.visibility='hidden'">
-      </div>
-      <div>
-        <h1>Bingyu Li <span class="cn-name">(李炳煜)</span></h1>
-        <p class="identity">Ph.D. Student</p>
-        <p class="affiliation">University of Science and Technology of China (USTC)</p>
-        <p class="affiliation">Supervised by <a href="https://scholar.google.com/citations?user=ahUibskAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Prof. Xuelong Li</a></p>
-        <p class="contact">Email: <a href="mailto:libingyu0205@mail.ustc.edu.cn">libingyu0205@mail.ustc.edu.cn</a></p>
-        <p class="profile-links">
-          [<a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Google Scholar</a>]
-          [<a href="https://github.com/LiBingyu01" target="_blank" rel="noopener noreferrer">Github</a>]
-          [<a href="https://huggingface.co/kkk2026" target="_blank" rel="noopener noreferrer">Hugging Face</a>]
-        </p>
-      </div>
-    </section>
+<body id="top">
+  <header class="topnav">
+    <div class="topnav-inner">
+      <div class="brand">Homepage</div>
+      <nav class="nav-links">
+        <a href="#about">About Me</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#honors">Honors & Awards</a>
+        <a href="#service">Service</a>
+      </nav>
+    </div>
+  </header>
 
-    <section>
-      <h2>Biography</h2>
-      <p>
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <img class="sidebar-photo" src="images/me.png" alt="Bingyu Li" onerror="this.style.visibility='hidden'">
+        <h1 class="sidebar-name">Bingyu Li <span class="sidebar-cn">（李炳煜）</span></h1>
+        <p class="sidebar-school">University of Science and Technology of China</p>
+        <p class="sidebar-role">Ph.D. Student, USTC</p>
+
+        <div class="sidebar-list">
+          <div class="sidebar-item"><span class="icon">📍</span><span>Hefei, China</span></div>
+          <div class="sidebar-item"><span class="icon">🎓</span><span>Open semantic scene perception & embodied exploration</span></div>
+          <div class="sidebar-item"><span class="icon">✉️</span><span><a href="mailto:libingyu0205@mail.ustc.edu.cn">libingyu0205@mail.ustc.edu.cn</a></span></div>
+          <div class="sidebar-item"><span class="icon">👨‍🏫</span><span><a href="https://scholar.google.com/citations?user=ahUibskAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Prof. Xuelong Li</a></span></div>
+        </div>
+
+        <div class="sidebar-links">
+          <a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">🔗 Google Scholar</a>
+          <a href="https://github.com/LiBingyu01" target="_blank" rel="noopener noreferrer">🔗 Github</a>
+          <a href="https://huggingface.co/kkk2026" target="_blank" rel="noopener noreferrer">🔗 Hugging Face</a>
+        </div>
+      </div>
+    </aside>
+
+    <div class="content">
+      <section class="section-card" id="about">
+        <h2 class="section-heading">About Me</h2>
+        <p>
         I am a Ph.D. student at the <a href="https://en.ustc.edu.cn/" target="_blank" rel="noopener noreferrer">University of Science and Technology of China (USTC)</a>, supervised by <a href="https://scholar.google.com/citations?user=ahUibskAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Prof. Xuelong Li</a>. My research focuses on <strong>open semantic scene perception and exploration</strong>, spanning visual perception and embodied action in open and dynamic environments.
       </p>
       <p class="research-line">
         I am broadly interested in visual perception algorithms, including <strong>object detection</strong>, <strong>semantic segmentation</strong>, and related computer vision methods, as well as embodied intelligence approaches such as <strong>world action models</strong>, <strong>vision-language-action (VLA) models</strong>, and <strong>diffusion-based models</strong>. I study these problems across diverse environments, with particular interests in <strong>natural scenes</strong>, <strong>UAV platforms</strong>, and <strong>underwater scenarios</strong>.
       </p>
       <p class="vision">Building intelligence for an open and dynamic world.</p>
-    </section>
+      </section>
 
-    <section>
-      <h2>News</h2>
-      <ul class="news-list">
+      <section class="section-card" id="news">
+        <h2 class="section-heading">News</h2>
+        <ul class="news-list">
         <li>[07/2026] Our paper <a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a> is accepted by <strong>ACM MM 2026</strong>.</li>
         <li>[06/2026] Our paper <a href="https://arxiv.org/abs/2606.00987" target="_blank" rel="noopener noreferrer">An Open-Source Benchmark and Baseline for Multi-temporal Referring Segmentation</a> is now available on <strong>arXiv</strong>.</li>
         <li>[04/2026] Our paper <a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a> is now available on <strong>arXiv</strong>.</li>
@@ -213,12 +395,11 @@
         <li>[04/2025] <a href="https://arxiv.org/pdf/2408.01343" target="_blank" rel="noopener noreferrer">StitchFusion</a> is accepted by <strong>ACM MM 2025</strong> as an <span class="oral">Oral presentation</span>.</li>
         <li>[09/2024] Started my Ph.D. journey at <strong>USTC</strong>.</li>
       </ul>
-    </section>
+      </section>
 
-    <section>
-      <h2>Selected Publications <span class="pub-note">[<a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Full List</a>] (* Equal contribution)</span></h2>
-
-      <article class="publication">
+      <section class="section-card" id="publications">
+        <h2 class="section-heading">Selected Publications <span class="pub-note">[<a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Full List</a>] (* Equal contribution)</span></h2>
+        <article class="publication">
         <div class="pub-image"><img src="images/MTRefSeg.png" alt="MTRefSeg"></div>
         <div>
           <a class="pub-title" href="https://arxiv.org/abs/2606.00987" target="_blank" rel="noopener noreferrer">An Open-Source Benchmark and Baseline for Multi-temporal Referring Segmentation</a>
@@ -317,24 +498,25 @@
           <p class="pub-links">[<a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Paper</a>] [<a href="https://rlustc.github.io/Rats/" target="_blank" rel="noopener noreferrer">Project</a>]</p>
         </div>
       </article>
-    </section>
+      </section>
 
-    <section>
-      <h2>Selected Honors</h2>
-      <ul class="plain-list">
+      <section class="section-card" id="honors">
+        <h2 class="section-heading">Honors and Awards</h2>
+        <ul class="plain-list">
         <li>National Scholarship for Graduate Students, 2025.</li>
         <li>AAAI 2026 Oral Presentation (Top ~5%).</li>
         <li>ACM MM 2025 Oral Presentation.</li>
       </ul>
-    </section>
+      </section>
 
-    <section>
-      <h2>Professional Services</h2>
-      <p class="section-gap"><span class="service-label">Journal Reviewer:</span> IEEE TPAMI, IEEE TNNLS, IEEE TGRS, Pattern Recognition, and related journals.</p>
+      <section class="section-card" id="service">
+        <h2 class="section-heading">Professional Service</h2>
+        <p class="section-gap"><span class="service-label">Journal Reviewer:</span> IEEE TPAMI, IEEE TNNLS, IEEE TGRS, Pattern Recognition, and related journals.</p>
       <p><span class="service-label">Conference Reviewer:</span> CVPR, NeurIPS, ICLR, and other major conferences.</p>
-    </section>
+      </section>
 
-    <footer>© 2026 Bingyu Li. Last updated July 2026.</footer>
+      <div class="footer">© 2026 Bingyu Li. Last updated July 2026.</div>
+    </div>
   </main>
 </body>
 </html>
