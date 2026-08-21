@@ -250,19 +250,131 @@
       height: auto;
       max-height: 154px;
       object-fit: contain;
+      cursor: zoom-in;
+    }
+
+    .pub-image {
+      position: relative;
+    }
+
+    .zoom-button {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #dce4ee;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.94);
+      color: #486783;
+      box-shadow: 0 4px 12px rgba(21, 34, 50, 0.12);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(2px);
+      transition: opacity 0.18s ease, transform 0.18s ease, background 0.18s ease;
+      z-index: 2;
+    }
+
+    .pub-image:hover .zoom-button,
+    .zoom-button:focus-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .zoom-button:hover {
+      background: #f7fafc;
+    }
+
+    .zoom-button svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+    }
+
+    .pub-links {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pub-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 3px 11px;
+      border: 1px solid #ccd9e7;
+      border-radius: 7px;
+      background: #ffffff;
+      color: var(--link);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.35;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .pub-links a:hover {
+      background: #f5f8fb;
+      border-color: #9fb6cc;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .image-lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 42px;
+      background: rgba(18, 24, 33, 0.72);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+    }
+
+    .image-lightbox.open {
+      display: flex;
+    }
+
+    .image-lightbox img {
+      width: min(1100px, 88vw);
+      max-height: 84vh;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+      padding: 10px;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 22px;
+      right: 26px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,0.38);
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      font-size: 27px;
+      line-height: 1;
+      cursor: pointer;
     }
     .pub-title {
       display: inline-block;
       margin-bottom: 4px;
       color: var(--link);
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 600;
-      line-height: 1.42;
+      line-height: 1.38;
       letter-spacing: -0.01em;
     }
     .authors { margin: 4px 0; color: #3f3f46; }
     .venue { margin: 4px 0; color: #525866; font-style: italic; }
-    .pub-links { margin-top: 6px; }
     .badge {
       display: inline-block;
       margin-left: 8px;
@@ -326,6 +438,23 @@
       .pub-image {
         width: min(100%, 340px);
         min-height: auto;
+      }
+
+      .pub-title {
+        font-size: 17px;
+      }
+
+      .zoom-button {
+        opacity: 1;
+      }
+
+      .image-lightbox {
+        padding: 24px 14px;
+      }
+
+      .image-lightbox img {
+        width: 94vw;
+        max-height: 80vh;
       }
       .sidebar-card {
         padding: 20px 18px;
@@ -405,7 +534,7 @@
           <a class="pub-title" href="https://arxiv.org/abs/2606.00987" target="_blank" rel="noopener noreferrer">An Open-Source Benchmark and Baseline for Multi-temporal Referring Segmentation</a>
           <p class="authors"><strong>Bingyu Li*</strong>, Da Zhang*, Tao Huo, Zhiyuan Zhao, Junyu Gao, Xuelong Li</p>
           <p class="venue">arXiv, 2026.</p>
-          <p class="pub-links">[<a href="https://arxiv.org/abs/2606.00987" target="_blank" rel="noopener noreferrer">Paper</a>] [<a href="https://libingyu01.github.io/MTRefSeg/" target="_blank" rel="noopener noreferrer">Project</a>] [<a href="https://github.com/LiBingyu01/MTRefSeg" target="_blank" rel="noopener noreferrer">Code</a>] [<a href="https://huggingface.co/datasets/kkk2026/MTRefSeg-21K" target="_blank" rel="noopener noreferrer">Dataset</a>]</p>
+          <p class="pub-links"><a href="https://arxiv.org/abs/2606.00987" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://libingyu01.github.io/MTRefSeg/" target="_blank" rel="noopener noreferrer">Project</a> <a href="https://github.com/LiBingyu01/MTRefSeg" target="_blank" rel="noopener noreferrer">Code</a> <a href="https://huggingface.co/datasets/kkk2026/MTRefSeg-21K" target="_blank" rel="noopener noreferrer">Dataset</a></p>
         </div>
       </article>
 
@@ -415,7 +544,7 @@
           <a class="pub-title" href="https://arxiv.org/pdf/2604.15652" target="_blank" rel="noopener noreferrer">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a>
           <p class="authors"><strong>Bingyu Li</strong>, T Huo, H Dong, D Zhang, Z Zhao, J Gao, X Li</p>
           <p class="venue">arXiv, 2026.</p>
-          <p class="pub-links">[<a href="https://arxiv.org/pdf/2604.15652" target="_blank" rel="noopener noreferrer">Paper</a>] [<a href="https://github.com/LiBingyu01/Pi-Seg" target="_blank" rel="noopener noreferrer">Code</a>]</p>
+          <p class="pub-links"><a href="https://arxiv.org/pdf/2604.15652" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/Pi-Seg" target="_blank" rel="noopener noreferrer">Code</a></p>
         </div>
       </article>
 
@@ -425,7 +554,7 @@
           <a class="pub-title" href="https://arxiv.org/pdf/2509.12040" target="_blank" rel="noopener noreferrer">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a><span class="badge">AAAI 2026 Oral · Top ~5%</span>
           <p class="authors"><strong>Bingyu Li</strong>, H Dong, D Zhang, Z Zhao, J Gao, X Li</p>
           <p class="venue">AAAI Conference on Artificial Intelligence (AAAI), 2026.</p>
-          <p class="pub-links">[<a href="https://arxiv.org/pdf/2509.12040" target="_blank" rel="noopener noreferrer">Paper</a>] [<a href="https://github.com/LiBingyu01/RSKT-Seg" target="_blank" rel="noopener noreferrer">Code</a>]</p>
+          <p class="pub-links"><a href="https://arxiv.org/pdf/2509.12040" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/RSKT-Seg" target="_blank" rel="noopener noreferrer">Code</a></p>
         </div>
       </article>
 
@@ -435,7 +564,7 @@
           <a class="pub-title" href="https://arxiv.org/abs/2510.15398" target="_blank" rel="noopener noreferrer">MARIS: Marine Open-Vocabulary Instance Segmentation</a>
           <p class="authors"><strong>Bingyu Li</strong>, F Wang, D Zhang, Z Zhao, J Gao, X Li</p>
           <p class="venue">IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</p>
-          <p class="pub-links">[<a href="https://arxiv.org/abs/2510.15398" target="_blank" rel="noopener noreferrer">Paper</a>] [<a href="https://github.com/LiBingyu01/MARIS" target="_blank" rel="noopener noreferrer">Code</a>]</p>
+          <p class="pub-links"><a href="https://arxiv.org/abs/2510.15398" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/MARIS" target="_blank" rel="noopener noreferrer">Code</a></p>
         </div>
       </article>
 
@@ -445,7 +574,7 @@
           <a class="pub-title" href="https://arxiv.org/pdf/2511.07923" target="_blank" rel="noopener noreferrer">Exploring the Underwater World Segmentation without Extra Training</a>
           <p class="authors"><strong>Bingyu Li</strong>, T Huo, D Zhang, Z Zhao, J Gao, X Li</p>
           <p class="venue">IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</p>
-          <p class="pub-links">[<a href="https://arxiv.org/pdf/2511.07923" target="_blank" rel="noopener noreferrer">Paper</a>] [<a href="https://github.com/LiBingyu01/Earth2Ocean" target="_blank" rel="noopener noreferrer">Code</a>]</p>
+          <p class="pub-links"><a href="https://arxiv.org/pdf/2511.07923" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/Earth2Ocean" target="_blank" rel="noopener noreferrer">Code</a></p>
         </div>
       </article>
 
@@ -455,7 +584,7 @@
           <a class="pub-title" href="https://arxiv.org/abs/2603.16129" target="_blank" rel="noopener noreferrer">Boosting Quantitative and Spatial Awareness for Zero-Shot Object Counting</a>
           <p class="authors">D Zhang, <strong>Bingyu Li</strong>, F Wang, Z Zhao, J Gao</p>
           <p class="venue">IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</p>
-          <p class="pub-links">[<a href="https://arxiv.org/abs/2603.16129" target="_blank" rel="noopener noreferrer">Paper</a>] [<a href="https://github.com/zhangda1018/QICA" target="_blank" rel="noopener noreferrer">Code</a>]</p>
+          <p class="pub-links"><a href="https://arxiv.org/abs/2603.16129" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/zhangda1018/QICA" target="_blank" rel="noopener noreferrer">Code</a></p>
         </div>
       </article>
 
@@ -465,7 +594,7 @@
           <a class="pub-title" href="https://arxiv.org/pdf/2408.01343" target="_blank" rel="noopener noreferrer">StitchFusion: Weaving Any Visual Modalities to Enhance Multimodal Semantic Segmentation</a><span class="badge">Oral</span>
           <p class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</p>
           <p class="venue">ACM International Conference on Multimedia (ACM MM), 2025.</p>
-          <p class="pub-links">[<a href="https://arxiv.org/pdf/2408.01343" target="_blank" rel="noopener noreferrer">Paper</a>] [<a href="https://github.com/LiBingyu01/StitchFusion" target="_blank" rel="noopener noreferrer">Code</a>]</p>
+          <p class="pub-links"><a href="https://arxiv.org/pdf/2408.01343" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/StitchFusion" target="_blank" rel="noopener noreferrer">Code</a></p>
         </div>
       </article>
 
@@ -475,7 +604,7 @@
           <a class="pub-title" href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" target="_blank" rel="noopener noreferrer">U3M: Unbiased Multiscale Modal Fusion Model for Multimodal Semantic Segmentation</a>
           <p class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</p>
           <p class="venue">Pattern Recognition, 2025.</p>
-          <p class="pub-links">[<a href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" target="_blank" rel="noopener noreferrer">Paper</a>] [<a href="https://github.com/LiBingyu01/U3M" target="_blank" rel="noopener noreferrer">Code</a>]</p>
+          <p class="pub-links"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/U3M" target="_blank" rel="noopener noreferrer">Code</a></p>
         </div>
       </article>
 
@@ -485,7 +614,7 @@
           <a class="pub-title" href="https://arxiv.org/abs/2501.00877" target="_blank" rel="noopener noreferrer">FGAseg: Fine-Grained Pixel-Text Alignment for Open-Vocabulary Semantic Segmentation</a>
           <p class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</p>
           <p class="venue">arXiv, 2025.</p>
-          <p class="pub-links">[<a href="https://arxiv.org/abs/2501.00877" target="_blank" rel="noopener noreferrer">Paper</a>] [<a href="https://github.com/LiBingyu01/FGA-seg" target="_blank" rel="noopener noreferrer">Code</a>]</p>
+          <p class="pub-links"><a href="https://arxiv.org/abs/2501.00877" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/FGA-seg" target="_blank" rel="noopener noreferrer">Code</a></p>
         </div>
       </article>
 
@@ -495,7 +624,7 @@
           <a class="pub-title" href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a>
           <p class="authors">Rui Li*, <strong>Bingyu Li*</strong>, Yuanzhi Liang, Haibin Huang, Chi Zhang, Xuelong Li</p>
           <p class="venue">ACM International Conference on Multimedia (ACM MM), 2026.</p>
-          <p class="pub-links">[<a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Paper</a>] [<a href="https://rlustc.github.io/Rats/" target="_blank" rel="noopener noreferrer">Project</a>]</p>
+          <p class="pub-links"><a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://rlustc.github.io/Rats/" target="_blank" rel="noopener noreferrer">Project</a></p>
         </div>
       </article>
       </section>
@@ -518,5 +647,78 @@
       <div class="footer">© 2026 Bingyu Li. Last updated July 2026.</div>
     </div>
   </main>
+
+  <div class="image-lightbox" id="imageLightbox" aria-hidden="true" role="dialog" aria-label="Publication image preview">
+    <button class="lightbox-close" type="button" aria-label="Close preview">&times;</button>
+    <img id="lightboxImage" src="" alt="Enlarged publication preview">
+  </div>
+
+  <script>
+    (() => {
+      const lightbox = document.getElementById('imageLightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const closeButton = lightbox.querySelector('.lightbox-close');
+
+      const openLightbox = (img) => {
+        lightboxImage.src = img.currentSrc || img.src;
+        lightboxImage.alt = img.alt ? `${img.alt} enlarged preview` : 'Enlarged publication preview';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeButton.focus();
+      };
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        lightboxImage.src = '';
+      };
+
+      document.querySelectorAll('.pub-image').forEach((wrap) => {
+        const img = wrap.querySelector('img');
+        if (!img) return;
+
+        img.setAttribute('title', 'Click to enlarge');
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+        img.setAttribute('aria-label', `Enlarge ${img.alt || 'publication image'}`);
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'zoom-button';
+        button.setAttribute('aria-label', `Enlarge ${img.alt || 'publication image'}`);
+        button.setAttribute('title', 'Enlarge image');
+        button.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5" stroke-width="1.8"></circle>
+            <path d="M16 16l4.2 4.2" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M11 8v6M8 11h6" stroke-width="1.6" stroke-linecap="round"></path>
+          </svg>`;
+
+        button.addEventListener('click', (event) => {
+          event.stopPropagation();
+          openLightbox(img);
+        });
+        img.addEventListener('click', () => openLightbox(img));
+        img.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openLightbox(img);
+          }
+        });
+
+        wrap.appendChild(button);
+      });
+
+      closeButton.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+      });
+    })();
+  </script>
 </body>
 </html>
