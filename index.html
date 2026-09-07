@@ -6,613 +6,133 @@
   <meta name="description" content="Bingyu Li — Ph.D. student at USTC. Research on open semantic scene perception and exploration, spanning visual perception and embodied action.">
   <title>Bingyu Li</title>
   <style>
-    :root {
-      --bg: #fafbfc;
-      --panel: #ffffff;
-      --text: #1f2430;
-      --muted: #667085;
-      --link: #356a9a;
-      --line: #e9edf3;
-      --soft: #f3f6fa;
-      --red: #d62728;
-      --shadow: 0 10px 28px rgba(21, 34, 50, 0.06);
-      --radius: 18px;
-      --content-width: 1380px;
-      --nav-height: 70px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.72;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: var(--link); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    img { max-width: 100%; display: block; }
-
-    .topnav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      height: var(--nav-height);
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-    .topnav-inner {
-      width: min(calc(100% - 40px), var(--content-width));
-      height: 100%;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-    .brand {
-      font-size: 15px;
-      font-weight: 700;
-      color: #4b5563;
-      letter-spacing: 0.01em;
-      white-space: nowrap;
-    }
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      align-items: center;
-      justify-content: flex-end;
-    }
-    .nav-links a {
-      color: #5d6777;
-      font-size: 14px;
-      font-weight: 600;
-      padding: 8px 4px;
-      white-space: nowrap;
-    }
-    .nav-links a:hover {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    .layout {
-      width: min(calc(100% - 40px), var(--content-width));
-      margin: 28px auto 40px;
-      display: grid;
-      grid-template-columns: 280px minmax(0, 1fr);
-      gap: 30px;
-      align-items: start;
-    }
-
-    .sidebar {
-      position: sticky;
-      top: calc(var(--nav-height) + 24px);
-    }
-    .sidebar-card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      padding: 26px 24px;
-    }
-    .sidebar-photo {
-      width: 190px;
-      height: 190px;
-      margin: 0 auto 22px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center;
-      background: #f1f3f6;
-      border: 6px solid #f8fafc;
-      box-shadow: 0 4px 18px rgba(36, 56, 82, 0.10);
-    }
-    .sidebar-name {
-      margin: 0 0 6px;
-      font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-      font-size: 26px;
-      line-height: 1.2;
-      text-align: left;
-    }
-    .sidebar-cn {
-      color: #555;
-      font-size: 0.92em;
-      font-weight: 400;
-    }
-    .sidebar-school {
-      color: #374151;
-      font-size: 16px;
-      margin: 0 0 18px;
-    }
-    .sidebar-role {
-      color: #4b5563;
-      margin: 0 0 22px;
-      font-size: 15px;
-    }
-    .sidebar-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 4px;
-    }
-    .sidebar-item {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: #374151;
-      font-size: 15px;
-    }
-    .sidebar-item .icon {
-      width: 20px;
-      text-align: center;
-      color: #6b7280;
-      flex: 0 0 20px;
-      margin-top: 1px;
-    }
-    .sidebar-links {
-      margin-top: 20px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      display: grid;
-      gap: 12px;
-    }
-    .sidebar-links a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #3d4a5c;
-      font-weight: 600;
-    }
-    .sidebar-links a:hover {
-      text-decoration: none;
-      color: var(--link);
-    }
-
-    .content {
-      min-width: 0;
-    }
-    .section-card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 24px 28px;
-      margin-bottom: 22px;
-      scroll-margin-top: 96px;
-    }
-    .section-heading {
-      margin: 0 0 16px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--line);
-      font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-      font-size: 28px;
-      line-height: 1.25;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-
-    p { margin: 8px 0; }
-    strong { font-weight: 600; }
-    .vision {
-      margin-top: 14px;
-      color: #4a5666;
-      font-style: italic;
-    }
-
-    .news-list,
-    .plain-list {
-      margin: 0;
-      padding-left: 20px;
-    }
-    .news-list li,
-    .plain-list li {
-      margin: 8px 0;
-    }
-    .oral {
-      color: var(--red);
-      font-weight: 600;
-    }
-
-    .pub-note {
-      display: inline;
-      color: var(--muted);
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-    }
-
-    /* Education */
-    .education-list {
-      display: grid;
-      gap: 0;
-    }
-
-    .education-item {
-      display: grid;
-      grid-template-columns: 92px minmax(0, 1fr) auto;
-      gap: 20px;
-      align-items: center;
-      padding: 18px 0;
-    }
-
-    .education-item + .education-item {
-      border-top: 1px solid #f0f2f5;
-    }
-
-    .edu-logo-wrap {
-      width: 96px;
-      height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4px;
-    }
-
-    .edu-logo {
-      max-width: 88px;
-      max-height: 74px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .edu-main {
-      min-width: 0;
-    }
-
-    .edu-school {
-      margin: 0 0 3px;
-      font-size: 17px;
-      font-weight: 650;
-      line-height: 1.4;
-      color: #27364a;
-    }
-
-    .edu-school a {
-      color: inherit;
-    }
-
-    .edu-school a:hover {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    .edu-university {
-      margin: 0 0 4px;
-      color: #525866;
-      font-size: 15px;
-    }
-
-    .edu-note {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .edu-note a {
-      font-weight: 600;
-    }
-
-    .edu-period {
-      align-self: start;
-      padding-top: 2px;
-      color: #6b7280;
-      font-size: 14px;
-      font-weight: 600;
-      white-space: nowrap;
-      text-align: right;
-    }
-
-    .edu-badge {
-      display: inline-block;
-      margin-left: 7px;
-      padding: 1px 7px;
-      border: 1px solid #d9e3ee;
-      border-radius: 999px;
-      background: #f7f9fc;
-      color: #55708a;
-      font-size: 12px;
-      font-weight: 650;
-      vertical-align: 1px;
-    }
-
-
-    /* Experience */
-    .experience-list {
-      display: grid;
-      gap: 0;
-    }
-
-    .experience-item {
-      display: grid;
-      grid-template-columns: 92px minmax(0, 1fr) auto;
-      gap: 20px;
-      align-items: center;
-      padding: 18px 0;
-    }
-
-    .experience-logo-wrap {
-      width: 96px;
-      height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4px;
-    }
-
-
-    .publication {
-      display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      gap: 24px;
-      align-items: center;
-      padding: 18px 0;
-    }
-    .publication + .publication {
-      border-top: 1px solid #f0f2f5;
-    }
-    .pub-image {
-      width: 220px;
-      min-height: 128px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background: #fff;
-      border-radius: 14px;
-      border: 1px solid #edf1f5;
-      padding: 8px;
-    }
-    .pub-image img {
-      width: 100%;
-      height: auto;
-      max-height: 154px;
-      object-fit: contain;
-      cursor: zoom-in;
-    }
-
-    .pub-image {
-      position: relative;
-    }
-
-    .zoom-button {
-      position: absolute;
-      right: 10px;
-      bottom: 10px;
-      width: 34px;
-      height: 34px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #dce4ee;
-      border-radius: 9px;
-      background: rgba(255, 255, 255, 0.94);
-      color: #486783;
-      box-shadow: 0 4px 12px rgba(21, 34, 50, 0.12);
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(2px);
-      transition: opacity 0.18s ease, transform 0.18s ease, background 0.18s ease;
-      z-index: 2;
-    }
-
-    .pub-image:hover .zoom-button,
-    .zoom-button:focus-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .zoom-button:hover {
-      background: #f7fafc;
-    }
-
-    .zoom-button svg {
-      width: 18px;
-      height: 18px;
-      stroke: currentColor;
-    }
-
-    .pub-links {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .pub-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 30px;
-      padding: 3px 11px;
-      border: 1px solid #ccd9e7;
-      border-radius: 7px;
-      background: #ffffff;
-      color: var(--link);
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 1.35;
-      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
-    }
-
-    .pub-links a:hover {
-      background: #f5f8fb;
-      border-color: #9fb6cc;
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
-
-    .image-lightbox {
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 42px;
-      background: rgba(18, 24, 33, 0.72);
-      backdrop-filter: blur(4px);
-      z-index: 1000;
-    }
-
-    .image-lightbox.open {
-      display: flex;
-    }
-
-    .image-lightbox img {
-      width: min(1100px, 88vw);
-      max-height: 84vh;
-      object-fit: contain;
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
-      padding: 10px;
-    }
-
-    .lightbox-close {
-      position: fixed;
-      top: 22px;
-      right: 26px;
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(255,255,255,0.38);
-      border-radius: 50%;
-      background: rgba(255,255,255,0.12);
-      color: #fff;
-      font-size: 27px;
-      line-height: 1;
-      cursor: pointer;
-    }
-    .pub-title {
-      display: inline-block;
-      margin-bottom: 4px;
-      color: var(--link);
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 1.38;
-      letter-spacing: -0.01em;
-    }
-    .authors { margin: 4px 0; color: #3f3f46; }
-    .venue { margin: 4px 0; color: #525866; font-style: italic; }
-    .badge {
-      display: inline-block;
-      margin-left: 8px;
-      color: var(--red);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .footer {
-      color: #8a93a2;
-      font-size: 13px;
-      text-align: center;
-      margin-top: 10px;
-      padding: 10px 0 2px;
-    }
-
-    @media (max-width: 1080px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-      .sidebar {
-        position: static;
-      }
-      .sidebar-photo {
-        width: 150px;
-        height: 150px;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .topnav {
-        height: auto;
-        position: static;
-      }
-      .topnav-inner {
-        width: min(calc(100% - 24px), var(--content-width));
-        padding: 14px 0;
-        display: block;
-      }
-      .brand {
-        margin-bottom: 10px;
-      }
-      .nav-links {
-        gap: 10px 14px;
-        justify-content: flex-start;
-      }
-      .layout {
-        width: min(calc(100% - 24px), var(--content-width));
-        margin-top: 18px;
-      }
-      .section-card {
-        padding: 20px 18px;
-      }
-      .section-heading {
-        font-size: 24px;
-      }
-      .publication {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-      .pub-image {
-        width: min(100%, 340px);
-        min-height: auto;
-      }
-
-      .pub-title {
-        font-size: 17px;
-      }
-
-      .zoom-button {
-        opacity: 1;
-      }
-
-      .image-lightbox {
-        padding: 24px 14px;
-      }
-
-      .image-lightbox img {
-        width: 94vw;
-        max-height: 80vh;
-      }
-      .sidebar-card {
-        padding: 20px 18px;
-      }
-
-      .education-item,
-      .experience-item {
-        grid-template-columns: 72px minmax(0, 1fr);
-        gap: 14px;
-        align-items: start;
-      }
-
-      .edu-logo-wrap,
-      .experience-logo-wrap {
-        width: 72px;
-        height: 62px;
-      }
-
-      .edu-logo {
-        max-width: 68px;
-        max-height: 56px;
-      }
-
-      .edu-period {
-        grid-column: 2;
-        grid-row: 2;
-        padding-top: 0;
-        text-align: left;
-      }
-
-    }
+    :root { --bg:#fff; --text:#242927; --muted:#68716c; --link:#28614d; --line:#e4e8e5; --soft:#f5f7f5; --red:#8b493b; --content-width:1200px; --nav-height:76px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:"Helvetica Neue",Arial,"PingFang SC",sans-serif; font-size:16px; line-height:1.8; -webkit-font-smoothing:antialiased; }
+    a { color:var(--link); text-decoration:none; text-underline-offset:4px; }
+    a:hover { text-decoration:underline; }
+    a:focus-visible,button:focus-visible,[role="button"]:focus-visible { outline:2px solid var(--link); outline-offset:5px; }
+    img { max-width:100%; display:block; }
+    button { font:inherit; }
+    .topnav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); }
+    .topnav-inner { width:min(calc(100% - 80px),var(--content-width)); min-height:var(--nav-height); margin:auto; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { color:var(--text); font-family:Georgia,serif; font-size:20px; letter-spacing:-.5px; white-space:nowrap; }
+    .nav-links { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; gap:6px 23px; }
+    .nav-links a { color:var(--muted); font-size:14px; padding:10px 0; }
+    .nav-links a:hover { color:var(--text); }
+    .layout { width:min(calc(100% - 80px),var(--content-width)); margin:66px auto 30px; display:grid; grid-template-columns:254px minmax(0,1fr); gap:76px; align-items:start; }
+    .sidebar { position:sticky; top:112px; }
+    .sidebar-card { padding:0; }
+    .sidebar-photo { width:166px; height:190px; object-fit:cover; object-position:center; border-radius:3px; margin:0 0 28px; background:var(--soft); }
+    .sidebar-name { margin:0 0 18px; font-family:Georgia,"Times New Roman",serif; font-size:36px; font-weight:400; line-height:1.2; letter-spacing:-1.2px; }
+    .sidebar-cn { display:block; margin-top:10px; font-family:"PingFang SC","Microsoft YaHei",sans-serif; font-size:18px; font-weight:400; letter-spacing:2px; color:var(--muted); }
+    .sidebar-school { margin:0 0 10px; font-size:16px; line-height:1.6; }
+    .sidebar-role { margin:0 0 28px; font-size:14px; color:var(--muted); }
+    .sidebar-list { display:grid; gap:12px; }
+    .sidebar-item { display:flex; gap:10px; font-size:14px; line-height:1.65; color:var(--muted); }
+    .sidebar-item>span:last-child { min-width:0; overflow-wrap:anywhere; }
+    .icon { flex:0 0 16px; padding-top:3px; }
+    .icon svg { width:16px; height:16px; display:block; }
+    .sidebar-links { margin-top:26px; padding-top:22px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:9px 18px; }
+    .sidebar-links a { color:var(--text); font-size:14px; }
+    .content { min-width:0; }
+    .section-card { padding:0 0 42px; margin:0 0 40px; border-bottom:1px solid var(--line); scroll-margin-top:105px; }
+    .section-card:last-of-type { margin-bottom:20px; }
+    .section-heading { display:flex; align-items:baseline; flex-wrap:wrap; gap:10px 16px; margin:0 0 23px; font-family:Georgia,"Times New Roman",serif; font-size:29px; line-height:1.3; font-weight:400; letter-spacing:-.6px; color:#202822; }
+    p { margin:10px 0; }
+    strong { font-weight:600; }
+    #about p { line-height:1.9; }
+    .vision { color:var(--muted); font-family:Georgia,serif; font-style:italic; font-size:18px; margin-top:23px; padding-left:18px; border-left:2px solid #9fb5a8; }
+    .news-list,.plain-list { margin:0; padding-left:20px; }
+    .plain-list li { margin:9px 0; padding-left:4px; }
+    .plain-list li::marker { color:#9aa59e; }
+    .news-list { list-style:none; padding:0; }
+    .news-list li { display:grid; grid-template-columns:78px minmax(0,1fr); gap:18px; padding:9px 0; line-height:1.75; }
+    .news-date { padding-top:2px; font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .oral { color:var(--red); font-weight:500; }
+    .education-list,.experience-list { display:grid; }
+    .education-item,.experience-item { display:grid; grid-template-columns:58px minmax(0,1fr); column-gap:20px; padding:18px 0; align-items:start; }
+    .education-item:first-child,.experience-item:first-child { padding-top:0; }
+    .education-item+.education-item,.experience-item+.experience-item { border-top:1px solid #eff1ef; }
+    .edu-logo-wrap,.experience-logo-wrap { grid-row:span 2; width:58px; height:62px; display:flex; align-items:center; justify-content:center; padding:3px; }
+    .edu-logo { width:auto; height:auto; max-width:52px; max-height:55px; object-fit:contain; }
+    .edu-main { min-width:0; }
+    .edu-school { margin:0 0 4px; font-size:16px; line-height:1.6; font-weight:600; }
+    .edu-school a { color:var(--text); }
+    .edu-university { margin:0; font-size:14px; color:var(--muted); }
+    .edu-note { margin:5px 0 0; font-size:14px; color:var(--muted); }
+    .edu-period { grid-column:2; margin-top:8px; font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; }
+    .edu-badge { color:var(--link); font-size:13px; }
+    .publication { display:grid; grid-template-columns:190px minmax(0,1fr); gap:26px; padding:28px 0; align-items:start; }
+    .publication+.publication { border-top:1px solid #eff1ef; }
+    .publication:first-of-type { padding-top:4px; }
+    .publication:last-child { padding-bottom:0; }
+    .pub-image { position:relative; width:190px; min-height:120px; display:flex; align-items:center; justify-content:center; padding:7px; border:1px solid var(--line); border-radius:2px; background:#fff; }
+    .pub-image img { width:100%; max-height:145px; object-fit:contain; cursor:zoom-in; }
+    .pub-title { color:var(--text); font-size:17px; line-height:1.55; font-weight:600; }
+    .pub-title:hover { color:var(--link); }
+    .authors { margin:8px 0 5px; color:var(--muted); font-size:14px; line-height:1.7; }
+    .authors strong { color:var(--text); }
+    .venue { margin:4px 0; color:var(--muted); font-size:14px; font-style:italic; line-height:1.65; }
+    .badge { display:table; color:var(--red); font-size:13px; font-weight:500; margin-top:7px; }
+    .pub-note { font-family:"Helvetica Neue",Arial,sans-serif; font-size:13px; font-weight:400; color:var(--muted); letter-spacing:0; }
+    .pub-links { display:flex; flex-wrap:wrap; gap:8px 18px; margin:11px 0 0; }
+    .pub-links a { font-size:13px; font-weight:500; border-bottom:1px solid #b7c9bf; padding:2px 0; }
+    .pub-links a:hover { text-decoration:none; border-color:var(--link); }
+    .zoom-button { position:absolute; right:7px; bottom:7px; width:32px; height:32px; display:flex; align-items:center; justify-content:center; padding:6px; border:1px solid var(--line); border-radius:2px; background:rgba(255,255,255,.95); color:var(--link); cursor:pointer; opacity:0; transition:opacity .15s; }
+    .pub-image:hover .zoom-button,.pub-image:focus-within .zoom-button { opacity:1; }
+    .zoom-button svg { width:18px; height:18px; stroke:currentColor; }
+    .image-lightbox { position:fixed; inset:0; display:none; align-items:center; justify-content:center; padding:40px; background:rgba(16,22,18,.88); z-index:1000; }
+    .image-lightbox.open { display:flex; }
+    .image-lightbox img { width:min(1100px,88vw); max-height:84vh; object-fit:contain; background:white; padding:12px; border-radius:2px; }
+    .lightbox-close { position:fixed; top:15px; right:20px; width:44px; height:44px; border:0; color:white; background:transparent; font-size:32px; cursor:pointer; }
+    .service-label { font-weight:600; }
+    .footer { padding:8px 0 20px; color:var(--muted); font-size:12px; }
+    @media(min-width:1450px) { .layout { gap:90px; } }
+    @media(max-width:1100px) { .layout { gap:40px; grid-template-columns:225px minmax(0,1fr); } .nav-links { gap:4px 15px; } .publication { grid-template-columns:155px minmax(0,1fr); gap:20px; } .pub-image { width:155px; } }
+    @media(max-width:850px) {
+      .topnav-inner,.layout { width:calc(100% - 48px); }
+      .topnav-inner { align-items:flex-start; padding:17px 0; flex-direction:column; gap:5px; }
+      .nav-links { justify-content:flex-start; gap:0 18px; }
+      .nav-links a { padding:4px 0; }
+      .topnav { position:static; }
+      .layout { grid-template-columns:1fr; margin-top:36px; gap:40px; }
+      .sidebar { position:static; }
+      .sidebar-card { display:flow-root; padding-bottom:32px; border-bottom:1px solid var(--line); }
+      .sidebar-photo { float:right; width:128px; height:148px; margin:0 0 20px 24px; }
+      .sidebar-name { font-size:34px; }
+      .sidebar-school { max-width:440px; }
+      .sidebar-links { border:0; padding:0; margin-top:20px; clear:both; }
+      .section-card { scroll-margin-top:24px; }
+      .publication { grid-template-columns:190px minmax(0,1fr); } .pub-image { width:190px; }
+    }
+    @media(max-width:540px) {
+      .topnav-inner,.layout { width:calc(100% - 36px); }
+      .nav-links { gap:2px 16px; }
+      .sidebar-photo { width:95px; height:118px; margin-left:15px; }
+      .sidebar-name { font-size:30px; }
+      .sidebar-cn { font-size:16px; }
+      .sidebar-school { font-size:14px; }
+      .section-heading { font-size:27px; }
+      .section-card { padding-bottom:32px; margin-bottom:32px; }
+      .publication { grid-template-columns:1fr; gap:18px; }
+      .pub-image { width:min(100%,290px); min-height:130px; }
+      .pub-image img { max-height:175px; }
+      .zoom-button { opacity:1; }
+      .news-list li { grid-template-columns:65px minmax(0,1fr); gap:12px; }
+      .education-item,.experience-item { grid-template-columns:44px minmax(0,1fr); gap:8px 14px; }
+      .edu-logo-wrap,.experience-logo-wrap { width:44px; } .edu-logo { max-width:42px; }
+      .image-lightbox { padding:15px; } .image-lightbox img { width:100%; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { transition:none!important; } }
+    @media print { .topnav,.zoom-button,.image-lightbox { display:none!important; } .layout { display:block; width:100%; margin:0; } .sidebar { position:static; } .sidebar-photo { float:right; } .section-card { break-inside:avoid; } .publication { break-inside:avoid; } }
   </style>
 </head>
 <body id="top">
   <header class="topnav">
     <div class="topnav-inner">
-      <div class="brand">Homepage</div>
+      <a class="brand" href="#top">Bingyu Li<span style="color:var(--link)">.</span></a>
       <nav class="nav-links">
         <a href="#about">About Me</a>
         <a href="#education">Education</a>
@@ -634,15 +154,15 @@
         <p class="sidebar-role">Ph.D. Student, USTC</p>
 
         <div class="sidebar-list">
-          <div class="sidebar-item"><span class="icon">📍</span><span>Hefei, China</span></div>
-          <div class="sidebar-item"><span class="icon">✉️</span><span><a href="mailto:libingyu0205@mail.ustc.edu.cn">libingyu0205@mail.ustc.edu.cn</a></span></div>
-          <div class="sidebar-item"><span class="icon">👨‍🏫</span><span><a href="https://scholar.google.com/citations?user=ahUibskAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Prof. Xuelong Li</a></span></div>
+          <div class="sidebar-item"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span>Hefei, China</span></div>
+          <div class="sidebar-item"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg></span><span><a href="mailto:libingyu0205@mail.ustc.edu.cn">libingyu0205@mail.ustc.edu.cn</a></span></div>
+          <div class="sidebar-item"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5-10-5Zm4 2v6c4 3 8 3 12 0v-6M22 9v7"/></svg></span><span><a href="https://scholar.google.com/citations?user=ahUibskAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Prof. Xuelong Li</a></span></div>
         </div>
 
         <div class="sidebar-links">
-          <a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">🔗 Google Scholar</a>
-          <a href="https://github.com/LiBingyu01" target="_blank" rel="noopener noreferrer">🔗 Github</a>
-          <a href="https://huggingface.co/kkk2026" target="_blank" rel="noopener noreferrer">🔗 Hugging Face</a>
+          <a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <a href="https://github.com/LiBingyu01" target="_blank" rel="noopener noreferrer">Github</a>
+          <a href="https://huggingface.co/kkk2026" target="_blank" rel="noopener noreferrer">Hugging Face</a>
         </div>
       </div>
     </aside>
@@ -747,15 +267,15 @@
       <section class="section-card" id="news">
         <h2 class="section-heading">News</h2>
         <ul class="news-list">
-        <li>[07/2026] Our paper <a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a> is accepted by <strong>ACM MM 2026</strong>.</li>
-        <li>[06/2026] Our paper <a href="https://arxiv.org/abs/2606.00987" target="_blank" rel="noopener noreferrer">An Open-Source Benchmark and Baseline for Multi-temporal Referring Segmentation</a> is now available on <strong>arXiv</strong>.</li>
-        <li>[04/2026] Our paper <a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a> is now available on <strong>arXiv</strong>.</li>
-        <li>[04/2026] Our paper <a href="https://arxiv.org/pdf/2604.15652" target="_blank" rel="noopener noreferrer">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a> is now available on <strong>arXiv</strong>.</li>
-        <li>[03/2026] Four papers are accepted by <strong>CVPR 2026</strong>, including two first-author papers.</li>
-        <li>[11/2025] Our paper <a href="https://arxiv.org/abs/2509.12040" target="_blank" rel="noopener noreferrer">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a> is accepted by <strong>AAAI 2026</strong> as an <span class="oral">Oral presentation (Top ~5%)</span>.</li>
-        <li>[10/2025] Awarded the <strong>National Scholarship for Graduate Students</strong>.</li>
-        <li>[04/2025] <a href="https://arxiv.org/pdf/2408.01343" target="_blank" rel="noopener noreferrer">StitchFusion</a> is accepted by <strong>ACM MM 2025</strong> as an <span class="oral">Oral presentation</span>.</li>
-        <li>[09/2024] Started my Ph.D. journey at <strong>USTC</strong>.</li>
+        <li><time class="news-date">07/2026</time><div>Our paper <a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a> is accepted by <strong>ACM MM 2026</strong>.</div></li>
+        <li><time class="news-date">06/2026</time><div>Our paper <a href="https://arxiv.org/abs/2606.00987" target="_blank" rel="noopener noreferrer">An Open-Source Benchmark and Baseline for Multi-temporal Referring Segmentation</a> is now available on <strong>arXiv</strong>.</div></li>
+        <li><time class="news-date">04/2026</time><div>Our paper <a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a> is now available on <strong>arXiv</strong>.</div></li>
+        <li><time class="news-date">04/2026</time><div>Our paper <a href="https://arxiv.org/pdf/2604.15652" target="_blank" rel="noopener noreferrer">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a> is now available on <strong>arXiv</strong>.</div></li>
+        <li><time class="news-date">03/2026</time><div>Four papers are accepted by <strong>CVPR 2026</strong>, including two first-author papers.</div></li>
+        <li><time class="news-date">11/2025</time><div>Our paper <a href="https://arxiv.org/abs/2509.12040" target="_blank" rel="noopener noreferrer">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a> is accepted by <strong>AAAI 2026</strong> as an <span class="oral">Oral presentation (Top ~5%)</span>.</div></li>
+        <li><time class="news-date">10/2025</time><div>Awarded the <strong>National Scholarship for Graduate Students</strong>.</div></li>
+        <li><time class="news-date">04/2025</time><div><a href="https://arxiv.org/pdf/2408.01343" target="_blank" rel="noopener noreferrer">StitchFusion</a> is accepted by <strong>ACM MM 2025</strong> as an <span class="oral">Oral presentation</span>.</div></li>
+        <li><time class="news-date">09/2024</time><div>Started my Ph.D. journey at <strong>USTC</strong>.</div></li>
       </ul>
       </section>
 
@@ -881,7 +401,7 @@
     </div>
   </main>
 
-  <div class="image-lightbox" id="imageLightbox" aria-hidden="true" role="dialog" aria-label="Publication image preview">
+  <div class="image-lightbox" id="imageLightbox" aria-hidden="true" aria-modal="true" role="dialog" aria-label="Publication image preview">
     <button class="lightbox-close" type="button" aria-label="Close preview">&times;</button>
     <img id="lightboxImage" src="" alt="Enlarged publication preview">
   </div>
@@ -892,7 +412,11 @@
       const lightboxImage = document.getElementById('lightboxImage');
       const closeButton = lightbox.querySelector('.lightbox-close');
 
+      let previousFocus = null;
       const openLightbox = (img) => {
+        previousFocus = document.activeElement;
+        document.querySelector("main").inert = true;
+        document.querySelector("header").inert = true;
         lightboxImage.src = img.currentSrc || img.src;
         lightboxImage.alt = img.alt ? `${img.alt} enlarged preview` : 'Enlarged publication preview';
         lightbox.classList.add('open');
@@ -905,7 +429,10 @@
         lightbox.classList.remove('open');
         lightbox.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
-        lightboxImage.src = '';
+        lightboxImage.removeAttribute('src');
+        document.querySelector('main').inert = false;
+        document.querySelector('header').inert = false;
+        previousFocus?.focus();
       };
 
       document.querySelectorAll('.pub-image').forEach((wrap) => {
@@ -949,7 +476,10 @@
         if (event.target === lightbox) closeLightbox();
       });
       document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+        if (lightbox.classList.contains('open')) {
+          if (event.key === 'Escape') closeLightbox();
+          if (event.key === 'Tab') { event.preventDefault(); closeButton.focus(); }
+        }
       });
     })();
   </script>
