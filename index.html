@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Bingyu Li — Ph.D. student at USTC. Research on open semantic scene perception and exploration, spanning visual perception and embodied action.">
+  <meta name="description" content="Bingyu Li — Ph.D. student at USTC. Research on open-world perception and embodied intelligence, from vision-language perception to embodied action.">
   <title>Bingyu Li</title>
   <style>
     :root {
@@ -533,6 +533,67 @@
       .publication { break-inside: avoid; }
     }
 
+
+    /* About Me: research directions */
+    #about .about-intro { margin: 0 0 20px; }
+    #about .research-heading { margin: 0 0 16px; color: var(--muted); font-size: 14px; font-weight: 600; letter-spacing: .01em; }
+    .research-directions { display: grid; gap: 14px; }
+    .research-direction {
+      position: relative;
+      overflow: hidden;
+      padding: 23px 25px 22px;
+      border: 1px solid rgba(36,88,68,.12);
+      border-radius: 17px;
+      background: linear-gradient(130deg, rgba(255,255,255,.96), rgba(244,248,245,.72));
+      box-shadow: 0 5px 19px rgba(31,47,38,.035);
+    }
+    .research-direction-current {
+      border-color: rgba(156,122,75,.23);
+      background: linear-gradient(130deg, rgba(255,255,255,.98), rgba(250,246,239,.76));
+    }
+    .research-direction-top { display: flex; align-items: center; flex-wrap: wrap; gap: 11px; margin-bottom: 11px; }
+    .research-number { font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif; font-size: 22px; line-height: 1; color: var(--accent); }
+    .research-tag { display: inline-flex; padding: 4px 10px; border-radius: 999px; background: rgba(36,88,68,.07); color: var(--link); font-size: 11px; font-weight: 700; letter-spacing: .02em; }
+    .research-direction-current .research-tag { background: rgba(156,122,75,.11); color: #806139; }
+    .research-direction h3 { margin: 0 0 9px; color: var(--text); font-size: 18px; font-weight: 700; line-height: 1.4; letter-spacing: -.25px; }
+    #about .research-direction p { margin: 0; color: #4a534c; font-size: 14px; line-height: 1.8; }
+    #about .vision { margin-top: 22px !important; }
+    @media (max-width: 660px) {
+      .research-direction { padding: 19px 18px; }
+      .research-direction h3 { font-size: 17px; }
+      #about .research-direction p { font-size: 13px; }
+    }
+
+    /* Honors and Awards: academic CV-style grouping */
+    #honors .section-heading { margin-bottom: 9px; }
+    .honors-intro { margin: 0 0 23px; color: var(--muted); font-size: 14px; }
+    .honors-groups { display: grid; gap: 16px; }
+    .honors-group {
+      padding: 23px 25px 20px;
+      border: 1px solid rgba(36,88,68,.105);
+      border-radius: 18px;
+      background: linear-gradient(130deg, rgba(255,255,255,.91), rgba(250,251,248,.72));
+      box-shadow: 0 5px 22px rgba(31,47,38,.035);
+    }
+    .honors-group-heading { display: flex; align-items: center; gap: 13px; margin-bottom: 14px; }
+    .honors-icon {
+      display: inline-flex; justify-content: center; align-items: center;
+      width: 36px; height: 36px; flex: 0 0 36px;
+      border-radius: 11px; background: rgba(36,88,68,.075);
+      color: var(--link); font-family: Georgia, serif; font-size: 15px;
+    }
+    .honors-group-heading h3 { margin: 0; color: var(--text); font-size: 17px; font-weight: 700; line-height: 1.45; }
+    .honors-group-heading p { margin: 1px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .honors-list { display: grid; gap: 0; list-style: none; margin: 0; padding: 0; }
+    .honors-list li { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; column-gap: 12px; row-gap: 2px; padding: 10px 0; border-top: 1px solid rgba(36,88,68,.075); line-height: 1.55; }
+    .honors-name { color: #333e36; font-size: 14px; font-weight: 520; }
+    .honors-note { color: #8c7049; font-size: 12px; font-weight: 650; white-space: normal; }
+    @media (max-width: 660px) {
+      .honors-group { padding: 19px 18px 15px; }
+      .honors-group-heading h3 { font-size: 16px; }
+      .honors-name { font-size: 13px; }
+      .honors-note { font-size: 11px; }
+    }
   </style>
 </head>
 <body id="top">
@@ -576,13 +637,48 @@
     <div class="content">
       <section class="section-card" id="about">
         <h2 class="section-heading">About Me</h2>
-        <p>
-        I am a Ph.D. student at the <a href="https://en.ustc.edu.cn/" target="_blank" rel="noopener noreferrer">University of Science and Technology of China (USTC)</a>, supervised by <a href="https://scholar.google.com/citations?user=ahUibskAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Prof. Xuelong Li</a>. My research focuses on <strong>open semantic scene perception and exploration</strong>, spanning visual perception and embodied action in open and dynamic environments.
-      </p>
-      <p class="research-line">
-        I am broadly interested in visual perception algorithms, including <strong>object detection</strong>, <strong>semantic segmentation</strong>, and related computer vision methods, as well as embodied intelligence approaches such as <strong>world action models</strong>, <strong>vision-language-action (VLA) models</strong>, and <strong>diffusion-based models</strong>. I study these problems across diverse environments, with particular interests in <strong>natural scenes</strong>, <strong>UAV platforms</strong>, and <strong>underwater scenarios</strong>.
-      </p>
-      <p class="vision">Building intelligence for an open and dynamic world.</p>
+        <p class="about-intro">
+          I am a Ph.D. student at the
+          <a href="https://en.ustc.edu.cn/" target="_blank" rel="noopener noreferrer">University of Science and Technology of China (USTC)</a>,
+          supervised by
+          <a href="https://scholar.google.com/citations?user=ahUibskAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Prof. Xuelong Li</a>.
+          My research focuses on <strong>open-world perception and embodied intelligence</strong>,
+          aiming to bridge visual understanding and intelligent action in complex and dynamic environments.
+        </p>
+        <p class="research-heading">My research interests span two closely related directions:</p>
+
+        <div class="research-directions" aria-label="Research directions">
+          <article class="research-direction">
+            <div class="research-direction-top">
+              <span class="research-number" aria-hidden="true">01</span>
+              <span class="research-tag">Previous Research · Perception</span>
+            </div>
+            <h3>Vision-Language Perception</h3>
+            <p>
+              My previous research has focused on leveraging <strong>vision-language models (VLMs)</strong>
+              for open-world visual perception and scene understanding, including
+              <strong>open-vocabulary object detection</strong>, <strong>semantic segmentation</strong>,
+              and <strong>visual grounding</strong> across natural, remote sensing, and underwater environments.
+            </p>
+          </article>
+
+          <article class="research-direction research-direction-current">
+            <div class="research-direction-top">
+              <span class="research-number" aria-hidden="true">02</span>
+              <span class="research-tag">Current Research · Embodied Intelligence</span>
+            </div>
+            <h3>Vision-Language-Action &amp; World Action Models</h3>
+            <p>
+              My current research focuses on <strong>world action models (WAMs)</strong>,
+              <strong>vision-language-action (VLA) models</strong>, and
+              <strong>diffusion-based action generation</strong>, with particular interests in
+              <strong>UAV embodied intelligence</strong>, autonomous exploration, visual navigation,
+              and embodied target tracking.
+            </p>
+          </article>
+        </div>
+
+        <p class="vision">From Open-World Perception to Embodied Action.</p>
       </section>
 
 
@@ -790,11 +886,59 @@
 
       <section class="section-card" id="honors">
         <h2 class="section-heading">Honors and Awards</h2>
-        <ul class="plain-list">
-        <li>National Scholarship for Graduate Students, 2025.</li>
-        <li>AAAI 2026 Oral Presentation (Top ~5%).</li>
-        <li>ACM MM 2025 Oral Presentation.</li>
-      </ul>
+        <p class="honors-intro">Selected academic honors, scholarships, and competition awards.</p>
+
+        <div class="honors-groups">
+          <div class="honors-group">
+            <div class="honors-group-heading">
+              <span class="honors-icon" aria-hidden="true">01</span>
+              <div>
+                <h3>Graduate Honors</h3>
+                <p>University of Science and Technology of China</p>
+              </div>
+            </div>
+            <ul class="honors-list">
+              <li><span class="honors-name">National Scholarship for Graduate Students</span><span class="honors-note">2025</span></li>
+              <li><span class="honors-name">First-Class Scholarship, USTC</span></li>
+              <li><span class="honors-name">AAAI 2026 Oral Presentation</span><span class="honors-note">Top ~5%</span></li>
+              <li><span class="honors-name">ACM MM 2025 Oral Presentation</span></li>
+            </ul>
+          </div>
+
+          <div class="honors-group">
+            <div class="honors-group-heading">
+              <span class="honors-icon" aria-hidden="true">02</span>
+              <div>
+                <h3>Undergraduate Honors</h3>
+                <p>China University of Geosciences (Wuhan)</p>
+              </div>
+            </div>
+            <ul class="honors-list">
+              <li><span class="honors-name">National Scholarship (Undergraduate)</span></li>
+              <li><span class="honors-name">National Encouragement Scholarship</span><span class="honors-note">Twice</span></li>
+              <li><span class="honors-name">Outstanding Student Role Model</span><span class="honors-note">University-level · Three times</span></li>
+              <li><span class="honors-name">Outstanding Student Leader</span><span class="honors-note">University-level</span></li>
+              <li><span class="honors-name">Outstanding Communist Youth League Cadre</span></li>
+              <li><span class="honors-name">Selected for the Li Siguang Program (李四光计划)</span><span class="honors-note">2021</span></li>
+            </ul>
+          </div>
+
+          <div class="honors-group">
+            <div class="honors-group-heading">
+              <span class="honors-icon" aria-hidden="true">03</span>
+              <div>
+                <h3>Undergraduate Competition Awards</h3>
+                <p>Mathematical modeling and engineering competitions</p>
+              </div>
+            </div>
+            <ul class="honors-list">
+              <li><span class="honors-name">Mathematical Contest in Modeling (MCM)</span><span class="honors-note">Finalist</span></li>
+              <li><span class="honors-name">Huazhong Cup Mathematical Modeling Competition</span><span class="honors-note">Special Prize · 1st in problem category</span></li>
+              <li><span class="honors-name">China Undergraduate Mathematical Contest in Modeling</span><span class="honors-note">Hubei Provincial First Prize</span></li>
+              <li><span class="honors-name">14th National Advanced Mapping Technology and Product Information Modeling Innovation Competition</span><span class="honors-note">National Third Prize</span></li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section class="section-card" id="service">
@@ -803,7 +947,7 @@
       <p><span class="service-label">Conference Reviewer:</span> CVPR, NeurIPS, ICLR, and other major conferences.</p>
       </section>
 
-      <div class="footer">© 2026 Bingyu Li. Last updated August 2026.</div>
+      <div class="footer">© 2026 Bingyu Li. Last updated September 2026.</div>
     </div>
   </main>
 
