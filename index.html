@@ -6,605 +6,283 @@
   <meta name="description" content="Bingyu Li — Ph.D. student at USTC. Research on open-world perception and embodied intelligence, from vision-language perception to embodied action.">
   <title>Bingyu Li</title>
   <style>
-    :root {
-      --bg: #f6f5f1;
-      --surface: rgba(255,255,255,.82);
-      --surface-solid: #ffffff;
-      --text: #18201c;
-      --muted: #6e756f;
-      --muted-2: #929990;
-      --link: #245844;
-      --link-dark: #173d2f;
-      --accent: #9c7a4b;
-      --accent-soft: #efe8dc;
-      --line: rgba(33,55,43,.12);
-      --line-strong: rgba(33,55,43,.20);
-      --soft: #eef2ee;
-      --red: #8a4d43;
-      --shadow-sm: 0 8px 24px rgba(30,43,35,.06);
-      --shadow-md: 0 20px 60px rgba(27,40,32,.10);
-      --shadow-hover: 0 24px 70px rgba(27,40,32,.14);
-      --radius-sm: 12px;
-      --radius-md: 18px;
-      --radius-lg: 26px;
-      --content-width: 1260px;
-      --nav-height: 78px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 8% 2%, rgba(125,157,138,.13), transparent 30rem),
-        radial-gradient(circle at 94% 28%, rgba(191,159,108,.10), transparent 28rem),
-        linear-gradient(180deg, #faf9f6 0%, var(--bg) 42%, #f8f7f4 100%);
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-      font-size: 16px;
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-      background-image: linear-gradient(rgba(36,88,68,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(36,88,68,.025) 1px, transparent 1px);
-      background-size: 42px 42px;
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.55), transparent 65%);
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.55), transparent 65%);
-    }
-
-    ::selection { background: #dce8e1; color: var(--link-dark); }
-    a { color: var(--link); text-decoration: none; text-underline-offset: 4px; transition: color .18s ease, opacity .18s ease, border-color .18s ease, background .18s ease, transform .18s ease; }
-    a:hover { color: var(--link-dark); }
-    a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
-    img { max-width: 100%; display: block; }
-    button { font: inherit; }
-
-    .topnav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(33,55,43,.10);
-      background: rgba(250,249,246,.78);
-      backdrop-filter: blur(18px) saturate(140%);
-      -webkit-backdrop-filter: blur(18px) saturate(140%);
-      box-shadow: 0 4px 30px rgba(31,45,36,.03);
-    }
-    .topnav-inner {
-      width: min(calc(100% - 72px), var(--content-width));
-      min-height: var(--nav-height);
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-    .brand {
-      display: inline-flex;
-      align-items: baseline;
-      color: var(--text);
-      font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -.6px;
-      white-space: nowrap;
-    }
-    .brand:hover { text-decoration: none; transform: translateY(-1px); }
-    .nav-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 5px 8px; }
-    .nav-links a {
-      position: relative;
-      padding: 9px 11px;
-      color: #667068;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: .01em;
-    }
-    .nav-links a:hover { color: var(--text); background: rgba(36,88,68,.06); }
-    .nav-links a.active { color: var(--link-dark); background: rgba(36,88,68,.09); }
-
-    .layout {
-      width: min(calc(100% - 72px), var(--content-width));
-      margin: 58px auto 38px;
-      display: grid;
-      grid-template-columns: 282px minmax(0,1fr);
-      gap: 76px;
-      align-items: start;
-    }
-
-    .sidebar { position: sticky; top: 110px; }
-    .sidebar-card {
-      position: relative;
-      overflow: hidden;
-      padding: 26px 24px 24px;
-      border: 1px solid rgba(36,88,68,.11);
-      border-radius: var(--radius-lg);
-      background: linear-gradient(155deg, rgba(255,255,255,.96), rgba(252,252,249,.82));
-      box-shadow: var(--shadow-md);
-    }
-    .sidebar-card::before {
-      content: "";
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      right: -62px;
-      top: -62px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(156,122,75,.16), rgba(156,122,75,0) 70%);
-      pointer-events: none;
-    }
-    .sidebar-photo {
-      width: 100%;
-      height: 226px;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 18px;
-      margin: 0 0 26px;
-      background: var(--soft);
-      box-shadow: 0 12px 32px rgba(31,48,38,.10);
-      filter: saturate(.94) contrast(1.02);
-    }
-    .sidebar-name {
-      margin: 0 0 16px;
-      font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-      font-size: 37px;
-      font-weight: 500;
-      line-height: 1.06;
-      letter-spacing: -1.35px;
-    }
-    .sidebar-cn {
-      display: block;
-      margin-top: 9px;
-      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: 2.8px;
-      color: var(--muted);
-    }
-    .sidebar-school { margin: 0 0 7px; font-size: 14px; line-height: 1.65; font-weight: 600; }
-    .sidebar-role { margin: 0 0 24px; font-size: 13px; color: var(--muted); }
-    .sidebar-list { display: grid; gap: 11px; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .sidebar-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.6; color: var(--muted); }
-    .sidebar-item > span:last-child { min-width: 0; overflow-wrap: anywhere; }
-    .icon { flex: 0 0 16px; padding-top: 2px; color: var(--link); }
-    .icon svg { width: 16px; height: 16px; display: block; }
-    .sidebar-links { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
-    .sidebar-links a {
-      padding: 7px 10px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,.74);
-      color: var(--text);
-      font-size: 12px;
-      font-weight: 600;
-    }
-    .sidebar-links a:hover { border-color: rgba(36,88,68,.28); background: rgba(36,88,68,.06); transform: translateY(-1px); }
-
-    .content { min-width: 0; }
-    .section-card {
-      position: relative;
-      padding: 0 0 54px;
-      margin: 0 0 52px;
-      scroll-margin-top: 112px;
-    }
-    .section-card::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 1px;
-      background: linear-gradient(90deg, var(--line-strong), rgba(36,88,68,.04), transparent 85%);
-    }
-    .section-card:last-of-type { margin-bottom: 20px; }
-    .section-heading {
-      display: flex;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 10px 16px;
-      margin: 0 0 26px;
-      color: #17211c;
-      font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-      font-size: 31px;
-      line-height: 1.25;
-      font-weight: 500;
-      letter-spacing: -.9px;
-    }
-    .section-heading::before {
-      content: "";
-      width: 24px;
-      height: 2px;
-      margin-right: 1px;
-      transform: translateY(-5px);
-      background: linear-gradient(90deg, var(--accent), rgba(156,122,75,.28));
-      border-radius: 999px;
-    }
-    p { margin: 10px 0; }
-    strong { font-weight: 650; }
-
-    #about {
-      padding: 36px 40px 40px;
-      border: 1px solid rgba(36,88,68,.10);
-      border-radius: 24px;
-      background: linear-gradient(145deg, rgba(255,255,255,.92), rgba(250,252,249,.72));
-      box-shadow: var(--shadow-sm);
-    }
-    #about::after { display: none; }
-    #about .section-heading { margin-bottom: 20px; }
-    #about p { max-width: 880px; line-height: 1.92; color: #343b36; }
-    #about strong { color: #1d4938; }
-    .vision {
-      display: inline-flex;
-      align-items: center;
-      margin-top: 24px !important;
-      padding: 10px 14px 10px 16px;
-      border: 1px solid rgba(156,122,75,.18);
-      border-left: 3px solid var(--accent);
-      border-radius: 12px;
-      background: linear-gradient(90deg, rgba(239,232,220,.74), rgba(255,255,255,.35));
-      color: #5f5e55 !important;
-      font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-      font-size: 17px;
-      font-style: italic;
-    }
-
-    .news-list, .plain-list { margin: 0; padding-left: 0; }
-    .plain-list { list-style: none; display: grid; gap: 10px; }
-    .plain-list li {
-      position: relative;
-      margin: 0;
-      padding: 11px 14px 11px 31px;
-      border-radius: 12px;
-      color: #3c433e;
-      background: rgba(255,255,255,.45);
-    }
-    .plain-list li::before {
-      content: "";
-      position: absolute;
-      left: 13px;
-      top: 21px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(156,122,75,.11);
-    }
-
-    .news-list { list-style: none; position: relative; }
-    .news-list::before {
-      content: "";
-      position: absolute;
-      left: 92px;
-      top: 12px;
-      bottom: 12px;
-      width: 1px;
-      background: linear-gradient(180deg, rgba(36,88,68,.24), rgba(36,88,68,.05));
-    }
-    .news-list li {
-      position: relative;
-      display: grid;
-      grid-template-columns: 72px minmax(0,1fr);
-      gap: 35px;
-      padding: 12px 0;
-      line-height: 1.72;
-    }
-    .news-list li::before {
-      content: "";
-      position: absolute;
-      left: 88px;
-      top: 24px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #fff;
-      border: 2px solid #799887;
-      box-shadow: 0 0 0 4px var(--bg);
-    }
-    .news-date { padding-top: 1px; font-size: 12px; font-weight: 650; color: var(--muted-2); font-variant-numeric: tabular-nums; white-space: nowrap; letter-spacing: .03em; }
-    .oral { color: var(--red); font-weight: 650; }
-
-    .education-list, .experience-list { display: grid; gap: 12px; }
-    .education-item, .experience-item {
-      display: grid;
-      grid-template-columns: 64px minmax(0,1fr) auto;
-      column-gap: 20px;
-      row-gap: 2px;
-      padding: 20px 22px;
-      align-items: start;
-      border: 1px solid rgba(36,88,68,.085);
-      border-radius: 16px;
-      background: rgba(255,255,255,.66);
-      box-shadow: 0 6px 22px rgba(31,47,38,.035);
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-    .education-item:hover, .experience-item:hover { transform: translateY(-2px); border-color: rgba(36,88,68,.16); box-shadow: var(--shadow-sm); }
-    .education-item + .education-item, .experience-item + .experience-item { border-top: 1px solid rgba(36,88,68,.085); }
-    .edu-logo-wrap, .experience-logo-wrap { grid-row: span 2; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; padding: 5px; border-radius: 13px; background: rgba(250,251,249,.85); border: 1px solid rgba(36,88,68,.07); }
-    .edu-logo { width: auto; height: auto; max-width: 52px; max-height: 52px; object-fit: contain; }
-    .edu-main { min-width: 0; }
-    .edu-school { margin: 0 0 2px; font-size: 15px; line-height: 1.55; font-weight: 680; }
-    .edu-school a { color: var(--text); }
-    .edu-school a:hover { color: var(--link); }
-    .edu-university { margin: 0; font-size: 13px; color: var(--muted); }
-    .edu-note { margin: 5px 0 0; font-size: 13px; color: var(--muted); }
-    .edu-period { grid-column: 3; grid-row: 1 / span 2; margin-top: 2px; padding: 6px 9px; border-radius: 999px; background: rgba(36,88,68,.055); font-size: 11px; color: #6a766d; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
-    .edu-badge { color: var(--link); font-size: 12px; }
-
-    #publications .section-heading { margin-bottom: 18px; }
-    .publication {
-      display: grid;
-      grid-template-columns: 208px minmax(0,1fr);
-      gap: 28px;
-      padding: 24px;
-      margin: 0 0 15px;
-      align-items: center;
-      border: 1px solid rgba(36,88,68,.085);
-      border-radius: 18px;
-      background: rgba(255,255,255,.78);
-      box-shadow: 0 8px 28px rgba(31,47,38,.045);
-      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
-    }
-    .publication:hover {
-      transform: translateY(-3px);
-      border-color: rgba(36,88,68,.16);
-      background: rgba(255,255,255,.94);
-      box-shadow: var(--shadow-hover);
-    }
-    .publication + .publication { border-top: 1px solid rgba(36,88,68,.085); }
-    .publication:first-of-type { padding-top: 24px; }
-    .publication:last-child { padding-bottom: 24px; margin-bottom: 0; }
-    .pub-image {
-      position: relative;
-      width: 208px;
-      height: 142px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      padding: 10px;
-      border: 1px solid rgba(36,88,68,.08);
-      border-radius: 14px;
-      background: linear-gradient(145deg, #fbfcfb, #f4f6f4);
-    }
-    .pub-image img { width: 100%; height: 100%; max-height: none; object-fit: contain; cursor: zoom-in; transition: transform .22s ease; }
-    .publication:hover .pub-image img { transform: scale(1.018); }
-    .pub-title { color: var(--text); font-size: 17px; line-height: 1.48; font-weight: 700; letter-spacing: -.12px; }
-    .pub-title:hover { color: var(--link); }
-    .authors { margin: 8px 0 4px; color: var(--muted); font-size: 13px; line-height: 1.68; }
-    .authors strong { color: var(--text); }
-    .venue { margin: 3px 0; color: #70766f; font-size: 13px; font-style: italic; line-height: 1.6; }
-    .badge {
-      display: table;
-      margin-top: 8px;
-      padding: 4px 8px;
-      border: 1px solid rgba(138,77,67,.14);
-      border-radius: 999px;
-      background: rgba(138,77,67,.06);
-      color: var(--red);
-      font-size: 11px;
-      line-height: 1.4;
-      font-weight: 700;
-      letter-spacing: .01em;
-    }
-    .pub-note { font-family: Inter, ui-sans-serif, sans-serif; font-size: 12px; font-weight: 400; color: var(--muted); letter-spacing: 0; }
-    .pub-links { display: flex; flex-wrap: wrap; gap: 7px; margin: 12px 0 0; }
-    .pub-links a {
-      display: inline-flex;
-      align-items: center;
-      padding: 5px 9px;
-      border: 1px solid rgba(36,88,68,.13);
-      border-radius: 999px;
-      background: rgba(36,88,68,.035);
-      color: var(--link);
-      font-size: 11px;
-      line-height: 1.35;
-      font-weight: 700;
-    }
-    .pub-links a:hover { text-decoration: none; border-color: rgba(36,88,68,.26); background: rgba(36,88,68,.08); transform: translateY(-1px); }
-
-    .zoom-button {
-      position: absolute;
-      right: 8px;
-      bottom: 8px;
-      width: 34px;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 7px;
-      border: 1px solid rgba(36,88,68,.13);
-      border-radius: 50%;
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 6px 18px rgba(31,47,38,.10);
-      color: var(--link);
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(3px);
-      transition: opacity .18s ease, transform .18s ease, background .18s ease;
-    }
-    .pub-image:hover .zoom-button, .pub-image:focus-within .zoom-button { opacity: 1; transform: translateY(0); }
-    .zoom-button:hover { background: #fff; }
-    .zoom-button svg { width: 17px; height: 17px; stroke: currentColor; }
-
-    .image-lightbox { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; padding: 40px; background: rgba(12,18,14,.86); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 1000; }
-    .image-lightbox.open { display: flex; }
-    .image-lightbox img { width: min(1120px, 88vw); max-height: 84vh; object-fit: contain; background: white; padding: 14px; border-radius: 18px; box-shadow: 0 32px 100px rgba(0,0,0,.26); }
-    .lightbox-close { position: fixed; top: 16px; right: 22px; width: 46px; height: 46px; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; color: white; background: rgba(255,255,255,.08); font-size: 30px; line-height: 1; cursor: pointer; }
-    .service-label { font-weight: 700; color: #2b332e; }
-    .footer { padding: 4px 0 24px; color: var(--muted-2); font-size: 11px; letter-spacing: .02em; }
-
-    .reveal-ready { opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s ease; }
-    .reveal-ready.reveal-visible { opacity: 1; transform: translateY(0); }
-
-    .back-top {
-      position: fixed;
-      right: 26px;
-      bottom: 26px;
-      z-index: 80;
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(36,88,68,.12);
-      border-radius: 50%;
-      background: rgba(255,255,255,.86);
-      color: var(--link);
-      box-shadow: var(--shadow-sm);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(8px);
-      transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
-    }
-    .back-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
-    .back-top:hover { transform: translateY(-2px); }
-
-    @media (min-width: 1450px) { .layout { gap: 88px; } }
-    @media (max-width: 1100px) {
-      .layout { gap: 42px; grid-template-columns: 250px minmax(0,1fr); }
-      .topnav-inner, .layout { width: min(calc(100% - 52px), var(--content-width)); }
-      .publication { grid-template-columns: 184px minmax(0,1fr); gap: 22px; padding: 20px; }
-      .pub-image { width: 184px; height: 132px; }
-      .sidebar-card { padding: 22px 20px; }
-      .sidebar-photo { height: 202px; }
-      .nav-links a { padding-inline: 8px; }
-    }
-    @media (max-width: 900px) {
-      .topnav { position: static; }
-      .topnav-inner { align-items: flex-start; padding: 17px 0; flex-direction: column; gap: 5px; }
-      .nav-links { justify-content: flex-start; gap: 0 4px; }
-      .nav-links a { padding: 5px 8px; }
-      .layout { grid-template-columns: 1fr; margin-top: 34px; gap: 38px; }
-      .sidebar { position: static; }
-      .sidebar-card { display: grid; grid-template-columns: 170px minmax(0,1fr); column-gap: 28px; align-items: start; }
-      .sidebar-photo { grid-row: 1 / span 6; width: 170px; height: 206px; margin: 0; }
-      .sidebar-name { margin-top: 4px; }
-      .sidebar-list, .sidebar-links { grid-column: 2; }
-      .section-card { scroll-margin-top: 24px; }
-      .education-item, .experience-item { grid-template-columns: 60px minmax(0,1fr) auto; }
-    }
-    @media (max-width: 660px) {
-      .topnav-inner, .layout { width: calc(100% - 30px); }
-      .brand { font-size: 21px; }
-      .sidebar-card { display: block; border-radius: 20px; }
-      .sidebar-photo { float: right; width: 112px; height: 138px; margin: 0 0 18px 18px; border-radius: 14px; }
-      .sidebar-name { font-size: 32px; }
-      .sidebar-school { font-size: 13px; }
-      .sidebar-list, .sidebar-links { clear: both; }
-      #about { padding: 28px 24px 30px; border-radius: 20px; }
-      .section-heading { font-size: 28px; }
-      .section-card { padding-bottom: 38px; margin-bottom: 38px; }
-      .publication { grid-template-columns: 1fr; gap: 16px; padding: 18px; border-radius: 16px; }
-      .publication:first-of-type, .publication:last-child { padding-top: 18px; padding-bottom: 18px; }
-      .pub-image { width: 100%; height: 190px; }
-      .pub-image img { max-height: 170px; }
-      .zoom-button { opacity: 1; transform: none; }
-      .news-list::before { left: 75px; }
-      .news-list li { grid-template-columns: 58px minmax(0,1fr); gap: 30px; }
-      .news-list li::before { left: 71px; }
-      .education-item, .experience-item { grid-template-columns: 50px minmax(0,1fr); gap: 9px 14px; padding: 17px; }
-      .edu-logo-wrap, .experience-logo-wrap { width: 50px; height: 54px; }
-      .edu-logo { max-width: 44px; max-height: 44px; }
-      .edu-period { grid-column: 2; grid-row: auto; justify-self: start; margin-top: 7px; }
-      .image-lightbox { padding: 14px; }
-      .image-lightbox img { width: 100%; border-radius: 12px; }
-      .back-top { right: 16px; bottom: 16px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      * { transition: none !important; animation: none !important; }
-      .reveal-ready { opacity: 1; transform: none; }
-    }
-    @media print {
-      body { background: #fff; }
-      body::before, .topnav, .zoom-button, .image-lightbox, .back-top { display: none !important; }
-      .layout { display: block; width: 100%; margin: 0; }
-      .sidebar { position: static; }
-      .sidebar-card, #about, .publication, .education-item, .experience-item { box-shadow: none; background: #fff; }
-      .section-card { break-inside: avoid; }
-      .publication { break-inside: avoid; }
-    }
-
-
-    /* About Me: research directions */
-    #about .about-intro { margin: 0 0 20px; }
-    #about .research-heading { margin: 0 0 16px; color: var(--muted); font-size: 14px; font-weight: 600; letter-spacing: .01em; }
-    .research-directions { display: grid; gap: 14px; }
-    .research-direction {
-      position: relative;
-      overflow: hidden;
-      padding: 23px 25px 22px;
-      border: 1px solid rgba(36,88,68,.12);
-      border-radius: 17px;
-      background: linear-gradient(130deg, rgba(255,255,255,.96), rgba(244,248,245,.72));
-      box-shadow: 0 5px 19px rgba(31,47,38,.035);
-    }
-    .research-direction-current {
-      border-color: rgba(156,122,75,.23);
-      background: linear-gradient(130deg, rgba(255,255,255,.98), rgba(250,246,239,.76));
-    }
-    .research-direction-top { display: flex; align-items: center; flex-wrap: wrap; gap: 11px; margin-bottom: 11px; }
-    .research-number { font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif; font-size: 22px; line-height: 1; color: var(--accent); }
-    .research-tag { display: inline-flex; padding: 4px 10px; border-radius: 999px; background: rgba(36,88,68,.07); color: var(--link); font-size: 11px; font-weight: 700; letter-spacing: .02em; }
-    .research-direction-current .research-tag { background: rgba(156,122,75,.11); color: #806139; }
-    .research-direction h3 { margin: 0 0 9px; color: var(--text); font-size: 18px; font-weight: 700; line-height: 1.4; letter-spacing: -.25px; }
-    #about .research-direction p { margin: 0; color: #4a534c; font-size: 14px; line-height: 1.8; }
-    #about .vision { margin-top: 22px !important; }
-    @media (max-width: 660px) {
-      .research-direction { padding: 19px 18px; }
-      .research-direction h3 { font-size: 17px; }
-      #about .research-direction p { font-size: 13px; }
-    }
-
-    /* Honors and Awards: academic CV-style grouping */
-    #honors .section-heading { margin-bottom: 9px; }
-    .honors-intro { margin: 0 0 23px; color: var(--muted); font-size: 14px; }
-    .honors-groups { display: grid; gap: 16px; }
-    .honors-group {
-      padding: 23px 25px 20px;
-      border: 1px solid rgba(36,88,68,.105);
-      border-radius: 18px;
-      background: linear-gradient(130deg, rgba(255,255,255,.91), rgba(250,251,248,.72));
-      box-shadow: 0 5px 22px rgba(31,47,38,.035);
-    }
-    .honors-group-heading { display: flex; align-items: center; gap: 13px; margin-bottom: 14px; }
-    .honors-icon {
-      display: inline-flex; justify-content: center; align-items: center;
-      width: 36px; height: 36px; flex: 0 0 36px;
-      border-radius: 11px; background: rgba(36,88,68,.075);
-      color: var(--link); font-family: Georgia, serif; font-size: 15px;
-    }
-    .honors-group-heading h3 { margin: 0; color: var(--text); font-size: 17px; font-weight: 700; line-height: 1.45; }
-    .honors-group-heading p { margin: 1px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
-    .honors-list { display: grid; gap: 0; list-style: none; margin: 0; padding: 0; }
-    .honors-list li { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; column-gap: 12px; row-gap: 2px; padding: 10px 0; border-top: 1px solid rgba(36,88,68,.075); line-height: 1.55; }
-    .honors-name { color: #333e36; font-size: 14px; font-weight: 520; }
-    .honors-note { color: #8c7049; font-size: 12px; font-weight: 650; white-space: normal; }
-    @media (max-width: 660px) {
-      .honors-group { padding: 19px 18px 15px; }
-      .honors-group-heading h3 { font-size: 16px; }
-      .honors-name { font-size: 13px; }
-      .honors-note { font-size: 11px; }
-    }
+:root {
+  --bg: #fff;
+  --text: #494e52;
+  --muted: #71777d;
+  --muted-2: #858b90;
+  --link: #224b8d;
+  --link-dark: #15376e;
+  --line: #edf0f2;
+  --red: #b32624;
+  --content-width: 1280px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.55 "Trebuchet MS", Helvetica, "PingFang SC", "Microsoft YaHei", sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: var(--link); text-decoration: none; text-underline-offset: 3px; }
+a:hover { color: var(--link-dark); text-decoration: underline; }
+a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+button { font: inherit; }
+img { display: block; max-width: 100%; }
+p { margin: 0 0 12px; }
+strong { font-weight: 700; }
+::selection { background: #dce7fa; }
+.topnav { border-bottom: 1px solid var(--line); background: #fff; }
+.topnav-inner { width: min(calc(100% - 64px), var(--content-width)); min-height: 58px; margin: auto; display: flex; align-items: center; gap: 54px; }
+.brand { color: #717980; font-size: 15px; font-weight: 700; white-space: nowrap; }
+.nav-links { display: flex; flex-wrap: wrap; gap: 7px 25px; }
+.nav-links a { color: #737c85; font-size: 14px; padding: 16px 0; }
+.nav-links a:hover, .nav-links a.active { color: var(--link); text-decoration: none; }
+.layout { width: min(calc(100% - 64px), var(--content-width)); margin: 28px auto 48px; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 52px; align-items: start; }
+.sidebar { position: sticky; top: 28px; padding-top: 8px; }
+.sidebar-card { padding: 0; }
+.sidebar-photo { width: 176px; height: 194px; object-fit: cover; object-position: center; padding: 5px; border: 1px solid var(--line); border-radius: 50%; margin-bottom: 16px; }
+.sidebar-name { margin: 0 0 10px; color: #50565c; font-size: 22px; line-height: 1.35; }
+.sidebar-cn { display: inline; white-space: nowrap; font-size: 17px; font-weight: 600; letter-spacing: 0; }
+.sidebar-school { margin-bottom: 15px; font-size: 14px; }
+.sidebar-role { font-size: 14px; margin-bottom: 22px; }
+.sidebar-list { display: grid; gap: 11px; }
+.sidebar-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; line-height: 1.55; }
+.sidebar-item > span:last-child { min-width: 0; overflow-wrap: anywhere; }
+.sidebar-item a { color: inherit; }
+.icon { flex: 0 0 15px; padding-top: 2px; color: #454b50; }
+.icon svg { display: block; width: 15px; height: 15px; }
+.sidebar-links { display: grid; gap: 9px; margin-top: 15px; font-size: 14px; }
+.sidebar-links a { color: var(--text); }
+.sidebar-links a::before { display: inline-block; width: 15px; margin-right: 8px; color: #727980; content: "↗"; font-weight: 700; }
+.content { min-width: 0; }
+.section-card { margin: 0 0 30px; padding: 0; scroll-margin-top: 24px; }
+.section-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 13px; margin: 0 0 13px; padding-bottom: 8px; border-bottom: 1px solid var(--line); color: #51575c; font-size: 22px; line-height: 1.35; font-weight: 700; }
+#about > .section-heading { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+#about .about-intro { margin: 0 0 20px; }
+#about .about-intro a, .news-list a, .edu-school a { text-decoration: underline; }
+.research-heading { font-size: 22px; color: #51575c; padding-bottom: 8px; border-bottom: 1px solid var(--line); margin: 0 0 10px; }
+.research-topics { margin: 0; padding-left: 28px; font-weight: 700; }
+.research-topics li { padding: 3px 0; }
+.news-list { margin: 0; padding-left: 25px; }
+.news-list li { padding-left: 0; margin-bottom: 8px; }
+.news-list li > div { display: inline; }
+.news-date { margin-right: 6px; font-style: italic; white-space: nowrap; }
+.news-date::after { content: ":"; }
+.oral { color: var(--red); font-weight: 700; }
+.education-list, .experience-list { display: grid; gap: 18px; }
+.education-item, .experience-item { display: grid; grid-template-columns: 50px minmax(0, 1fr) auto; column-gap: 16px; align-items: start; }
+.edu-logo-wrap, .experience-logo-wrap { grid-row: span 2; width: 50px; height: 54px; display: flex; align-items: center; justify-content: center; }
+.edu-logo { max-width: 46px; max-height: 48px; width: auto; height: auto; object-fit: contain; }
+.edu-main { min-width: 0; }
+.edu-school { margin: 0 0 2px; font-size: 15px; font-weight: 700; }
+.edu-university, .edu-note { margin: 0 0 3px; font-size: 14px; }
+.edu-note { color: var(--muted); }
+.edu-period { grid-column: 3; grid-row: 1 / span 2; padding-top: 2px; font-size: 13px; white-space: nowrap; color: var(--muted); }
+.pub-note { font-size: 12px; font-weight: 400; color: var(--muted); }
+.publication-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 2px; padding: 0 0 15px; border-bottom: 1px solid var(--line); }
+.publication-tab { padding: 9px 16px; border: 1px solid #c4cedd; border-radius: 4px; background: #fff; color: var(--link); font-size: 14px; font-weight: 700; line-height: 1.5; cursor: pointer; transition: background .15s, color .15s; }
+.publication-tab:hover { background: #f0f4fa; }
+.publication-tab[aria-selected="true"] { background: var(--link); border-color: var(--link); color: #fff; }
+.publication-group[hidden] { display: none; }
+.publication { display: grid; grid-template-columns: minmax(0, .4fr) minmax(0, .6fr); gap: 30px; align-items: center; padding: 27px 0; margin: 0; border-bottom: 1px solid var(--line); }
+.pub-image { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; min-height: 135px; background: #fff; }
+.pub-image img { width: 100%; height: 180px; object-fit: contain; cursor: zoom-in; box-shadow: 2px 3px 6px #d9dce0; }
+.pub-venue-label { position: absolute; top: 8px; left: -7px; z-index: 1; max-width: calc(100% + 7px); padding: 3px 12px; background: #00369f; color: #fff; font-size: 12px; font-weight: 700; line-height: 1.5; }
+.pub-title { color: var(--link); font-size: 16px; font-weight: 700; line-height: 1.45; }
+.authors { margin: 9px 0; font-size: 14px; line-height: 1.55; }
+.authors strong { color: #353a3e; }
+.venue { margin: 6px 0; color: var(--muted); font-size: 13px; font-style: italic; }
+.badge { display: block; margin-top: 7px; padding: 0; color: var(--red); font-size: 12px; font-weight: 700; }
+.pub-links { display: flex; flex-wrap: wrap; gap: 6px 10px; margin: 9px 0 0; font-size: 14px; }
+.pub-links a { font-weight: 700; }
+.pub-links a::before { content: "["; }
+.pub-links a::after { content: "]"; }
+.zoom-button { position: absolute; right: 7px; bottom: 7px; width: 30px; height: 30px; padding: 6px; display: grid; place-items: center; border: 1px solid #d7dce1; border-radius: 3px; background: #fff; color: var(--link); opacity: 0; cursor: pointer; }
+.zoom-button svg { width: 16px; height: 16px; stroke: currentColor; }
+.pub-image:hover .zoom-button, .pub-image:focus-within .zoom-button { opacity: 1; }
+.image-lightbox { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; padding: 30px; background: rgba(0,0,0,.85); }
+.image-lightbox.open { display: flex; }
+.image-lightbox img { max-width: 1120px; max-height: 85vh; object-fit: contain; background: #fff; padding: 10px; }
+.lightbox-close { position: fixed; right: 22px; top: 16px; width: 44px; height: 44px; border: 0; background: transparent; color: #fff; font-size: 32px; cursor: pointer; }
+.honors-intro { margin: 0 0 14px; color: var(--muted); font-size: 14px; }
+.honors-groups { display: grid; gap: 22px; }
+.honors-group-heading { margin-bottom: 8px; }
+.honors-icon { display: none; }
+.honors-group-heading h3 { margin: 0 0 2px; font-size: 16px; }
+.honors-group-heading p { margin: 0; color: var(--muted); font-size: 13px; }
+.honors-list { margin: 0; padding-left: 24px; }
+.honors-list li { margin: 0 0 7px; font-size: 14px; }
+.honors-note { color: var(--muted); font-size: 13px; margin-left: 10px; }
+.plain-list { margin: 0; padding-left: 24px; }
+.plain-list li { margin-bottom: 7px; }
+.service-label { font-weight: 700; }
+.footer { color: var(--muted-2); font-size: 12px; margin-top: 36px; padding-top: 15px; border-top: 1px solid var(--line); }
+.back-top { position: fixed; right: 22px; bottom: 22px; width: 36px; height: 36px; border: 1px solid #d6dde5; border-radius: 3px; background: #fff; color: var(--link); cursor: pointer; visibility: hidden; }
+.back-top.show { visibility: visible; }
+/* Keep switching panels immediate, including papers not previously in view. */
+.reveal-ready, .reveal-ready.reveal-visible { opacity: 1; transform: none; }
+@media (max-width: 1050px) {
+  .layout { grid-template-columns: 190px minmax(0, 1fr); gap: 32px; }
+  .topnav-inner { gap: 30px; }
+  .nav-links { gap: 4px 16px; }
+  .publication { gap: 22px; }
+  .pub-image img { height: 150px; }
+  .edu-period { grid-column: 2; grid-row: auto; padding-top: 4px; }
+  .education-item, .experience-item { grid-template-columns: 48px minmax(0, 1fr); }
+}
+@media (max-width: 800px) {
+  .topnav-inner { min-height: 58px; padding: 13px 0; align-items: flex-start; flex-direction: column; gap: 10px; }
+  .nav-links { gap: 8px 18px; }
+  .nav-links a { padding: 0; font-size: 13px; }
+  .layout { grid-template-columns: 1fr; gap: 25px; margin-top: 24px; }
+  .sidebar { position: static; padding: 0 0 22px; border-bottom: 1px solid var(--line); }
+  .sidebar-card { display: flow-root; }
+  .sidebar-photo { float: left; width: 120px; height: 136px; margin: 0 24px 12px 0; }
+  .sidebar-name { margin-top: 3px; }
+  .sidebar-school { margin-bottom: 6px; }
+  .sidebar-role { margin-bottom: 10px; }
+  .sidebar-list { gap: 6px; }
+  .sidebar-links { display: flex; flex-wrap: wrap; gap: 10px 18px; clear: both; margin-top: 12px; }
+}
+@media (max-width: 540px) {
+  .topnav-inner, .layout { width: calc(100% - 36px); }
+  body { font-size: 14px; }
+  .sidebar-photo { width: 94px; height: 109px; margin-right: 17px; }
+  .sidebar-name { font-size: 20px; }
+  .sidebar-cn { font-size: 16px; }
+  .sidebar-school, .sidebar-role { font-size: 12px; }
+  .sidebar-list { clear: both; padding-top: 5px; }
+  .section-heading, .research-heading { font-size: 21px; }
+  .publication-tabs { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .publication-tab { padding: 10px 12px; text-align: left; font-size: 13px; }
+  .publication { grid-template-columns: 1fr; gap: 16px; padding: 25px 0; }
+  .pub-image { width: min(100%, 390px); margin: auto; }
+  .pub-image img { height: 190px; }
+  .pub-venue-label { left: 0; }
+  .zoom-button { opacity: 1; }
+  .image-lightbox { padding: 14px; }
+  .edu-school { font-size: 14px; }
+  .edu-university, .edu-note { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media print {
+  .topnav, .zoom-button, .image-lightbox, .back-top, .publication-tabs { display: none !important; }
+  .layout { display: block; width: 100%; margin: 0; }
+  .sidebar { position: static; margin-bottom: 25px; }
+  .publication-group[hidden] { display: block; }
+  .publication { break-inside: avoid; }
+}
+/* Personal visual identity: white surfaces and clean sans-serif typography. */
+:root { --bg: #ffffff; --text: #34404a; --muted: #737d85; --muted-2: #879098; --link: #246b70; --link-dark: #174b50; --line: #e6e9e7; --red: #a44b43; --content-width: 1200px; }
+body { font-family: "Trebuchet MS", Helvetica, "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+::selection { background: #dcecec; }
+.topnav { background: var(--bg); }
+.topnav-inner { min-height: 70px; justify-content: space-between; gap: 30px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: #24343e; font-family: "Trebuchet MS", Helvetica, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 21px; font-weight: 600; }
+.brand::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--link); }
+.nav-links { gap: 7px 20px; }
+.nav-links a { font-size: 13px; padding: 21px 0; }
+.nav-links a.active { box-shadow: inset 0 -2px var(--link); }
+.layout { grid-template-columns: 230px minmax(0, 1fr); gap: 48px; margin-top: 42px; }
+.sidebar { padding: 0 25px 0 0; border-right: 1px solid var(--line); }
+.sidebar-photo { width: 184px; height: 205px; padding: 0; border: 0; border-radius: 10px; margin-bottom: 21px; }
+.sidebar-name { color: #24343e; font-family: "Trebuchet MS", Helvetica, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 29px; line-height: 1.25; font-weight: 600; }
+.sidebar-cn { display: block; margin-top: 6px; font: 14px/1.5 "Trebuchet MS", Helvetica, "Microsoft YaHei", sans-serif; color: var(--muted); letter-spacing: 1px; }
+.sidebar-school { font-size: 13px; }
+.sidebar-role { font-size: 12px; color: var(--link); font-weight: 600; margin-bottom: 20px; }
+.sidebar-item { font-size: 12px; }
+.sidebar-links { border-top: 1px solid var(--line); padding-top: 15px; font-size: 13px; }
+.sidebar-links a { color: var(--link); }
+.sidebar-links a::before { color: var(--link); }
+.section-card { margin-bottom: 40px; }
+.section-heading { gap: 12px; color: #263640; border: 0; font-family: "Trebuchet MS", Helvetica, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 26px; font-weight: 600; margin-bottom: 18px; padding: 0; }
+.section-index { align-self: center; color: var(--link); font: 600 11px/1.5 "Trebuchet MS", Helvetica, sans-serif; letter-spacing: .08em; }
+#about > .section-heading { position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal; }
+#about .about-intro { margin-bottom: 22px; }
+#about .about-intro a, .news-list a, .edu-school a { text-decoration: none; }
+#about .about-intro a:hover, .news-list a:hover, .edu-school a:hover { text-decoration: underline; }
+.research-heading { font: 600 11px/1.5 "Trebuchet MS", Helvetica, sans-serif; text-transform: uppercase; letter-spacing: .15em; border: 0; padding: 0; margin: 0 0 10px; color: var(--muted); }
+.research-topics { counter-reset: topics; list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.research-topics li { counter-increment: topics; position: relative; padding: 14px 16px; background: #fff; border: 1px solid var(--line); border-radius: 5px; font-size: 13px; line-height: 1.6; font-weight: 600; }
+.research-topics li::before { content: "0" counter(topics); display: block; margin-bottom: 4px; color: var(--link); font-size: 10px; letter-spacing: .08em; }
+.news-list { list-style: none; padding: 0; }
+.news-list li { display: grid; grid-template-columns: 68px minmax(0, 1fr); column-gap: 16px; margin: 0; padding: 7px 0; }
+.news-date { padding-top: 2px; margin: 0; color: var(--muted); font-size: 12px; font-style: normal; font-variant-numeric: tabular-nums; }
+.news-date::after { content: none; }
+.news-list li > div { font-size: 14px; }
+.education-list, .experience-list { gap: 20px; }
+.edu-school { font-size: 14px; }
+.edu-university, .edu-note { font-size: 13px; }
+.edu-period { font-size: 12px; }
+.pub-note { font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 11px; }
+.publication-tabs { gap: 0 24px; margin: 0 0 3px; padding: 0; }
+.publication-tab { position: relative; padding: 12px 0 13px; border: 0; border-radius: 0; background: transparent; color: var(--muted); font-size: 13px; font-weight: 600; }
+.publication-tab:hover { background: transparent; color: var(--link); }
+.publication-tab[aria-selected="true"] { background: transparent; color: var(--link); border: 0; box-shadow: inset 0 -2px var(--link); }
+.publication { grid-template-columns: 255px minmax(0, 1fr); gap: 27px; padding: 26px 0; }
+.pub-image { min-height: 150px; background: #fff; padding: 8px; border: 1px solid var(--line); border-radius: 6px; }
+.pub-image img { height: 150px; box-shadow: none; }
+.pub-venue-label { position: static; display: table; max-width: 100%; margin-bottom: 9px; padding: 2px 7px; border-radius: 3px; background: #fff; border: 1px solid var(--line); color: #52616a; font: 600 10px/1.6 "Trebuchet MS", Helvetica, sans-serif; letter-spacing: .04em; }
+.pub-title { font-size: 15px; color: #263e4b; line-height: 1.5; }
+.pub-title:hover { color: var(--link); }
+.authors { font-size: 13px; line-height: 1.65; margin: 8px 0 5px; }
+.venue { font-size: 12px; }
+.pub-links { font-size: 12px; gap: 8px; }
+.pub-links a { padding-bottom: 1px; border-bottom: 1px solid #b5ccca; }
+.pub-links a::before, .pub-links a::after { content: none; }
+.badge { font-size: 11px; }
+.honors-group-heading h3 { font-size: 14px; }
+.honors-list li, .plain-list li { font-size: 13px; }
+.footer { margin-top: 25px; }
+@media (max-width: 1050px) {
+  .layout { grid-template-columns: 205px minmax(0, 1fr); gap: 30px; }
+  .sidebar { padding-right: 18px; }
+  .sidebar-photo { width: 174px; height: 194px; }
+  .nav-links { gap: 6px 15px; }
+  .publication { grid-template-columns: 210px minmax(0, 1fr); gap: 22px; }
+  .pub-image img { height: 140px; }
+}
+@media (max-width: 800px) {
+  .topnav-inner { padding: 15px 0; gap: 12px; align-items: flex-start; }
+  .nav-links a { padding: 0 0 5px; font-size: 12px; }
+  .layout { grid-template-columns: 1fr; margin-top: 28px; gap: 28px; }
+  .sidebar { border-right: 0; border-bottom: 1px solid var(--line); padding: 0 0 22px; }
+  .sidebar-photo { width: 135px; height: 151px; margin: 0 24px 14px 0; }
+  .sidebar-name { font-size: 27px; }
+  .sidebar-cn { display: inline; margin-left: 7px; font-size: 13px; }
+  .sidebar-role { margin-bottom: 10px; }
+  .sidebar-links { border: 0; padding-top: 0; }
+}
+@media (max-width: 540px) {
+  .sidebar-photo { width: 102px; height: 118px; margin-right: 17px; }
+  .sidebar-name { font-size: 25px; }
+  .sidebar-cn { display: block; margin-left: 0; margin-top: 5px; }
+  .sidebar-school { margin-top: 12px; }
+  .section-card { margin-bottom: 32px; }
+  .section-heading { font-size: 25px; }
+  .research-topics { grid-template-columns: 1fr; gap: 8px; }
+  .research-topics li { padding: 11px 14px; }
+  .research-topics li::before { display: inline; margin-right: 10px; }
+  .news-list li { grid-template-columns: 58px minmax(0, 1fr); gap: 10px; }
+  .news-list li > div { font-size: 13px; }
+  .news-date { font-size: 11px; }
+  .publication-tabs { display: flex; gap: 0; }
+  .publication-tab { width: 100%; text-align: left; padding: 11px 0; }
+  .publication-tab[aria-selected="true"] { box-shadow: inset 2px 0 var(--link); padding-left: 10px; }
+  .publication { grid-template-columns: 1fr; gap: 16px; }
+  .pub-image { width: 100%; }
+  .pub-image img { height: 175px; }
+}
+@media print { .sidebar { border: 0; } }
   </style>
 </head>
 <body id="top">
   <header class="topnav">
     <div class="topnav-inner">
-      <a class="brand" href="#top">Bingyu Li<span style="color:var(--link)">.</span></a>
+      <a class="brand" href="#top">Bingyu Li</a>
       <nav class="nav-links">
         <a href="#about">About Me</a>
+        <a href="#news">News</a>
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
-        <a href="#news">News</a>
+        
         <a href="#publications">Publications</a>
         <a href="#honors">Honors & Awards</a>
         <a href="#service">Service</a>
@@ -636,54 +314,41 @@
 
     <div class="content">
       <section class="section-card" id="about">
-        <h2 class="section-heading">About Me</h2>
+        <h2 class="section-heading"><span class="section-index" aria-hidden="true">01</span>About Me </h2>
         <p class="about-intro">
           I am a Ph.D. student at the
           <a href="https://en.ustc.edu.cn/" target="_blank" rel="noopener noreferrer">University of Science and Technology of China (USTC)</a>,
           supervised by
           <a href="https://scholar.google.com/citations?user=ahUibskAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Prof. Xuelong Li</a>.
-          My research focuses on <strong>open-world perception and embodied intelligence</strong>,
-          aiming to bridge visual understanding and intelligent action in complex and dynamic environments.
+          My research focuses on <strong>multimodal large models for visual perception</strong>
+          and <strong>embodied intelligence and world models</strong>,
+          connecting visual understanding with intelligent action in complex and dynamic environments.
         </p>
-        <p class="research-heading">My research interests span two closely related directions:</p>
-
-        <div class="research-directions" aria-label="Research directions">
-          <article class="research-direction">
-            <div class="research-direction-top">
-              <span class="research-number" aria-hidden="true">01</span>
-              <span class="research-tag">Previous Research · Perception</span>
-            </div>
-            <h3>Vision-Language Perception</h3>
-            <p>
-              My previous research has focused on leveraging <strong>vision-language models (VLMs)</strong>
-              for open-world visual perception and scene understanding, including
-              <strong>open-vocabulary object detection</strong>, <strong>semantic segmentation</strong>,
-              and <strong>visual grounding</strong> across natural, remote sensing, and underwater environments.
-            </p>
-          </article>
-
-          <article class="research-direction research-direction-current">
-            <div class="research-direction-top">
-              <span class="research-number" aria-hidden="true">02</span>
-              <span class="research-tag">Current Research · Embodied Intelligence</span>
-            </div>
-            <h3>Vision-Language-Action &amp; World Action Models</h3>
-            <p>
-              My current research focuses on <strong>world action models (WAMs)</strong>,
-              <strong>vision-language-action (VLA) models</strong>, and
-              <strong>diffusion-based action generation</strong>, with particular interests in
-              <strong>UAV embodied intelligence</strong>, autonomous exploration, visual navigation,
-              and embodied target tracking.
-            </p>
-          </article>
-        </div>
-
-        <p class="vision">From Open-World Perception to Embodied Action.</p>
+        <h3 class="research-heading">Research Focus</h3>
+        <ul class="research-topics">
+          <li>Multimodal Large Models for Visual Perception</li>
+          <li>Embodied Intelligence &amp; World (Action) Models</li>
+        </ul>
       </section>
 
 
+      <section class="section-card" id="news">
+        <h2 class="section-heading"><span class="section-index" aria-hidden="true">02</span>News </h2>
+        <ul class="news-list">
+        <li><time class="news-date">07/2026</time><div>Our paper <a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a> is accepted by <strong>ACM MM 2026</strong>.</div></li>
+        <li><time class="news-date">06/2026</time><div>Our paper <a href="https://arxiv.org/abs/2606.00987" target="_blank" rel="noopener noreferrer">An Open-Source Benchmark and Baseline for Multi-temporal Referring Segmentation</a> is now available on <strong>arXiv</strong>.</div></li>
+        <li><time class="news-date">04/2026</time><div>Our paper <a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a> is now available on <strong>arXiv</strong>.</div></li>
+        <li><time class="news-date">04/2026</time><div>Our paper <a href="https://arxiv.org/pdf/2604.15652" target="_blank" rel="noopener noreferrer">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a> is now available on <strong>arXiv</strong>.</div></li>
+        <li><time class="news-date">03/2026</time><div>Four papers are accepted by <strong>CVPR 2026</strong>, including two first-author papers.</div></li>
+        <li><time class="news-date">11/2025</time><div>Our paper <a href="https://arxiv.org/abs/2509.12040" target="_blank" rel="noopener noreferrer">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a> is accepted by <strong>AAAI 2026</strong> as an <span class="oral">Oral presentation (Top ~5%)</span>.</div></li>
+        <li><time class="news-date">10/2025</time><div>Awarded the <strong>National Scholarship for Graduate Students</strong>.</div></li>
+        <li><time class="news-date">04/2025</time><div><a href="https://arxiv.org/pdf/2408.01343" target="_blank" rel="noopener noreferrer">StitchFusion</a> is accepted by <strong>ACM MM 2025</strong> as an <span class="oral">Oral presentation</span>.</div></li>
+        <li><time class="news-date">09/2024</time><div>Started my Ph.D. journey at <strong>USTC</strong>.</div></li>
+      </ul>
+      </section>
+
       <section class="section-card" id="education">
-        <h2 class="section-heading">Education</h2>
+        <h2 class="section-heading"><span class="section-index" aria-hidden="true">03</span>Education </h2>
 
         <div class="education-list">
 
@@ -746,7 +411,7 @@
 
 
       <section class="section-card" id="experience">
-        <h2 class="section-heading">Experience</h2>
+        <h2 class="section-heading"><span class="section-index" aria-hidden="true">04</span>Experience </h2>
 
         <div class="experience-list">
           <div class="experience-item">
@@ -766,126 +431,131 @@
         </div>
       </section>
 
-      <section class="section-card" id="news">
-        <h2 class="section-heading">News</h2>
-        <ul class="news-list">
-        <li><time class="news-date">07/2026</time><div>Our paper <a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a> is accepted by <strong>ACM MM 2026</strong>.</div></li>
-        <li><time class="news-date">06/2026</time><div>Our paper <a href="https://arxiv.org/abs/2606.00987" target="_blank" rel="noopener noreferrer">An Open-Source Benchmark and Baseline for Multi-temporal Referring Segmentation</a> is now available on <strong>arXiv</strong>.</div></li>
-        <li><time class="news-date">04/2026</time><div>Our paper <a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a> is now available on <strong>arXiv</strong>.</div></li>
-        <li><time class="news-date">04/2026</time><div>Our paper <a href="https://arxiv.org/pdf/2604.15652" target="_blank" rel="noopener noreferrer">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a> is now available on <strong>arXiv</strong>.</div></li>
-        <li><time class="news-date">03/2026</time><div>Four papers are accepted by <strong>CVPR 2026</strong>, including two first-author papers.</div></li>
-        <li><time class="news-date">11/2025</time><div>Our paper <a href="https://arxiv.org/abs/2509.12040" target="_blank" rel="noopener noreferrer">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a> is accepted by <strong>AAAI 2026</strong> as an <span class="oral">Oral presentation (Top ~5%)</span>.</div></li>
-        <li><time class="news-date">10/2025</time><div>Awarded the <strong>National Scholarship for Graduate Students</strong>.</div></li>
-        <li><time class="news-date">04/2025</time><div><a href="https://arxiv.org/pdf/2408.01343" target="_blank" rel="noopener noreferrer">StitchFusion</a> is accepted by <strong>ACM MM 2025</strong> as an <span class="oral">Oral presentation</span>.</div></li>
-        <li><time class="news-date">09/2024</time><div>Started my Ph.D. journey at <strong>USTC</strong>.</div></li>
-      </ul>
-      </section>
+
 
       <section class="section-card" id="publications">
-        <h2 class="section-heading">Selected Publications <span class="pub-note">[<a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Full List</a>] (* Equal contribution)</span></h2>
-        <article class="publication">
-        <div class="pub-image"><img src="images/MTRefSeg.png" alt="MTRefSeg"></div>
-        <div>
-          <a class="pub-title" href="https://arxiv.org/abs/2606.00987" target="_blank" rel="noopener noreferrer">An Open-Source Benchmark and Baseline for Multi-temporal Referring Segmentation</a>
-          <p class="authors"><strong>Bingyu Li*</strong>, Da Zhang*, Tao Huo, Zhiyuan Zhao, Junyu Gao, Xuelong Li</p>
-          <p class="venue">arXiv, 2026.</p>
-          <p class="pub-links"><a href="https://arxiv.org/abs/2606.00987" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://libingyu01.github.io/MTRefSeg/" target="_blank" rel="noopener noreferrer">Project</a> <a href="https://github.com/LiBingyu01/MTRefSeg" target="_blank" rel="noopener noreferrer">Code</a> <a href="https://huggingface.co/datasets/kkk2026/MTRefSeg-21K" target="_blank" rel="noopener noreferrer">Dataset</a></p>
+        <h2 class="section-heading"><span class="section-index" aria-hidden="true">05</span>Selected Publications <span class="pub-note">[<a href="https://scholar.google.com/citations?user=6AdA-O4AAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Full List</a>] (* Equal contribution)</span></h2>
+        <div class="publication-tabs" role="tablist" aria-label="Publication research directions">
+          <button class="publication-tab" type="button" role="tab" id="pub-tab-perception" aria-controls="pub-visual-perception" aria-selected="true" tabindex="0">Multimodal Large Models for Visual Perception</button>
+          <button class="publication-tab" type="button" role="tab" id="pub-tab-embodied" aria-controls="pub-embodied-intelligence" aria-selected="false" tabindex="-1">World (Action) Model</button>
         </div>
-      </article>
+        <section class="publication-group" id="pub-visual-perception" role="tabpanel" aria-labelledby="pub-tab-perception" tabindex="0">
+          <article class="publication">
+            <div class="pub-image"><img src="images/MTRefSeg.png" alt="MTRefSeg"></div>
+            <div>
+              <span class="pub-venue-label">arXiv 2026</span>
+              <a class="pub-title" href="https://arxiv.org/abs/2606.00987" target="_blank" rel="noopener noreferrer">An Open-Source Benchmark and Baseline for Multi-temporal Referring Segmentation</a>
+              <p class="authors"><strong>Bingyu Li*</strong>, Da Zhang*, Tao Huo, Zhiyuan Zhao, Junyu Gao, Xuelong Li</p>
+              <p class="venue">arXiv, 2026.</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2606.00987" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://libingyu01.github.io/MTRefSeg/" target="_blank" rel="noopener noreferrer">Project</a> <a href="https://github.com/LiBingyu01/MTRefSeg" target="_blank" rel="noopener noreferrer">Code</a> <a href="https://huggingface.co/datasets/kkk2026/MTRefSeg-21K" target="_blank" rel="noopener noreferrer">Dataset</a></p>
+            </div>
+          </article>
 
-      <article class="publication">
-        <div class="pub-image"><img src="images/pi-seg-1.png" alt="Pi-Seg"></div>
-        <div>
-          <a class="pub-title" href="https://arxiv.org/pdf/2604.15652" target="_blank" rel="noopener noreferrer">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a>
-          <p class="authors"><strong>Bingyu Li</strong>, T Huo, H Dong, D Zhang, Z Zhao, J Gao, X Li</p>
-          <p class="venue">arXiv, 2026.</p>
-          <p class="pub-links"><a href="https://arxiv.org/pdf/2604.15652" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/Pi-Seg" target="_blank" rel="noopener noreferrer">Code</a></p>
-        </div>
-      </article>
+          <article class="publication">
+            <div class="pub-image"><img src="images/pi-seg-1.png" alt="Pi-Seg"></div>
+            <div>
+              <span class="pub-venue-label">arXiv 2026</span>
+              <a class="pub-title" href="https://arxiv.org/pdf/2604.15652" target="_blank" rel="noopener noreferrer">Towards Realistic Open-Vocabulary Remote Sensing Segmentation: Benchmark and Baseline</a>
+              <p class="authors"><strong>Bingyu Li</strong>, T Huo, H Dong, D Zhang, Z Zhao, J Gao, X Li</p>
+              <p class="venue">arXiv, 2026.</p>
+              <p class="pub-links"><a href="https://arxiv.org/pdf/2604.15652" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/Pi-Seg" target="_blank" rel="noopener noreferrer">Code</a></p>
+            </div>
+          </article>
 
-      <article class="publication">
-        <div class="pub-image"><img src="images/rskt.png" alt="RSKT-Seg"></div>
-        <div>
-          <a class="pub-title" href="https://arxiv.org/pdf/2509.12040" target="_blank" rel="noopener noreferrer">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a><span class="badge">AAAI 2026 Oral · Top ~5%</span>
-          <p class="authors"><strong>Bingyu Li</strong>, H Dong, D Zhang, Z Zhao, J Gao, X Li</p>
-          <p class="venue">AAAI Conference on Artificial Intelligence (AAAI), 2026.</p>
-          <p class="pub-links"><a href="https://arxiv.org/pdf/2509.12040" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/RSKT-Seg" target="_blank" rel="noopener noreferrer">Code</a></p>
-        </div>
-      </article>
+          <article class="publication">
+            <div class="pub-image"><img src="images/rskt.png" alt="RSKT-Seg"></div>
+            <div>
+              <span class="pub-venue-label">AAAI 2026</span>
+              <a class="pub-title" href="https://arxiv.org/pdf/2509.12040" target="_blank" rel="noopener noreferrer">Exploring Efficient Open-Vocabulary Segmentation in Remote Sensing</a><span class="badge">AAAI 2026 Oral · Top ~5%</span>
+              <p class="authors"><strong>Bingyu Li</strong>, H Dong, D Zhang, Z Zhao, J Gao, X Li</p>
+              <p class="venue">AAAI Conference on Artificial Intelligence (AAAI), 2026.</p>
+              <p class="pub-links"><a href="https://arxiv.org/pdf/2509.12040" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/RSKT-Seg" target="_blank" rel="noopener noreferrer">Code</a></p>
+            </div>
+          </article>
 
-      <article class="publication">
-        <div class="pub-image"><img src="images/maris.png" alt="MARIS"></div>
-        <div>
-          <a class="pub-title" href="https://arxiv.org/abs/2510.15398" target="_blank" rel="noopener noreferrer">MARIS: Marine Open-Vocabulary Instance Segmentation</a>
-          <p class="authors"><strong>Bingyu Li</strong>, F Wang, D Zhang, Z Zhao, J Gao, X Li</p>
-          <p class="venue">IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</p>
-          <p class="pub-links"><a href="https://arxiv.org/abs/2510.15398" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/MARIS" target="_blank" rel="noopener noreferrer">Code</a></p>
-        </div>
-      </article>
+          <article class="publication">
+            <div class="pub-image"><img src="images/maris.png" alt="MARIS"></div>
+            <div>
+              <span class="pub-venue-label">CVPR 2026</span>
+              <a class="pub-title" href="https://arxiv.org/abs/2510.15398" target="_blank" rel="noopener noreferrer">MARIS: Marine Open-Vocabulary Instance Segmentation</a>
+              <p class="authors"><strong>Bingyu Li</strong>, F Wang, D Zhang, Z Zhao, J Gao, X Li</p>
+              <p class="venue">IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2510.15398" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/MARIS" target="_blank" rel="noopener noreferrer">Code</a></p>
+            </div>
+          </article>
 
-      <article class="publication">
-        <div class="pub-image"><img src="images/earth2ocean.png" alt="Earth2Ocean"></div>
-        <div>
-          <a class="pub-title" href="https://arxiv.org/pdf/2511.07923" target="_blank" rel="noopener noreferrer">Exploring the Underwater World Segmentation without Extra Training</a>
-          <p class="authors"><strong>Bingyu Li</strong>, T Huo, D Zhang, Z Zhao, J Gao, X Li</p>
-          <p class="venue">IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</p>
-          <p class="pub-links"><a href="https://arxiv.org/pdf/2511.07923" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/Earth2Ocean" target="_blank" rel="noopener noreferrer">Code</a></p>
-        </div>
-      </article>
+          <article class="publication">
+            <div class="pub-image"><img src="images/earth2ocean.png" alt="Earth2Ocean"></div>
+            <div>
+              <span class="pub-venue-label">CVPR 2026</span>
+              <a class="pub-title" href="https://arxiv.org/pdf/2511.07923" target="_blank" rel="noopener noreferrer">Exploring the Underwater World Segmentation without Extra Training</a>
+              <p class="authors"><strong>Bingyu Li</strong>, T Huo, D Zhang, Z Zhao, J Gao, X Li</p>
+              <p class="venue">IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</p>
+              <p class="pub-links"><a href="https://arxiv.org/pdf/2511.07923" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/Earth2Ocean" target="_blank" rel="noopener noreferrer">Code</a></p>
+            </div>
+          </article>
 
-      <article class="publication">
-        <div class="pub-image"><img src="images/QICA.png" alt="QICA"></div>
-        <div>
-          <a class="pub-title" href="https://arxiv.org/abs/2603.16129" target="_blank" rel="noopener noreferrer">Boosting Quantitative and Spatial Awareness for Zero-Shot Object Counting</a>
-          <p class="authors">D Zhang, <strong>Bingyu Li</strong>, F Wang, Z Zhao, J Gao</p>
-          <p class="venue">IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</p>
-          <p class="pub-links"><a href="https://arxiv.org/abs/2603.16129" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/zhangda1018/QICA" target="_blank" rel="noopener noreferrer">Code</a></p>
-        </div>
-      </article>
+          <article class="publication">
+            <div class="pub-image"><img src="images/QICA.png" alt="QICA"></div>
+            <div>
+              <span class="pub-venue-label">CVPR 2026</span>
+              <a class="pub-title" href="https://arxiv.org/abs/2603.16129" target="_blank" rel="noopener noreferrer">Boosting Quantitative and Spatial Awareness for Zero-Shot Object Counting</a>
+              <p class="authors">D Zhang, <strong>Bingyu Li</strong>, F Wang, Z Zhao, J Gao</p>
+              <p class="venue">IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2603.16129" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/zhangda1018/QICA" target="_blank" rel="noopener noreferrer">Code</a></p>
+            </div>
+          </article>
 
-      <article class="publication">
-        <div class="pub-image"><img src="images/stitchfusion.png" alt="StitchFusion"></div>
-        <div>
-          <a class="pub-title" href="https://arxiv.org/pdf/2408.01343" target="_blank" rel="noopener noreferrer">StitchFusion: Weaving Any Visual Modalities to Enhance Multimodal Semantic Segmentation</a><span class="badge">Oral</span>
-          <p class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</p>
-          <p class="venue">ACM International Conference on Multimedia (ACM MM), 2025.</p>
-          <p class="pub-links"><a href="https://arxiv.org/pdf/2408.01343" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/StitchFusion" target="_blank" rel="noopener noreferrer">Code</a></p>
-        </div>
-      </article>
+          <article class="publication">
+            <div class="pub-image"><img src="images/stitchfusion.png" alt="StitchFusion"></div>
+            <div>
+              <span class="pub-venue-label">ACM MM 2025</span>
+              <a class="pub-title" href="https://arxiv.org/pdf/2408.01343" target="_blank" rel="noopener noreferrer">StitchFusion: Weaving Any Visual Modalities to Enhance Multimodal Semantic Segmentation</a><span class="badge">Oral</span>
+              <p class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</p>
+              <p class="venue">ACM International Conference on Multimedia (ACM MM), 2025.</p>
+              <p class="pub-links"><a href="https://arxiv.org/pdf/2408.01343" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/StitchFusion" target="_blank" rel="noopener noreferrer">Code</a></p>
+            </div>
+          </article>
 
-      <article class="publication">
-        <div class="pub-image"><img src="images/u3m.png" alt="U3M"></div>
-        <div>
-          <a class="pub-title" href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" target="_blank" rel="noopener noreferrer">U3M: Unbiased Multiscale Modal Fusion Model for Multimodal Semantic Segmentation</a>
-          <p class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</p>
-          <p class="venue">Pattern Recognition, 2025.</p>
-          <p class="pub-links"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/U3M" target="_blank" rel="noopener noreferrer">Code</a></p>
-        </div>
-      </article>
+          <article class="publication">
+            <div class="pub-image"><img src="images/u3m.png" alt="U3M"></div>
+            <div>
+              <span class="pub-venue-label">Pattern Recognition 2025</span>
+              <a class="pub-title" href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" target="_blank" rel="noopener noreferrer">U3M: Unbiased Multiscale Modal Fusion Model for Multimodal Semantic Segmentation</a>
+              <p class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</p>
+              <p class="venue">Pattern Recognition, 2025.</p>
+              <p class="pub-links"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0031320325004613" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/U3M" target="_blank" rel="noopener noreferrer">Code</a></p>
+            </div>
+          </article>
 
-      <article class="publication">
-        <div class="pub-image"><img src="images/fgaseg.png" alt="FGAseg"></div>
-        <div>
-          <a class="pub-title" href="https://arxiv.org/abs/2501.00877" target="_blank" rel="noopener noreferrer">FGAseg: Fine-Grained Pixel-Text Alignment for Open-Vocabulary Semantic Segmentation</a>
-          <p class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</p>
-          <p class="venue">arXiv, 2025.</p>
-          <p class="pub-links"><a href="https://arxiv.org/abs/2501.00877" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/FGA-seg" target="_blank" rel="noopener noreferrer">Code</a></p>
-        </div>
-      </article>
+          <article class="publication">
+            <div class="pub-image"><img src="images/fgaseg.png" alt="FGAseg"></div>
+            <div>
+              <span class="pub-venue-label">arXiv 2025</span>
+              <a class="pub-title" href="https://arxiv.org/abs/2501.00877" target="_blank" rel="noopener noreferrer">FGAseg: Fine-Grained Pixel-Text Alignment for Open-Vocabulary Semantic Segmentation</a>
+              <p class="authors"><strong>Bingyu Li</strong>, D Zhang, Z Zhao, J Gao, X Li</p>
+              <p class="venue">arXiv, 2025.</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2501.00877" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://github.com/LiBingyu01/FGA-seg" target="_blank" rel="noopener noreferrer">Code</a></p>
+            </div>
+          </article>
+        </section>
 
-      <article class="publication">
-        <div class="pub-image"><img src="images/RATS.png" alt="RATS"></div>
-        <div>
-          <a class="pub-title" href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a>
-          <p class="authors">Rui Li*, <strong>Bingyu Li*</strong>, Yuanzhi Liang, Haibin Huang, Chi Zhang, Xuelong Li</p>
-          <p class="venue">ACM International Conference on Multimedia (ACM MM), 2026.</p>
-          <p class="pub-links"><a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://rlustc.github.io/Rats/" target="_blank" rel="noopener noreferrer">Project</a></p>
-        </div>
-      </article>
+        <section class="publication-group" id="pub-embodied-intelligence" role="tabpanel" aria-labelledby="pub-tab-embodied" tabindex="0" hidden>
+          <article class="publication">
+            <div class="pub-image"><img src="images/RATS.png" alt="RATS"></div>
+            <div>
+              <span class="pub-venue-label">ACM MM 2026</span>
+              <a class="pub-title" href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Reward-Aware Trajectory Shaping for Few-step Visual Generation</a>
+              <p class="authors">Rui Li*, <strong>Bingyu Li*</strong>, Yuanzhi Liang, Haibin Huang, Chi Zhang, Xuelong Li</p>
+              <p class="venue">ACM International Conference on Multimedia (ACM MM), 2026.</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2604.14910" target="_blank" rel="noopener noreferrer">Paper</a> <a href="https://rlustc.github.io/Rats/" target="_blank" rel="noopener noreferrer">Project</a></p>
+            </div>
+          </article>
+        </section>
       </section>
 
       <section class="section-card" id="honors">
-        <h2 class="section-heading">Honors and Awards</h2>
+        <h2 class="section-heading"><span class="section-index" aria-hidden="true">06</span>Honors and Awards </h2>
         <p class="honors-intro">Selected academic honors, scholarships, and competition awards.</p>
 
         <div class="honors-groups">
@@ -898,9 +568,11 @@
               </div>
             </div>
             <ul class="honors-list">
-              <li><span class="honors-name">National Scholarship for Graduate Students</span><span class="honors-note">2025</span></li>
-              <li><span class="honors-name">First-Class Scholarship, USTC</span></li>
+              <li><span class="honors-name">First-Class Scholarship 2026, USTC</span></li>
+              <li><span class="honors-name">Global Digital Scholarship — Excellence Award（环球数码奖学金优秀奖）, USTC</span><span class="honors-note">2026</span></li>
               <li><span class="honors-name">AAAI 2026 Oral Presentation</span><span class="honors-note">Top ~5%</span></li>
+              <li><span class="honors-name">National Scholarship for Graduate Students</span><span class="honors-note">2025</span></li>
+              <li><span class="honors-name">First-Class Scholarship 2025, USTC</span></li>
               <li><span class="honors-name">ACM MM 2025 Oral Presentation</span></li>
             </ul>
           </div>
@@ -914,8 +586,8 @@
               </div>
             </div>
             <ul class="honors-list">
-              <li><span class="honors-name">National Scholarship (Undergraduate)</span></li>
-              <li><span class="honors-name">National Encouragement Scholarship</span><span class="honors-note">Twice</span></li>
+              <li><span class="honors-name">National Encouragement Scholarship</span><span class="honors-note">2023, 2022</span></li>
+              <li><span class="honors-name">National Scholarship (Undergraduate)</span><span class="honors-note">2021</span></li>
               <li><span class="honors-name">Outstanding Student Role Model</span><span class="honors-note">University-level · Three times</span></li>
               <li><span class="honors-name">Outstanding Student Leader</span><span class="honors-note">University-level</span></li>
               <li><span class="honors-name">Outstanding Communist Youth League Cadre</span></li>
@@ -942,7 +614,7 @@
       </section>
 
       <section class="section-card" id="service">
-        <h2 class="section-heading">Professional Service</h2>
+        <h2 class="section-heading"><span class="section-index" aria-hidden="true">07</span>Academic Service </h2>
         <p class="section-gap"><span class="service-label">Journal Reviewer:</span> IEEE TPAMI, IEEE TNNLS, IEEE TGRS, Pattern Recognition, and related journals.</p>
       <p><span class="service-label">Conference Reviewer:</span> CVPR, NeurIPS, ICLR, and other major conferences.</p>
       </section>
@@ -955,6 +627,41 @@
     <button class="lightbox-close" type="button" aria-label="Close preview">&times;</button>
     <img id="lightboxImage" src="" alt="Enlarged publication preview">
   </div>
+
+  <script>
+    (() => {
+      const publicationSection = document.getElementById('publications');
+      const tabs = [...publicationSection.querySelectorAll('[role="tab"]')];
+      const panels = [...publicationSection.querySelectorAll('[role="tabpanel"]')];
+
+      const selectTab = (tab) => {
+        tabs.forEach(item => {
+          const selected = item === tab;
+          item.setAttribute('aria-selected', String(selected));
+          item.tabIndex = selected ? 0 : -1;
+        });
+        panels.forEach(panel => {
+          panel.hidden = panel.id !== tab.getAttribute('aria-controls');
+        });
+      };
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => selectTab(tab));
+        tab.addEventListener('keydown', event => {
+          let nextIndex;
+          if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+          else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+          else if (event.key === 'Home') nextIndex = 0;
+          else if (event.key === 'End') nextIndex = tabs.length - 1;
+          else return;
+          event.preventDefault();
+          selectTab(tabs[nextIndex]);
+          tabs[nextIndex].focus();
+        });
+      });
+      selectTab(tabs.find(tab => tab.getAttribute('aria-selected') === 'true') || tabs[0]);
+    })();
+  </script>
 
   <script>
     (() => {
@@ -1036,7 +743,7 @@
 
   <script>
     (() => {
-      const sections = [...document.querySelectorAll('main section[id]')];
+      const sections = [...document.querySelectorAll('main .section-card[id]')];
       const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
 
       const updateActiveNav = () => {
